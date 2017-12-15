@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/* 
+ * Affiniture Cards Limited - Instalment_Loan
+ * css/styles.css - v0.1
+ * CSS stylesheet for modern Diners Club components
+ * 
+ * Copyright 2017 Affiniture Cards Limited
+ */
+
+
+/* GLOBAL STYLES */
+body {
+	font-family: Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6, nav {
+	font-family: 'proxima-nova', Helvetica, sans-serif;
+	letter-spacing: 0.1rem;
+}
+
+.wrapper.legacy {
+	z-index: 0;
+}
+
+/* NAVIGATION */
+/* Global Navigation Styles */
+
+nav ul {
+	display: flex;
+	justify-content: center !important;
+	list-style-type: none;
+	margin-bottom: 0px;
+}
+nav li, nav li a {
+	display: block;
+}
+
+nav a:hover {
+	text-decoration: none;
+}
+
+/* Secondary Navigation Styles */
+nav.nav-secondary {
+	background-color: #436889;
+	text-transform: uppercase;
+	color: #ffffff;
+	width: 100%;
+	z-index: 1;
+}
+
+nav.nav-secondary .nav-secondary-branding {
+	opacity: 0;
+	position: absolute;
+	height: 100%;
+	display: flex;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+nav.nav-secondary a {
+	color: #ffffff;
+}
+
+nav.nav-secondary li a {
+	font-size: 0.9375rem;
+	line-height: 0.9375rem;
+	font-weight: 100;
+	margin: 0 1rem;
+	padding: 0.625rem 1rem;
+	position: relative;
+	-webkit-transition: padding 0.3s ease-in-out;
+	-moz-transition: padding 0.3s ease-in-out;
+	-ms-transition: padding 0.3s ease-in-out;
+	-o-transition: padding 0.3s ease-in-out;
+	transition: padding 0.3s ease-in-out;
+}
+
+nav.nav-secondary li.active a::after, nav.nav-secondary li a:hover::after  {
+	border-bottom: 0.25rem solid #ffffff;
+	bottom: 0px;
+	content: '';
+	left: 0px;
+	position: absolute;
+	right: 0px;	
+}
+
+nav.nav-secondary li.nav-secondary-item-primary a {
+	font-weight: 500;
+}
+
+
+nav.nav-secondary.fixed .nav-secondary-branding {
+	opacity: 1;
+}
+
+nav.nav-secondary.fixed {
+	position: fixed;
+	top: 0px;
+}
+
+nav.nav-secondary.fixed li a {
+	padding: 1.187rem 1rem;
+}
