@@ -37,6 +37,10 @@ h2 {
 	font-size: 2.625rem;
 }
 
+h3 {
+	font-size: 2rem;
+}
+
 p {
 	font-size: 1.125rem;
 }
@@ -170,7 +174,21 @@ nav.nav-secondary.fixed li a {
 /* PANELS */
 .panel {
 	text-align: center;
+	margin-bottom: 5rem;
 }
+
+.panel .panel-heading {
+	letter-spacing: 1rem;
+}
+
+.panel.panel-text-white .panel-heading {
+	color: #ffffff;
+}
+
+.panel .panel-heading-thin {
+	font-weight: 100;
+}
+
 .panel .panel-hero {
 	min-height: 37.5rem;
 	margin-bottom: -6.25rem;
@@ -178,9 +196,7 @@ nav.nav-secondary.fixed li a {
 	padding: 1px;
 }
 
-.panel.panel-text-white .panel-heading {
-	color: #ffffff;
-	font-weight: 100;
+.panel .panel-hero .panel-heading {
 	margin: 6rem 9.5rem;
 	letter-spacing: 1rem;
 }
@@ -208,6 +224,87 @@ nav.nav-secondary.fixed li a {
 		linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
 		url('../img/stock/pexels-photo-541523.jpeg');
 	background-position: center;
+}
+
+
+.dc-card {
+	padding: 2.5rem;
+	text-align: left;
+}
+
+.dc-card .card-heading {
+	font-weight: 100;
+}
+
+.dc-card.card-white {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.dc-card.card-blue {
+	background-color: #436889;
+	color: #ffffff;
+}
+
+.dc-card.card-blue p {
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* FLOATING COLUMNS */
+.col-floating {
+	position: relative;
+	margin-top: 2rem;
+}
+
+.col-floating::before {
+	content: '';
+	position: absolute;
+	top: 100px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-color: #f0f1f3;
+}
+
+.col-floating .col-floating-img  {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.col-floating .row  {
+	margin-top: -2rem;
+	margin-bottom: -2rem;
+}
+
+.col-floating .row:first-child  {
+	margin-top: 0;
+}
+
+.col-floating .row:last-child  {
+	margin-bottom: 0;
+}
+
+.col-floating .row:first-child .col-floating-img  {
+	-ms-flex-item-align: end !important;
+	align-self: flex-end !important;
+}
+
+.col-floating .row:last-child .col-floating-img  {
+	-ms-flex-item-align: start !important;
+	align-self: flex-start !important;
+}
+
+
+.col-floating .col {
+	padding: 0;
+}
+
+.col-floating .dc-card {
+	padding: 5rem 6.5rem;
+}
+
+.col-floating .dc-card .card-heading {
+	font-size: 2.625rem;
 }
 
 /*
