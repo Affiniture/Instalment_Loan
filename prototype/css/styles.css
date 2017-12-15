@@ -14,13 +14,62 @@ body {
 	font-family: Georgia, serif;
 }
 
-h1, h2, h3, h4, h5, h6, nav {
+h1, h2, h3, h4, h5, h6, nav, a {
 	font-family: 'proxima-nova', Helvetica, sans-serif;
 	letter-spacing: 0.1rem;
+	font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6, a.button {
+	text-transform: uppercase;
+	letter-spacing: 0.3rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-bottom: 1.5rem;
+}
+
+h1 {
+	font-size: 3.125rem;
+}
+
+h2 {
+	font-size: 2.625rem;
+}
+
+p {
+	font-size: 1.125rem;
 }
 
 .wrapper.legacy .header-top {
 	z-index: 0;
+}
+
+/* BUTTONS */
+.button {
+	border: 1px solid;
+	padding: 1rem 1.5rem;
+	display: inline-block;
+	text-indent: 0.3rem;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+	text-decoration: none;
+}
+
+.button-outline-dark {
+	border-color: #000000;
+	color: #000000;
+}
+
+.button-outline-dark:hover {
+	background-color: #000000;
+	color: #ffffff;
 }
 
 /* NAVIGATION */
@@ -52,14 +101,11 @@ nav.nav-secondary {
 
 nav.nav-secondary .nav-secondary-branding {
 	opacity: 0;
-	position: absolute;
-	height: 100%;
-	display: flex;
-	-webkit-transition: opacity 0.3s ease-in-out;
-	-moz-transition: opacity 0.3s ease-in-out;
-	-ms-transition: opacity 0.3s ease-in-out;
-	-o-transition: opacity 0.3s ease-in-out;
-	transition: opacity 0.3s ease-in-out;
+	-webkit-transition: opacity 0.3s ease-in;
+	-moz-transition: opacity 0.3s ease-in;
+	-ms-transition: opacity 0.3s ease-in;
+	-o-transition: opacity 0.3s ease-in;
+	transition: opacity 0.3s ease-in;
 }
 
 nav.nav-secondary a {
@@ -106,3 +152,48 @@ nav.nav-secondary.fixed {
 nav.nav-secondary.fixed li a {
 	padding: 1.187rem 1rem;
 }
+
+/* PANELS */
+.panel {
+	text-align: center;
+}
+.panel .panel-hero {
+	min-height: 37.5rem;
+	margin-bottom: -6.25rem;
+	background-size: cover;
+	padding: 1px;
+}
+
+.panel.panel-text-white .panel-heading {
+	color: #ffffff;
+	font-weight: 100;
+	margin: 6rem 9.5rem;
+	letter-spacing: 1rem;
+}
+
+.panel .panel-card {
+	padding: 4rem 7.5rem;
+}
+
+.panel .panel-card-heading {
+	font-weight: 400;
+	letter-spacing: 1rem;
+}
+
+.panel .panel-card .button {
+	font-size: 1.125rem;
+}
+
+.panel .panel-card-light {
+	background-color: #F0F1F3;
+}
+
+/* Panel HeroBackground Images */
+.panel-hero.hero-instalment-index {
+	background-image:
+		linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+		url('../img/stock/pexels-photo-541523.jpeg');
+	background-position: center;
+}
+
+/*
