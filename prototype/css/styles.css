@@ -75,7 +75,16 @@ p {
 /* NAVIGATION */
 /* Global Navigation Styles */
 
+nav .container {
+	padding: 0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center !important;
+	align-items: center !important;
+}
+
 nav ul {
+	display: -ms-flexbox;
 	display: flex;
 	justify-content: center !important;
 	list-style-type: none;
@@ -87,6 +96,11 @@ nav li, nav li a {
 
 nav a:hover {
 	text-decoration: none;
+}
+
+nav .nav-button {
+	font-size: 14px;
+	padding: 3px 20px;
 }
 
 /* Secondary Navigation Styles */
@@ -101,11 +115,11 @@ nav.nav-secondary {
 
 nav.nav-secondary .nav-secondary-branding {
 	opacity: 0;
-	-webkit-transition: opacity 0.3s ease-in;
-	-moz-transition: opacity 0.3s ease-in;
-	-ms-transition: opacity 0.3s ease-in;
-	-o-transition: opacity 0.3s ease-in;
-	transition: opacity 0.3s ease-in;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
 }
 
 nav.nav-secondary a {
