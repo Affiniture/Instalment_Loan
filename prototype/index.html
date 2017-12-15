@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.typekit.net/xft6zva.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
 		<link rel="stylesheet" href="css/styles.css">
 		<!-- Legacy Header and Nav Styles -->
 		<link rel="stylesheet" href="css/legacy.css">
@@ -338,6 +339,27 @@
 		</section>
 		<!-- Instalment Lending Index Panel -->
 
+		<!-- Instalment Lending Pricing Panel -->
+		<section id="sect_pricing" class="panel">
+			<div class="container">
+				<h2 class="panel-heading">Pricing</h2>
+				<form class="interest-slider" method="get" action="https://personalloans.steponefinance.co.uk/Application" data-amount-min="1000" data-amount-max="5000" data-term-min="1" data-term-max="12">
+					<h3>Borrowing Amount</h3>
+					<div id="amount-slider" class="mb-4" data-handle-prepend="£" data-handle-append="">
+						<div class="ui-slider-handle"></div>
+					</div>
+					<h3>Repayment Term</h3>
+					<div id="term-slider" class="mb-4" data-handle-prepend="" data-handle-append=" months">
+						<div class="ui-slider-handle"></div>
+					</div>
+					<input type="hidden" name="amount">
+					<input type="hidden" name="term">
+					<button type="submit" class="button button-outline-grey">Apply Now</button>
+				</form>
+			</div>
+		</section>
+		<!-- Instalment Lending Index Panel -->
+
 		<!-- END: Diners Club Inernational - Instalment Lending -->
 
 		<!-- Legacy Footer -->
@@ -372,6 +394,7 @@
 		<script type="text/javascript" src="js/browser.detect.js"></script>
 		<script type="text/javascript" src="js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/init.js"></script>
 		<!-- END: JS Scripts -->
 	</body>
