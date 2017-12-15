@@ -47,6 +47,7 @@ nav.nav-secondary {
 	color: #ffffff;
 	width: 100%;
 	z-index: 1;
+	position: absolute;
 }
 
 nav.nav-secondary .nav-secondary-branding {
