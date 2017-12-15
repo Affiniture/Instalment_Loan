@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6, nav {
 	letter-spacing: 0.1rem;
 }
 
-.wrapper.legacy {
+.wrapper.legacy .header-top {
 	z-index: 0;
 }
 

@@ -311,7 +311,7 @@
 					
 					/*.wrapper .header-menu ul.menu li.main:hover ul.sub { display: block; }*/
 					
-					.wrapper .header-menu ul.menu li.main ul.sub { width: 200px; display: none; background: url('http://www.dinersclub.co.uk/img/desktop/header-sub-menu-bg.png') repeat; letter-spacing: 2px; border: 1px solid #67808f; border-top: 1px solid #fff; position: absolute; top: 68px; left: -35px; }
+					.wrapper .header-menu ul.menu li.main ul.sub { width: 200px; display: none; background: url('http://www.dinersclub.co.uk/img/desktop/header-sub-menu-bg.png') repeat; letter-spacing: 2px; border: 1px solid #67808f; border-top: 1px solid #fff; position: absolute; top: 68px; left: -35px; z-index: 2; }
 					.wrapper .header-menu ul.menu li.main:first-child ul.sub {
 						width:400px;	
 					}
