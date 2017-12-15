@@ -238,7 +238,7 @@
 
 	/*---FOOTER-BOTTOM---*/
 	.wrapper .footer-bottom { background: #efefef; color: #000; font-family: Arial, sans-serif; font-size: 12px; position: relative; }
-		.wrapper .footer-bottom .content-holder { /*height: 52px;*/ text-align: initial; }
+		.wrapper .footer-bottom .content-holder { /*height: 52px;*/ text-align: left; }
 			.wrapper .footer-bottom span.copyright { margin: 20px 0 0 20px; float: left; width: auto; line-height: 1.2; }
 				.wrapper .footer-bottom span.copyright .sub { margin: 7px 0px 20px auto; float: left; color: #8c8c8c; line-height: initial !important; font-size: 10px }		
 			.wrapper .footer-bottom .links { min-width: 545px; margin: 20px 10px 0 0; float: right; }
