@@ -81,6 +81,9 @@ nav .container {
 	display: flex;
 	-ms-flex-align: center !important;
 	align-items: center !important;
+	position: relative;
+	-ms-flex-pack: center !important;
+	justify-content: center !important;
 }
 
 nav ul {
@@ -89,6 +92,7 @@ nav ul {
 	justify-content: center !important;
 	list-style-type: none;
 	margin-bottom: 0px;
+	padding-left: 0px;
 }
 nav li, nav li a {
 	display: block;
@@ -114,6 +118,19 @@ nav.nav-secondary {
 }
 
 nav.nav-secondary .nav-secondary-branding {
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+nav.nav-secondary .nav-secondary-actions {
+	position: absolute;
+	right: 0;
 	opacity: 0;
 	-webkit-transition: opacity 0.3s ease-in-out;
 	-moz-transition: opacity 0.3s ease-in-out;
@@ -154,13 +171,17 @@ nav.nav-secondary li.nav-secondary-item-primary a {
 }
 
 
+nav.nav-secondary.fixed {
+	position: fixed;
+	top: 0px;
+}
+
 nav.nav-secondary.fixed .nav-secondary-branding {
 	opacity: 1;
 }
 
-nav.nav-secondary.fixed {
-	position: fixed;
-	top: 0px;
+nav.nav-secondary.fixed .nav-secondary-actions {
+	opacity: 1;
 }
 
 nav.nav-secondary.fixed li a {
