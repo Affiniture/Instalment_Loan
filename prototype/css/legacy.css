@@ -20,8 +20,8 @@
 
 /* GLOBAL STYLES */
 /* html, body { margin: 0; padding: 0; } */
-.legacy { background: #fff; color: #fff; font-size: 14px; font-family: 'GillSansMTStd-Medium', Arial, sans-serif !important; }
-.legacy a { text-decoration: none; color: #fff; }
+.legacy { background: #fff; color: #fff; font-size: 14px; font-family: 'GillSansMTStd-Medium', Arial, sans-serif; }
+.legacy a { text-decoration: none; color: #fff; font-family: 'GillSansMTStd-Medium', Arial, sans-serif}
 .legacy a:hover { text-decoration: none; }
 .legacy ul { margin: 0; padding: 0; }
 .legacy li { list-style: none; margin: 0; }
@@ -162,14 +162,14 @@
 				.wrapper .footer-links ul.social li a.tw { background-position: -203px 0; }
 
 /*---FOOTER-BOTTOM---*/
-.wrapper .footer-bottom { background: #006ba7; color: #fff; font-size: 12px; position: relative; margin-top: -1px; }
+.wrapper .footer-bottom { background: #006ba7; color: #fff; font-size: 12px; position: relative; margin-top: -1px; font-family: Arial, sans-serif; font-size: 12px; }
 .wrapper .footer-bottom .content-holder { /*height: 85px;*/ text-align: center; }
 	.wrapper .footer-bottom span.copyright { line-height: 20px; margin: 0; float: left; width:100%;}
 	
 	.wrapper .footer-bottom span.copyright .sub { margin: 7px auto 20px auto !important; float: none; color: white; clear: both;   line-height: 1.8 !important; display: block; }
 	
 	.wrapper .footer-bottom .links { min-width: 0; margin: 0; float: none; }
-		.wrapper .footer-bottom .links a { line-height: 20px; color: #fff;  float: none; }
+		.wrapper .footer-bottom .links a { line-height: 20px; color: #fff; float: none; font-family: Arial, sans-serif; letter-spacing: normal; }
 			.wrapper .footer-bottom .links a.m-first { display: block; }
 		
 		.wrapper .footer-bottom .links span.divider { float: none; }
@@ -237,7 +237,7 @@
 	.wrapper .footer-links .m-divider { display: none; }
 
 	/*---FOOTER-BOTTOM---*/
-	.wrapper .footer-bottom { background: #efefef; color: #000; font-family: Arial, sans-serif; font-size: 12px; position: relative; }
+	.wrapper .footer-bottom { background: #efefef; color: #000;}
 		.wrapper .footer-bottom .content-holder { /*height: 52px;*/ text-align: left; }
 			.wrapper .footer-bottom span.copyright { margin: 20px 0 0 20px; float: left; width: auto; line-height: 1.2; }
 				.wrapper .footer-bottom span.copyright .sub { margin: 7px 0px 20px auto; float: left; color: #8c8c8c; line-height: initial !important; font-size: 10px }		
@@ -306,7 +306,7 @@
 			.wrapper .header-menu ul.menu { display: block; height: 68px; float: right; }
 				.wrapper .header-menu ul.menu li.main { height: 68px; line-height: 68px; font-size: 14px; letter-spacing: 1px; position: relative; float: left; border-left: 1px solid #334954; box-sizing: content-box; }
 					.wrapper .header-menu ul.menu li.main.active, .wrapper .header-menu ul.menu li.main.current { background: url('http://www.dinersclub.co.uk/img/desktop/menu-bg-hover.jpg') repeat-x; }
-					.wrapper .header-menu ul.menu li.main a { height: 68px; line-height: 68px; display: block; padding: 0 23px 0 28px; }
+					.wrapper .header-menu ul.menu li.main a { height: 68px; line-height: 68px; display: block; padding: 0 23px 0 28px; letter-spacing: 1px; }
 					.wrapper .header-menu ul.menu li.main a:hover { color: #ffffff; }
 					
 					/*.wrapper .header-menu ul.menu li.main:hover ul.sub { display: block; }*/
