@@ -134,7 +134,7 @@ nav.nav-secondary {
 
 nav.nav-secondary .nav-secondary-branding {
 	position: absolute;
-	left: 0;
+	left: -15px;
 	opacity: 0;
 	-webkit-transition: opacity 0.3s ease-in-out;
 	-moz-transition: opacity 0.3s ease-in-out;
