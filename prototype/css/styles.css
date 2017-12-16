@@ -218,6 +218,45 @@ nav.nav-secondary.fixed li a {
 	letter-spacing: 1rem;
 }
 
+.panel-hero.hero-filter::before {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+	content: ' ';
+	z-index: -1;
+}
+
+.panel-hero.hero-filter.hero-filter-dark::before {
+	background-color: rgba(0,0,0,0.3);
+}
+
+.panel-hero.hero-filter.hero-filter-light::before {
+	background-color: rgba(255,255,255,0.6);
+}
+
+.panel-hero.hero-fade::after {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+	height: 40%;
+	content: ' ';
+	z-index: -1;
+	background: linear-gradient(0deg,rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* Panel Hero Parallax */
+
+.panel.parallax .parallax-container {
+    position: relative;
+    z-index: 0;
+}
+
+.panel.parallax .panel-card {
+	position: relative;
+}
 .panel .panel-card {
 	padding: 4rem 7.5rem;
 }
@@ -233,14 +272,6 @@ nav.nav-secondary.fixed li a {
 
 .panel .panel-card-light {
 	background-color: #F0F1F3;
-}
-
-/* Panel HeroBackground Images */
-.panel-hero.hero-instalment-index {
-	background-image:
-		linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-		url('../img/stock/pexels-photo-541523.jpeg');
-	background-position: center;
 }
 
 
