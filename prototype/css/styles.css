@@ -45,10 +45,6 @@ p {
 	font-size: 1.125rem;
 }
 
-.wrapper.legacy .header-top {
-	z-index: 0;
-}
-
 /* BUTTONS */
 .button {
 	border: 1px solid;
