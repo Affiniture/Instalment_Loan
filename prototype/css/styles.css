@@ -9,7 +9,7 @@
  */
 
 
-/* GLOBAL STYLES */
+/* --------------- GLOBAL STYLES --------------- */
 body {
 	font-family: Georgia, serif;
 }
@@ -45,12 +45,13 @@ p {
 	font-size: 1.125rem;
 }
 
-/* BUTTONS */
+/* --------------- BUTTONS --------------- */
 .button {
 	border: 1px solid;
 	padding: 1rem 1.5rem;
 	display: inline-block;
 	text-indent: 0.3rem;
+	text-align: center;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
@@ -60,6 +61,10 @@ p {
 
 .button:hover {
 	text-decoration: none;
+}
+
+.button-block {
+	display: block;
 }
 
 .button-outline-dark {
@@ -72,7 +77,17 @@ p {
 	color: #ffffff;
 }
 
-/* NAVIGATION */
+.button-outline-light {
+	border-color: #ffffff;
+	color: #ffffff;
+}
+
+.button-outline-light:hover {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+/* ---------------NAVIGATION --------------- */
 /* Global Navigation Styles */
 
 nav .container {
