@@ -14,6 +14,13 @@ $(document).ready(function () {
 		toggleFixedNav(nav);
 	});
 
+	// Init Parallax Scrolling
+	refreshParallax('.parallax-container', 992);
+
+	$(window).resize(function () {
+		refreshParallax('.parallax-container', 992);
+	})
+	
 
 	// Construct Sliders
 	
@@ -79,4 +86,34 @@ function toggleFixedNav(target) {
 	} else {
 		$(target).removeClass('fixed');
 	}
+}
+
+function refreshParallax(selector, minWidth) {
+	var parallax = $(selector);
+
+	// Loop though each parallax element
+	$(parallax).each(function () {
+		// Check that window width is larger than minimum reqired
+		if ($(window).width() > minWidth) {
+			// Check if parallax initialised
+			if (!$(this).attr('data-parallax-init')) {
+				// Init parallax element
+				$(this).jarallax({
+					speed: 0.5
+				});
+				// Set parallax init attribute
+				$(this).attr('data-parallax-init', 'true');
+			}
+		} else {
+			// Check if parallax initialised
+			if ($(this).attr('data-parallax-init')) {
+				// Destroy parallax effect
+				$(this).jarallax('destroy');
+				// Remove parallax init attribute
+				$(this).removeAttr('data-parallax-init');
+			}
+		}
+
+	});
+	
 }
