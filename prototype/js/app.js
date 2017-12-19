@@ -1,6 +1,6 @@
 /* 
  * Affiniture Cards Limited - Instalment_Loan
- * js/legacy.css - v0.1
+ * js/app.js - v0.1
  * JS for modern Diners Club Components
  * 
  * Copyright 2017 Affiniture Cards Limited

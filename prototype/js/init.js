@@ -1,6 +1,6 @@
 /* 
  * Affiniture Cards Limited - instalmentweb
- * js/legacy.css - v1.1
+ * js/legacy.js - v1.1
  * JS to control legacy components (header, navigation, footer)
  * 
  * Copyright 2017 Affiniture Cards Limited
