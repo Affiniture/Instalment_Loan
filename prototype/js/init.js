@@ -16,7 +16,7 @@ $(document).ready(function () {
     if (mobileDetect == 'desktop' && browser == 'Explorer' && bVersion < 8) {
         if (typeof ($.cookie("oldBrowser")) == 'undefined') {
             $.cookie("oldBrowser", true);
-            window.location = '/upgradebrowser.aspx';
+            window.location = 'http://dinersclub.co.uk/upgradebrowser.aspx';
         }
     }
 
