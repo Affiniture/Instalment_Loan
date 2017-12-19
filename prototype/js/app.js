@@ -51,7 +51,7 @@ function refreshParallax(selector, minWidth) {
 	var parallax = $(selector);
 
 	// Check browser is not IE / Edge
-	if (!checkBrowser('MSIE') || !checkBrowser('Trident') || !checkBrowser('Edge')) {
+	if (!checkBrowser(('MSIE', 'Trident', 'Edge'))) {
 		// Loop though each parallax element
 		$(parallax).each(function () {
 			// Check that window width is larger than minimum reqired
