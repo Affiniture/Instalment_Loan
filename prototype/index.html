@@ -412,19 +412,163 @@
 		<section id="sect_pricing" class="panel">
 			<div class="container">
 				<h2 class="panel-heading">Pricing</h2>
-				<form class="interest-slider" method="get" action="https://personalloans.steponefinance.co.uk/Application" data-amount-min="1000" data-amount-max="5000" data-term-min="1" data-term-max="12">
-					<h3>Borrowing Amount</h3>
-					<div id="amount-slider" class="mb-4" data-handle-prepend="£" data-handle-append="">
-						<div class="ui-slider-handle"></div>
+				<div id="pricing-products" class="pricing-tabs">
+					<h3 class="numbered"><span>1</span> Choose a Product</h3>
+					<ul class="row">
+						<li class="col"><a class="pricing-tab-navy" href="#product-1">Fixed Term 3-12 Months</a></li>
+						<li class="col"><a class="pricing-tab-blue" href="#product-2">Fixed Term up to 3 Months</a></li>
+						<li class="col"><a class="pricing-tab-grey" href="#product-3">Revolving Line of Credit</a></li>
+					</ul>
+					<form id="product-1" class="pricing-form" method="get" action="https://personalloans.steponefinance.co.uk/Application"
+						data-principal-min="1000"
+						data-principal-max="5000"
+						data-principal-init="1000"
+						data-principal-steps="500"
+						data-term-min="3"
+						data-term-max="12"
+						data-term-init="12"
+						data-interest-rate="0.015"
+						data-fees="100"
+						data-product-type="standard">
+						<input type="hidden" name="amount">
+						<input type="hidden" name="term">
+
+						<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
+						<div class="row">
+							<div class="col">
+								<h4>Loan Amount</h3>
+								<div class="pricing-form-slider pricing-form-slider-principal slider-navy">
+									<div class="ui-slider-handle"></div>
+								</div>
+
+								<h4>Repayment Term</h3>
+								<div class="pricing-form-slider pricing-form-slider-term slider-navy">
+									<div class="ui-slider-handle"></div>
+								</div>
+								
+								<table class="pricing-form-repayments">
+									<thead>
+										<tr>
+											<th scope="col">Month</th>
+											<th scope="col">Loan</th>
+											<th scope="col">Interest</th>
+											<th scope="col">Payment</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-4">
+								<div class="dc-card card-navy pricing-form-overview">
+									<h4>Loan Amount</h4>
+									<p class="pricing-form-overview-borrowing"></p>
+									<h4>Fees</h4>
+									<p class="pricing-form-overview-fees"></p>
+									<h4>Total Interest</h4>
+									<p class="pricing-form-overview-interest"></p>
+									<h4>Total to Repay</h4>
+									<p class="pricing-form-overview-repay"></p>
+									<h4>APR</h4>
+									<p class="pricing-form-overview-apr"></p>
+								</div>
+							</div>
+						</div>
+
+						<h3 class="numbered"><span>3</span> Apply Now</h3>
+						<div class="row">
+							<div class="col">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+							</div>
+							<div class="col-4">
+								<button type="submit" class="button button-block button-gold">Apply Now</button>
+							</div>
+						</div>
+
+						<div class="dc-modal-container loading-modal">
+							<div class="dc-modal">
+								<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+								<h2>Please Wait whilst we create your application</h2>
+							</div>
+						</div>
+					</form>
+					<form id="product-2" class="pricing-form" method="get" action="https://personalloans.steponefinance.co.uk/Application"
+						data-principal-min="1000"
+						data-principal-max="5000"
+						data-principal-init="1000"
+						data-principal-steps="500"
+						data-term-min="1"
+						data-term-max="3"
+						data-term-init="2"
+						data-interest-rate="0.015"
+						data-fees="100"
+						data-product-type="interestonly">
+						<input type="hidden" name="amount">
+						<input type="hidden" name="term">
+
+						<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
+						<div class="row">
+							<div class="col">
+								<h4>Loan Amount</h3>
+								<div class="pricing-form-slider pricing-form-slider-principal slider-blue">
+									<div class="ui-slider-handle"></div>
+								</div>
+
+								<h4>Repayment Term</h3>
+								<div class="pricing-form-slider pricing-form-slider-term slider-blue">
+									<div class="ui-slider-handle"></div>
+								</div>
+								
+								<table class="pricing-form-repayments">
+									<thead>
+										<tr>
+											<th scope="col">Month</th>
+											<th scope="col">Loan</th>
+											<th scope="col">Interest</th>
+											<th scope="col">Payment</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-4">
+								<div class="dc-card card-blue pricing-form-overview">
+									<h4>Loan Amount</h4>
+									<p class="pricing-form-overview-borrowing"></p>
+									<h4>Fees</h4>
+									<p class="pricing-form-overview-fees"></p>
+									<h4>Total Interest</h4>
+									<p class="pricing-form-overview-interest"></p>
+									<h4>Total to Repay</h4>
+									<p class="pricing-form-overview-repay"></p>
+									<h4>APR</h4>
+									<p class="pricing-form-overview-apr"></p>
+								</div>
+							</div>
+						</div>
+
+						<h3 class="numbered"><span>3</span> Apply Now</h3>
+						<div class="row">
+							<div class="col">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+							</div>
+							<div class="col-4">
+								<button type="submit" class="button button-block button-gold">Apply Now</button>
+							</div>
+						</div>
+
+						<div class="dc-modal-container loading-modal">
+							<div class="dc-modal">
+								<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+								<h2>Please Wait whilst we create your application</h2>
+							</div>
+						</div>
+					</form>
+					<div id="product-3">
+						<h3 class="numbered"><span>2</span> Contact Us</h3>
 					</div>
-					<h3>Repayment Term</h3>
-					<div id="term-slider" class="mb-4" data-handle-prepend="" data-handle-append=" months">
-						<div class="ui-slider-handle"></div>
-					</div>
-					<input type="hidden" name="amount">
-					<input type="hidden" name="term">
-					<button type="submit" class="button button-outline-grey">Apply Now</button>
-				</form>
+				</div>
 			</div>
 		</section>
 		<!-- Instalment Lending Index Panel -->
