@@ -14,14 +14,14 @@ body {
 	font-family: Georgia, serif;
 }
 
-h1, h2, h3, h4, h5, h6, nav, a {
+h1, h2, h3, h4, h5, h6, nav, a, .button, .pricing-form-slider .ui-slider-handle, table.pricing-form-repayments {
 	font-family: 'proxima-nova', Helvetica, sans-serif;
 	letter-spacing: 0.1rem;
 	font-weight: 300;
+	text-transform: uppercase;
 }
 
-h1, h2, h3, h4, h5, h6, a.button {
-	text-transform: uppercase;
+h1, h2, h3, h4, h5, h6, .button {
 	letter-spacing: 0.3rem;
 }
 
@@ -72,6 +72,8 @@ p {
 	-ms-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+	background: transparent;
+	cursor: pointer;
 }
 
 .button:hover {
@@ -80,6 +82,7 @@ p {
 
 .button-block {
 	display: block;
+	width: 100%;
 }
 
 .button-outline-dark {
@@ -100,6 +103,27 @@ p {
 .button-outline-light:hover {
 	background-color: #ffffff;
 	color: #000000;
+}
+
+.button-outline-gold {
+	border-color: #CC8727;
+	color: #CC8727;
+}
+
+.button-outline-gold:hover {
+	background-color: #CC8727;
+	color: #ffffff;
+}
+
+.button-gold {
+	background-color: #CC8727;
+	border-color: #CC8727;
+	color: #ffffff;
+}
+
+.button-gold:hover {
+	background-color: transparent;
+	color: #CC8727;
 }
 
 /* ---------------NAVIGATION --------------- */
@@ -143,7 +167,7 @@ nav.nav-secondary {
 	text-transform: uppercase;
 	color: #ffffff;
 	width: 100%;
-	z-index: 1;
+	z-index: 10;
 	position: absolute;
 }
 
@@ -254,7 +278,7 @@ nav.nav-secondary.fixed li a {
 }
 
 .panel .panel-hero-sm {
-	margin-bottom: -13rem;
+	margin-bottom: -20rem;
 }
 
 .panel .panel-hero .panel-heading {
@@ -269,7 +293,11 @@ nav.nav-secondary.fixed li a {
     width: 100%;
 	height: 100%;
 	content: ' ';
-	z-index: -1;
+}
+
+.panel-hero.hero-filter .container {
+	position: relative;
+	z-index: 1;
 }
 
 .panel-hero.hero-filter.hero-filter-dark::before {
@@ -287,7 +315,6 @@ nav.nav-secondary.fixed li a {
     width: 100%;
 	height: 40%;
 	content: ' ';
-	z-index: -1;
 	background: linear-gradient(0deg,rgba(255,255,255,1), rgba(255,255,255,0));
 }
 
@@ -324,10 +351,10 @@ nav.nav-secondary.fixed li a {
 	background-color: #F0F1F3;
 }
 
-/* CARDS */
+/* --------------- CARDS --------------- */
 
 .dc-card {
-	padding: 2.5rem;
+	padding: 2.125rem;
 	text-align: left;
 }
 
@@ -345,6 +372,16 @@ nav.nav-secondary.fixed li a {
 	color: #ffffff;
 }
 
+.dc-card.card-navy {
+	background-color: #041E42;
+	color: #ffffff;
+}
+
+.dc-card.card-grey {
+	background-color: #2C2A29;
+	color: #ffffff;
+}
+
 .dc-card.card-blue p {
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -359,7 +396,11 @@ nav.nav-secondary.fixed li a {
 	margin-top: auto;
 }
 
-/* FLOATING COLUMNS */
+.dc-card :last-child {
+	margin-bottom: 0;
+}
+
+/* --------------- FLOATING COLUMNS --------------- */
 .col-floating {
 	position: relative;
 	margin-top: 2rem;
