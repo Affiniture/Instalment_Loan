@@ -50,29 +50,34 @@ function toggleFixedNav(target) {
 function refreshParallax(selector, minWidth) {
 	var parallax = $(selector);
 
-	// Loop though each parallax element
-	$(parallax).each(function () {
-		// Check that window width is larger than minimum reqired
-		if ($(window).width() > minWidth) {
-			// Check if parallax initialised
-			if (!$(this).attr('data-parallax-init')) {
-				// Init parallax element
-				$(this).jarallax({
-					speed: 0.5
-				});
-				// Set parallax init attribute
-				$(this).attr('data-parallax-init', 'true');
+	// Check browser is not IE / Edge
+	if (!checkBrowser('MSIE') || !checkBrowser('Trident') || !checkBrowser('Edge')) {
+		// Loop though each parallax element
+		$(parallax).each(function () {
+			// Check that window width is larger than minimum reqired
+			if ($(window).width() > minWidth) {
+				// Check if parallax initialised
+				if (!$(this).attr('data-parallax-init')) {
+					// Init parallax element
+					$(this).jarallax({
+						speed: 0.5
+					});
+					// Set parallax init attribute
+					$(this).attr('data-parallax-init', 'true');
+				}
+			} else {
+				// Check if parallax initialised
+				if ($(this).attr('data-parallax-init')) {
+					// Destroy parallax effect
+					$(this).jarallax('destroy');
+					// Remove parallax init attribute
+					$(this).removeAttr('data-parallax-init');
+				}
 			}
-		} else {
-			// Check if parallax initialised
-			if ($(this).attr('data-parallax-init')) {
-				// Destroy parallax effect
-				$(this).jarallax('destroy');
-				// Remove parallax init attribute
-				$(this).removeAttr('data-parallax-init');
-			}
-		}
+		});
+	};
+}
 
-	});
-	
+function checkBrowser(query) {
+	return navigator.userAgent.search(query) > 0 ? true : false;
 }
