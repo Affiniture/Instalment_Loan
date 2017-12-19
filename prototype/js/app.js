@@ -86,4 +86,5 @@ function checkBrowser(query) {
 			break;
 		}
 	}
+	return found;
 }
