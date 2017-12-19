@@ -6,7 +6,7 @@
  * Copyright 2017 Affiniture Cards Limited
  */
 
-function Loan(rate, principal, term, fees, type = 'standard') {
+function Loan(rate, principal, term, fees, type) {
 	this.rate = rate;
 	this.principal = principal;
 	this.term = term;
@@ -19,6 +19,11 @@ function Loan(rate, principal, term, fees, type = 'standard') {
 	this.totalPayments;
 
 	this.init = function() {
+		// Define default type value
+		if (!this.type) {
+			this.type = 'standard'
+		}
+
         this.calculate();        
 	};
 
