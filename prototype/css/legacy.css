@@ -21,7 +21,7 @@
 /* GLOBAL STYLES */
 /* html, body { margin: 0; padding: 0; } */
 .legacy { background: #fff; color: #fff; font-size: 14px; font-family: 'GillSansMTStd-Medium', Arial, sans-serif; }
-.legacy a { text-decoration: none; color: #fff; font-family: 'GillSansMTStd-Medium', Arial, sans-serif}
+.legacy a { text-decoration: none; text-transform: none; color: #fff; font-family: 'GillSansMTStd-Medium', Arial, sans-serif}
 .legacy a:hover { text-decoration: none; }
 .legacy ul { margin: 0; padding: 0; }
 .legacy li { list-style: none; margin: 0; }
