@@ -21,61 +21,17 @@ $(document).ready(function () {
 		refreshParallax('.parallax-container', 992);
 	})
 	
-
-	// Construct Sliders
-	
-	var interestSlider = $(".interest-slider");
-
-	$(interestSlider).submit(function(e) {
-		$(this).find('input[name=amount]').val(
-			$( "#amount-slider" ).slider( "value" )
-		);
-		$(this).find('input[name=term]').val(
-			$( "#term-slider" ).slider( "value" )
-		);
+	// Initialise Pricing Product Tabs
+	$( "#pricing-products" ).tabs({
+		show: 'fadeIn',
+		hide: 'fadeOut',
+		create: function( event, ui ) {
+			// Initialise Pricing Forms
+			$(this).find('.pricing-form').each(function () {
+				$(this).pricingForm();
+			});
+		},
 	});
-
-	// If slider containter present initialise sliders
-	if (interestSlider.length > 0) {
-
-		var amountMin = parseInt($(interestSlider).attr('data-amount-min'));
-		var amountMax = parseInt($(interestSlider).attr('data-amount-max'));
-		var termMin = parseInt($(interestSlider).attr('data-term-min'));
-		var termMax = parseInt($(interestSlider).attr('data-term-max'));
-
-		// Pricing Sliders
-		$( "#amount-slider" ).slider({
-			range: "max",
-			min: amountMin,
-			max: amountMax,
-			step: 500,
-			value: 2000,
-			create: function() {
-				var text = "£" + $( this ).slider( "value" );
-				$( this ).find('.ui-slider-handle').text( text );
-			},
-			slide: function( event, ui ) {
-				var text = "£" + ui.value;
-				$( this ).find('.ui-slider-handle').text( text );
-			}
-		});
-
-		$( "#term-slider" ).slider({
-			range: "max",
-			min: termMin,
-			max: termMax,
-			value: 6,
-			create: function() {
-				var text = $( this ).slider( "value" ) + " months";
-				$( this ).find('.ui-slider-handle').text( text );
-			},
-			slide: function( event, ui ) {
-				var text = ui.value + " months";
-				$( this ).find('.ui-slider-handle').text( text );
-			}
-		});
-
-	}
 
 });
 
