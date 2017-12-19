@@ -14,6 +14,9 @@ $(document).ready(function () {
 		toggleFixedNav(nav);
 	});
 
+	// Navigation
+	$("nav").scrollspy({ offset: -50, animate: true });
+
 	// Init Parallax Scrolling
 	refreshParallax('.parallax-container', 992);
 
