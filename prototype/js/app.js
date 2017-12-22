@@ -23,7 +23,10 @@ $(document).ready(function () {
 	$(window).resize(function () {
 		refreshParallax('.parallax-container', 992);
 	})
-	
+
+	// Toggle Mobile Navigation
+	toggleMobileNav('.nav-secondary');
+
 	// Initialise Pricing Product Tabs
 	$( "#pricing-products" ).tabs({
 		show: 'fadeIn',
@@ -37,6 +40,21 @@ $(document).ready(function () {
 	});
 
 });
+
+// Toggle Navigation Fixed State 
+function toggleMobileNav(target) {
+	// Toggle Nav Click Handler
+	$(target).find('.nav-secondary-mobile-toggle').click(function () {
+		$(target).toggleClass('nav-expanded');
+	});
+
+	// Contract Nav on Link Click
+	$(target).find('li a').each(function () {
+		$(this).click(function () {
+			$(target).removeClass('nav-expanded');
+		});
+	});
+}
 
 // Toggle Navigation Fixed State 
 function toggleFixedNav(target) {
