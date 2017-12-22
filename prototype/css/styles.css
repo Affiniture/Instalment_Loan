@@ -129,6 +129,10 @@ p {
 /* ---------------NAVIGATION --------------- */
 /* Global Navigation Styles */
 
+header {
+	margin-bottom: 50px;
+}
+
 nav .container {
 	padding: 0;
 	width: 100%;
@@ -254,12 +258,18 @@ nav.nav-secondary.nav-expanded .nav-button {
 
 /* --------------- PANELS --------------- */
 .panel {
-	text-align: center;
 	margin-bottom: 5rem;
+}
+
+.panel .container {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
 }
 
 .panel .panel-heading {
 	letter-spacing: 1rem;
+	text-align: center;
 }
 
 .panel.panel-text-white .panel-heading {
@@ -291,7 +301,6 @@ nav.nav-secondary.nav-expanded .nav-button {
 }
 
 .panel .panel-hero .panel-heading {
-	margin: 6rem 9.5rem;
 	letter-spacing: 1rem;
 }
 
@@ -338,9 +347,9 @@ nav.nav-secondary.nav-expanded .nav-button {
 }
 
 /* Panel Cards */
-.panel .panel-card {
+/* .panel .panel-card {
 	padding: 4rem 7.5rem;
-}
+} */
 
 .panel.parallax .panel-card {
 	position: relative;
@@ -364,9 +373,14 @@ nav.nav-secondary.nav-expanded .nav-button {
 }
 
 /* Specific Panels */
-.panel.panel-contact .panel-hero {
-	min-height: 30rem;
-	margin-bottom: -10rem;
+.panel.panel-products .product-cards {
+	-ms-flex-align: stretch !important;
+	align-items: stretch !important;
+}
+
+.panel.panel-products .product-cards [class^="col-"] {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .panel.panel-contact .panel-card {
@@ -421,9 +435,12 @@ nav.nav-secondary.nav-expanded .nav-button {
 }
 
 .dc-card.equalise {
-	height: 100%;
 	display: flex;
 	flex-direction: column!important;
+}
+
+[class^="col-"] .dc-card.equalise {
+	height: 100%;
 }
 
 .dc-card.equalise .card-button-fixed {
@@ -488,63 +505,11 @@ nav.nav-secondary.nav-expanded .nav-button {
 	line-height: 1.8rem;
 }
 
-/* --------------- FLOATING COLUMNS --------------- */
-.col-floating {
-	position: relative;
-	margin-top: 2rem;
-}
-
-.col-floating::before {
-	content: '';
-	position: absolute;
-	top: 100px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	background-color: #f0f1f3;
-}
-
-.col-floating .col-floating-img  {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-}
-
-.col-floating .row  {
-	margin-top: -2rem;
-	margin-bottom: -2rem;
-}
-
-.col-floating .row:first-child  {
-	margin-top: 0;
-}
-
-.col-floating .row:last-child  {
-	margin-bottom: 0;
-}
-
-.col-floating .row:first-child .col-floating-img  {
-	-ms-flex-item-align: end !important;
-	align-self: flex-end !important;
-}
-
-.col-floating .row:last-child .col-floating-img  {
-	-ms-flex-item-align: start !important;
-	align-self: flex-start !important;
-}
-
-.col-floating .col {
-	padding: 0;
-}
-
-.col-floating .dc-card {
-	padding: 5rem 6.5rem;
-}
-
-.col-floating .dc-card .card-heading {
-	font-size: 2.625rem;
-}
-
 /* --------------- PRICING FORM --------------- */
+.pricing-tabs {
+	margin-left: 15px;
+	margin-right: 15px;
+}
 
 .pricing-tabs ul {
 	list-style-type: none;
@@ -682,6 +647,7 @@ nav.nav-secondary.nav-expanded .nav-button {
 
 table.pricing-form-repayments {
 	width: 100%;
+	display: none;
 }
 
 table.pricing-form-repayments thead {
@@ -755,14 +721,35 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 
 	/* ---------------NAVIGATION --------------- */
 	/* Global Navigation Styles */
+	header {
+		margin-bottom: 0px;
+	}
+	
 	nav .container {
 		max-width: 100%;
+	}
+
+	.panel {
+		text-align: center;
+	}
+
+	.panel .panel-hero .panel-heading {
+		margin: 6rem 9.5rem;
+		letter-spacing: 1rem;
+	}
+
+	.panel .panel-card {
+		padding: 4rem 7.5rem;
 	}
 
 }
 
 
 @media(min-width:992px) {
+
+	.panel .container {
+		max-width: 960px;
+	}
 
 	/* ---------------NAVIGATION --------------- */
 	/* Global Navigation Styles */
@@ -844,16 +831,90 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 	nav.nav-secondary .nav-secondary-mobile-header {
 		display: none;
 	}
+	
+
+	.panel.panel-products .product-cards [class^="col-"] {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	/* --------------- FLOATING COLUMNS --------------- */
+	.col-floating {
+		position: relative;
+		margin-top: 2rem;
+	}
+
+	.col-floating::before {
+		content: '';
+		position: absolute;
+		top: 100px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		background-color: #f0f1f3;
+	}
+
+	.col-floating .col-floating-img  {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.col-floating .row  {
+		margin-top: -2rem;
+		margin-bottom: -2rem;
+	}
+
+	.col-floating .row:first-child  {
+		margin-top: 0;
+	}
+
+	.col-floating .row:last-child  {
+		margin-bottom: 0;
+	}
+
+	.col-floating .row:first-child .col-floating-img  {
+		-ms-flex-item-align: end !important;
+		align-self: flex-end !important;
+	}
+
+	.col-floating .row:last-child .col-floating-img  {
+		-ms-flex-item-align: start !important;
+		align-self: flex-start !important;
+	}
+
+	.col-floating .col {
+		padding: 0;
+	}
+
+	.col-floating .dc-card {
+		padding: 5rem 6.5rem;
+	}
+
+	.col-floating .dc-card .card-heading {
+		font-size: 2.625rem;
+	}
+
+	.pricing-tabs {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	table.pricing-form-repayments {
+		display: table;
+	}
 
 }
 
 @media(min-width:1200px) {
 
+	nav .container, .panel .container {
+		max-width: 1140px;
+	}
+
 	/* ---------------NAVIGATION --------------- */
 	/* Global Navigation Styles */
-	nav .container {
+	nav .container{
 		position: relative;
-		max-width: 1140px;
 	}
 
 	/* Secondary Navigation Styles */
