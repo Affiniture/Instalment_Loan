@@ -42,6 +42,9 @@ function PricingForm(pricingForm) {
 		// Initialise Sliders
 		this.initSliders();
 
+		// Initialise Mobile Input
+		this.initMobileInput();
+
 		// Bind Submit handler
 		this.bindSubmitHandler();
 
@@ -89,8 +92,13 @@ function PricingForm(pricingForm) {
 				var text = "£" + ui.value;
 				$(ui.handle).text( text );
 		
-				// Update Slider
+				// Update Principal Value
 				form.loan.updatePrincipal(ui.value);
+
+				// Update Mobile Form input incase breakpoint changes
+				$(this.formContainer).find('.pricing-form-input-principal').val(ui.value)
+
+				// Update Display
 				form.updateDisplay();
 			}
 		});
@@ -110,11 +118,51 @@ function PricingForm(pricingForm) {
 				var text = ui.value + " mths";
 				$(ui.handle).text( text );
 		
-				// Update Slider
+				// Update Term Value
 				form.loan.updateTerm(ui.value);
+
+				// Update Mobile Form input incase breakpoint changes
+				$(this.formContainer).find('.pricing-form-input-term').val(ui.value)
+
+				// Update Display
 				form.updateDisplay();
 			}
 		});
+	}
+
+	this.initMobileInput = function () {
+		// Bind "this" to local variable to access within callback functions
+		var form = this;
+		
+		// Principal Mobile Input
+			var principalMobileInput = $(this.formContainer).find('.pricing-form-input-principal')
+			// Set initial value
+			$(principalMobileInput).val(this.principalInit);
+			// Set min and max values
+			$(principalMobileInput).attr('min', this.principalMin);
+			$(principalMobileInput).attr('max', this.principalMax);
+
+			// Click handler to update principal amount
+			$(principalMobileInput).change(function () {
+				form.loan.updatePrincipal( parseInt($(this).val()) );
+				form.updateDisplay();
+			});
+
+		// Term Mobile Input
+			var termMobileInput = $(this.formContainer).find('.pricing-form-input-term');
+			// Create month options
+			for(var i = this.termMin; i <= this.termMax; i++) {
+				$(termMobileInput).append('<option value="' + i + '">' + i + ' Months</option>');
+			}
+			// Set initial term
+			$(termMobileInput).val(this.termInit);
+
+			// Click handler to update term value
+			$(termMobileInput).change(function () {
+				console.log($(this).val());
+				form.loan.updateTerm( parseInt($(this).val()) );
+				form.updateDisplay();
+			});
 	}
 
 	this.updateDisplay = function () {
