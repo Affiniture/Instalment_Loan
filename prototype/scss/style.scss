@@ -38,7 +38,12 @@
 
 // EXISTING STYLES TO MIGRATE TO PARTIALS --- //
 
+.col-floating .col-floating-img  {
+  min-height: 5rem;
+  min-width: 100%;
   background-size: cover;
+  background-position: center;
+  order: -1;
 }
 
 /* --------------- PRICING FORM --------------- */
@@ -265,11 +270,11 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
   }
 
   .col-floating .col-floating-img  {
+    min-height: unset;
+    min-width: unset;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    img {
-      @include img-fluid;
-    }
+    order: unset;
   }
 
   .col-floating .row  {
@@ -286,13 +291,12 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
   }
 
   .col-floating .row:first-child .col-floating-img  {
-    -ms-flex-item-align: end !important;
-    align-self: flex-end !important;
+    margin-top: 100px;
+    margin-left: 100px;
   }
 
   .col-floating .row:last-child .col-floating-img  {
-    -ms-flex-item-align: start !important;
-    align-self: flex-start !important;
+    margin-right: 100px;
   }
 
   .col-floating .col {
