@@ -10,6 +10,7 @@
 
 // IMPORT BASE PARTIALS --------------------- //
 @import 'base/legacy';
+@import 'base/base';
 
 // IMPORT BOOTSTRAP ------------------------- //
 // Override Bootstrap variables
@@ -18,56 +19,6 @@
 //@import 'utilities/variables';
 
 // EXISTING STYLES TO MIGRATE TO PARTIALS --- //
-
-/* --------------- GLOBAL STYLES --------------- */
-body {
-  font-family: $font-stack-secondary;
-  color: $colour-black;
-}
-
-h1, h2, h3, h4, h5, h6, nav, a, .button, .pricing-form-slider .ui-slider-handle, table.pricing-form-repayments {
-  font-family: $font-stack-primary;
-  letter-spacing: 0.1rem;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-
-h1, h2, h3, h4, h5, h6, .button {
-  letter-spacing: 0.3rem;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 1.5rem;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
-  font-size: 2rem;
-  &.numbered {
-    text-align: left;
-    span {
-      background-color: $colour-light;
-      display: inline-block;
-      width: 42px;
-      height: 42px;
-      text-align: center;
-      line-height: 2.8rem;
-      text-indent: 0.3rem;
-      font-weight: 400;
-    }
-  }
-}
-
-p {
-  font-size: 1.125rem;
-}
 
 /* --------------- BUTTONS --------------- */
 .button {
@@ -726,18 +677,6 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 }
 
 @media(min-width:768px) {
-
-  h1 {
-    font-size: 3.125rem;
-  }
-
-  h2 {
-    font-size: 2.625rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-  }
 
   /* ---------------NAVIGATION --------------- */
   /* Global Navigation Styles */
