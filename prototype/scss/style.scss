@@ -32,6 +32,7 @@
 @import 'components/card';
 @import 'components/modal';
 @import 'components/tabs';
+@import 'components/slider';
 
 // IMPORT LAYOUTS --------------------------- //
 @import 'layout/navigation';
@@ -65,74 +66,6 @@
 
 .pricing-form .pricing-form-overview p {
   font-size: 1.5rem;
-}
-
-.pricing-form-slider {
-  height: 3px;
-  margin-bottom: 3rem;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  position: relative;
-  display: none;
-}
-
-.pricing-form-slider::before, .pricing-form-slider::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 4rem;
-}
-
-.pricing-form-slider::before {
-  left: -4rem;
-}
-
-.pricing-form-slider::after {
-  right: -4rem;
-  background-color: #f0f1f3;
-}
-
-.pricing-form-slider.slider-navy, .pricing-form-slider.slider-navy::before, .pricing-form-slider.slider-navy .ui-slider-handle {
-  background-color: $colour-navy-blue;
-}
-
-.pricing-form-slider.slider-blue, .pricing-form-slider.slider-blue::before, .pricing-form-slider.slider-blue .ui-slider-handle {
-  background-color: $colour-light-blue;
-}
-
-.pricing-form-slider.slider-grey, .pricing-form-slider.slider-grey::before, .pricing-form-slider.slider-grey .ui-slider-handle {
-  background-color: $colour-black;
-}
-
-.pricing-form-slider .ui-slider-range {
-  background-color: $colour-light;
-  right: 0;
-  top: 0;
-  height: 100%;
-  position: absolute;
-  z-index: 0;
-  font-size: .7em;
-  display: block;
-  border: 0;
-  background-position: 0 0;
-}
-
-.pricing-form-slider .ui-slider-handle {
-  width: 8rem;
-  height: 2rem;
-  top: 50%;
-  margin-top: -1rem;
-  text-align: center;
-  line-height: 2rem;
-  color: #ffffff;
-  font-size: 1.125rem;
-  position: absolute;
-  cursor: ew-resize;
-  -ms-touch-action: none;
-  touch-action: none;
-  margin-left: -4rem;
-  z-index: 1;
 }
 
 table.pricing-form-repayments {
@@ -170,15 +103,6 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 @media(min-width:992px) {
 
   /* --------------- FLOATING COLUMNS --------------- */
-
-  .pricing-tabs {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .pricing-form-slider {
-    display: block;
-  }
 
   .pricing-form-mobile-input {
     display: none;
