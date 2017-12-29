@@ -97,7 +97,7 @@
 				.wrapper .m-menu .info .log-in.loginActive, .header-top .log-in.loginActive a{color:#182d38;}
 				.wrapper .m-menu .info .log-in.loginActive span.arrow{background: url('http://www.dinersclub.co.uk/img/desktop/login-arraw-bleu.png') no-repeat center center;}
 				.wrapper .m-menu .info .log-in .small{color:#182d38;}
-				.wrapper .m-menu .info .log-in .options li{texta-align:center;}
+				.wrapper .m-menu .info .log-in .options li{text-align:center;}
 				.wrapper .m-menu .info .log-in ul.options h3 {
 					margin: 1em 0 1em 0;
 					color: #7f7f7f;
@@ -183,12 +183,13 @@
 /*
 @media(min-width:576px) {}
 @media(min-width:768px) {}
-*/
+ */
 
 @media(min-width:992px) {
 
 	img.bw {
 		-webkit-transition: all 0.6s ease;
+		transition: all 0.6s ease;
 		filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
 		filter: gray !important; /* IE6-9 */
 		-webkit-filter: grayscale(100%) !important; /*Webkit Browser Support*/
