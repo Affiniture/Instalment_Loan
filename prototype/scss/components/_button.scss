@@ -1,0 +1,69 @@
+// ==========================================
+// _button.scss
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+.button {
+  border: 1px solid;
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  text-indent: 0.3rem;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: none;
+	}
+	
+	&-block {
+		display: block;
+		width: 100%;
+	}
+	
+	&-outline-dark {
+		border-color: $colour-black;
+		color: $colour-black;
+	}
+	
+	&-outline-dark:hover {
+		background-color: $colour-black;
+		color: $colour-white;
+	}
+	
+	&-outline-light {
+		border-color: $colour-white;
+		color: $colour-white;
+	}
+	
+	&-outline-light:hover {
+		background-color: $colour-white;
+		color: $colour-black;
+	}
+	
+	&-outline-gold {
+		border-color: $colour-gold;
+		color: $colour-gold;
+	}
+	
+	&-outline-gold:hover {
+		background-color: $colour-gold;
+		color: $colour-white;
+	}
+	
+	&-gold {
+		background-color: $colour-gold;
+		border-color: $colour-gold;
+		color: $colour-white;
+	}
+	
+	&-gold:hover {
+		background-color: transparent;
+		color: $colour-gold;
+	}
+}

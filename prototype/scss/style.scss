@@ -12,6 +12,9 @@
 @import 'base/legacy';
 @import 'base/base';
 
+// IMPORT COMPONENTS ------------------------ //
+@import 'components/button';
+
 // IMPORT BOOTSTRAP ------------------------- //
 // Override Bootstrap variables
 
@@ -19,72 +22,6 @@
 //@import 'utilities/variables';
 
 // EXISTING STYLES TO MIGRATE TO PARTIALS --- //
-
-/* --------------- BUTTONS --------------- */
-.button {
-  border: 1px solid;
-  padding: 1rem 1.5rem;
-  display: inline-block;
-  text-indent: 0.3rem;
-  text-align: center;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: transparent;
-  cursor: pointer;
-}
-
-.button:hover {
-  text-decoration: none;
-}
-
-.button-block {
-  display: block;
-  width: 100%;
-}
-
-.button-outline-dark {
-  border-color: $colour-black;
-  color: $colour-black;
-}
-
-.button-outline-dark:hover {
-  background-color: $colour-black;
-  color: $colour-white;
-}
-
-.button-outline-light {
-  border-color: $colour-white;
-  color: $colour-white;
-}
-
-.button-outline-light:hover {
-  background-color: $colour-white;
-  color: $colour-black;
-}
-
-.button-outline-gold {
-  border-color: $colour-gold;
-  color: $colour-gold;
-}
-
-.button-outline-gold:hover {
-  background-color: $colour-gold;
-  color: $colour-white;
-}
-
-.button-gold {
-  background-color: $colour-gold;
-  border-color: $colour-gold;
-  color: $colour-white;
-}
-
-.button-gold:hover {
-  background-color: transparent;
-  color: $colour-gold;
-}
 
 /* ---------------NAVIGATION --------------- */
 /* Global Navigation Styles */
