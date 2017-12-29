@@ -5,6 +5,20 @@
 // Copyright 2017 Affiniture Cards Limited
 // ==========================================
 
+// IMPORT BOOTSTRAP ------------------------- //
+// Override Bootstrap variables
+
+// Import Bootstrap Grid
+@import '../vendor/bootstrap/scss/bootstrap-reboot';
+@import '../vendor/bootstrap/scss/bootstrap-grid';
+@import '../vendor/bootstrap/scss/utilities/screenreaders';
+
+// CSS copyright notice
+/*!
+ * InstalmentLoan
+ * Copyright 2017 Affiniture Cards Limited
+ */
+
 // IMPORT UTILITIES ------------------------- //
 @import 'utilities/variables';
 
@@ -15,11 +29,7 @@
 // IMPORT COMPONENTS ------------------------ //
 @import 'components/button';
 
-// IMPORT BOOTSTRAP ------------------------- //
-// Override Bootstrap variables
 
-// Import Partials
-//@import 'utilities/variables';
 
 // EXISTING STYLES TO MIGRATE TO PARTIALS --- //
 
@@ -774,6 +784,9 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
   .col-floating .col-floating-img  {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    img {
+      @include img-fluid;
+    }
   }
 
   .col-floating .row  {
