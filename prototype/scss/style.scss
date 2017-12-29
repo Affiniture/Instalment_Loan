@@ -28,6 +28,7 @@
 
 // IMPORT COMPONENTS ------------------------ //
 @import 'components/button';
+@import 'components/card';
 
 
 
@@ -263,7 +264,7 @@ nav.nav-secondary.nav-expanded .nav-button {
 }
 
 .panel .panel-card-light {
-  background-color: $colour-white;
+  background-color: $colour-light;
 }
 
 .panel .panel-card-navy {
@@ -289,125 +290,13 @@ nav.nav-secondary.nav-expanded .nav-button {
   margin-bottom: 2rem;
 }
 
-.panel.panel-contact .dc-card {
+.panel.panel-contact .card {
   margin-bottom: 1rem;
 }
 
 .panel.panel-contact .contact-text {
   font-size: .875rem;
   text-align: left;
-}
-
-/* --------------- CARDS --------------- */
-
-.dc-card {
-  padding: 2.125rem;
-  text-align: left;
-}
-
-.dc-card .card-heading {
-  font-weight: 100;
-}
-
-.dc-card.card-white {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.dc-card.card-outline {
-  background-color: #ffffff;
-  border: 1px solid #f0f1f3;
-  color: #000000;
-}
-
-.dc-card.card-blue {
-  background-color: $colour-light-blue;
-  color: #ffffff;
-}
-
-.dc-card.card-navy {
-  background-color: $colour-navy-blue;
-  color: #ffffff;
-}
-
-.dc-card.card-grey {
-  background-color: $colour-black;
-  color: #ffffff;
-}
-
-.dc-card.card-blue p {
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.dc-card.equalise {
-  display: flex;
-  flex-direction: column!important;
-}
-
-[class^="col-"] .dc-card.equalise {
-  height: 100%;
-}
-
-.dc-card.equalise .card-button-fixed {
-  margin-top: auto;
-}
-
-.dc-card :last-child {
-  margin-bottom: 0;
-}
-
-/* Contact Cards */
-.card-contact {
-  text-align: center;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  width: 100%;
-  padding-bottom: 100%;
-  padding-top: 0px;
-  box-sizing: content-box;
-  position: relative;
-}
-
-.card-contact .card-contact-content {
-  position: absolute;
-  width: 100%;
-  margin-top: 15%;
-}
-
-.card-contact .location-icon {
-  font-size: 2rem;
-  position: absolute;
-  top: 0px;
-  right: 30%;
-}
-
-.card-contact .location-icon.fa {
-  font-size: 2.7rem;
-  color: #a8a8a8;
-}
-
-.card-contact .location-icon.flag-icon {
-  box-shadow: 0px 0px 2px #cbcbcb;
-  border-radius: .2rem;
-}
-
-.card-contact span {
-  display: block
-}
-
-.card-contact span.desc {
-  font-style: italic;
-  font-size: 1.125rem;
-  padding-top: 1.5rem;
-  padding-bottom: .5rem;
-}
-
-.card-contact span.details {
-  font-family: $font-stack-primary;
-  letter-spacing: 0.1rem;
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
 }
 
 /* --------------- PRICING FORM --------------- */
@@ -816,11 +705,11 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
     padding: 0;
   }
 
-  .col-floating .dc-card {
+  .col-floating .card {
     padding: 5rem 6.5rem;
   }
 
-  .col-floating .dc-card .card-heading {
+  .col-floating .card .card-heading {
     font-size: 2.625rem;
   }
 
