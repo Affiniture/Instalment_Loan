@@ -30,6 +30,7 @@
 // IMPORT COMPONENTS ------------------------ //
 @import 'components/button';
 @import 'components/card';
+@import 'components/modal';
 
 // IMPORT LAYOUTS --------------------------- //
 @import 'layout/navigation';
@@ -212,34 +213,6 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
   font-size: 2.625rem;
   letter-spacing: 1rem;
 }
-
-/* --------------- MODAL --------------- */
-.dc-modal-container {
-  background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: none;
-}
-
-.dc-modal {
-  background-color: #fff;
-  width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3rem;
-  padding: 3rem;
-  text-align: center;
-}
-
-.dc-modal-container.loading-modal .fa-spin + * {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-}
-
 
 @media(min-width:992px) {
 
