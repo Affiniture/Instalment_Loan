@@ -5,8 +5,11 @@
 // Copyright 2017 Affiniture Cards Limited
 // ==========================================
 
-// IMPORT PARTIALS -------------------------- //
+// IMPORT UTILITIES ------------------------- //
 @import 'utilities/variables';
+
+// IMPORT BASE PARTIALS --------------------- //
+@import 'base/legacy';
 
 // IMPORT BOOTSTRAP ------------------------- //
 // Override Bootstrap variables
@@ -167,14 +170,14 @@ nav .nav-button {
 nav.nav-secondary {
   background-color: $colour-light-blue;
   text-transform: uppercase;
-  color: $colour-gold;
+  color: $colour-white;
   width: 100%;
   z-index: 10;
   position: absolute;
 }
 
 nav.nav-secondary a {
-  color: $colour-gold;
+  color: $colour-white;
 }
 
 nav.nav-secondary li {
