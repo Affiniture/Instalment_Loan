@@ -216,10 +216,6 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 
 @media(min-width:992px) {
 
-  nav.nav-secondary .nav-secondary-mobile-header {
-    display: none;
-  }
-
   /* --------------- FLOATING COLUMNS --------------- */
 
   .pricing-tabs {
@@ -237,38 +233,6 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 
   table.pricing-form-repayments {
     display: table;
-  }
-
-}
-
-@media(min-width:1200px) {
-
-  nav .container, .panel .container {
-    max-width: 1140px;
-  }
-
-  /* ---------------NAVIGATION --------------- */
-  /* Global Navigation Styles */
-  nav .container{
-    position: relative;
-  }
-
-  /* Secondary Navigation Styles */
-  nav.nav-secondary li a {
-    margin: 0 1rem;
-    padding: 0.625rem 1rem;
-  }
-
-  nav.nav-secondary.fixed li a {
-    padding: 1.187rem 1rem;
-  }
-
-  nav.nav-secondary .nav-secondary-branding {
-    left: 0;
-  }
-
-  nav.nav-secondary .nav-secondary-actions {
-    right: 0;
   }
 
 }

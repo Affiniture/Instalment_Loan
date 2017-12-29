@@ -2571,6 +2571,10 @@ nav .container {
       align-items: center !important;
       -ms-flex-pack: center !important;
       justify-content: center !important; } }
+  @media (min-width: 1200px) {
+    nav .container {
+      position: relative;
+      max-width: 1140px; } }
 
 nav ul {
   list-style-type: none;
@@ -2593,7 +2597,7 @@ nav .nav-button {
   font-size: 14px;
   padding: 3px 20px; }
 
-.nav-secondary li a, .nav-secondary .nav-secondary-mobile-header {
+.nav-secondary li a, .nav-secondary-mobile-header {
   font-size: 0.9375rem;
   line-height: 0.9375rem;
   font-weight: 100;
@@ -2601,7 +2605,7 @@ nav .nav-button {
   margin: 0px;
   letter-spacing: 0.3rem; }
 
-.nav-secondary li, .nav-secondary .nav-secondary-mobile-toggle .fa-times, .nav-secondary .nav-secondary-branding, .nav-secondary .nav-secondary-actions, .nav-expanded .nav-secondary-mobile-header .fa-angle-down {
+.nav-secondary li, .nav-secondary-mobile-toggle .fa-times, .nav-secondary-branding, .nav-secondary-actions, .nav-expanded .nav-secondary-mobile-header .fa-angle-down {
   display: none; }
 
 .nav-expanded li, .nav-expanded .nav-secondary-mobile-header .fa-times {
@@ -2631,6 +2635,10 @@ nav .nav-button {
         opacity: 1; }
       .nav-secondary.fixed li a {
         padding: 1.187rem 0.5rem; } }
+  @media (min-width: 992px) and (min-width: 1200px) {
+    .nav-secondary.fixed li a {
+      padding: 1.187rem 1rem; } }
+
   .nav-secondary li a {
     color: #FFFFFF;
     position: relative;
@@ -2644,14 +2652,21 @@ nav .nav-button {
         margin: 0 0.5rem;
         padding: 0.625rem 0.4rem;
         letter-spacing: 0.1rem; } }
+    @media (min-width: 1200px) {
+      .nav-secondary li a {
+        margin: 0 1rem;
+        padding: 0.625rem 1rem; } }
   .nav-secondary li.active a {
     font-weight: 500; }
   @media (min-width: 992px) {
     .nav-secondary li {
       display: block !important; } }
-  .nav-secondary .nav-secondary-mobile-header {
+  .nav-secondary-mobile-header {
     font-weight: 500; }
-  .nav-secondary .nav-secondary-mobile-toggle {
+    @media (min-width: 992px) {
+      .nav-secondary-mobile-header {
+        display: none; } }
+  .nav-secondary-mobile-toggle {
     position: absolute;
     right: 5px;
     top: 0px;
@@ -2663,7 +2678,7 @@ nav .nav-button {
     padding: 0.6rem;
     cursor: pointer; }
   @media (min-width: 992px) {
-    .nav-secondary .nav-secondary-branding {
+    .nav-secondary-branding {
       display: block;
       position: absolute;
       left: 15px;
@@ -2673,8 +2688,11 @@ nav .nav-button {
       -ms-transition: opacity 0.3s ease-in-out;
       -o-transition: opacity 0.3s ease-in-out;
       transition: opacity 0.3s ease-in-out; } }
+  @media (min-width: 1200px) {
+    .nav-secondary-branding {
+      left: 0; } }
   @media (min-width: 992px) {
-    .nav-secondary .nav-secondary-actions {
+    .nav-secondary-actions {
       display: block;
       position: absolute;
       right: 15px;
@@ -2684,6 +2702,9 @@ nav .nav-button {
       -ms-transition: opacity 0.3s ease-in-out;
       -o-transition: opacity 0.3s ease-in-out;
       transition: opacity 0.3s ease-in-out; } }
+  @media (min-width: 1200px) {
+    .nav-secondary-actions {
+      right: 0; } }
 
 .nav-expanded {
   position: fixed;
@@ -2747,6 +2768,9 @@ nav .nav-button {
   @media (min-width: 992px) {
     .panel .container {
       max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .panel .container {
+      max-width: 1140px; } }
 
 /* Panel Hero Images */
 .panel-hero {
@@ -3008,9 +3032,6 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
   letter-spacing: 1rem; }
 
 @media (min-width: 992px) {
-  nav.nav-secondary .nav-secondary-mobile-header {
-    display: none; }
-
   /* --------------- FLOATING COLUMNS --------------- */
   .pricing-tabs {
     margin-left: 0px;
@@ -3024,27 +3045,5 @@ table.pricing-form-repayments td, table.pricing-form-repayments th {
 
   table.pricing-form-repayments {
     display: table; } }
-@media (min-width: 1200px) {
-  nav .container, .panel .container {
-    max-width: 1140px; }
-
-  /* ---------------NAVIGATION --------------- */
-  /* Global Navigation Styles */
-  nav .container {
-    position: relative; }
-
-  /* Secondary Navigation Styles */
-  nav.nav-secondary li a {
-    margin: 0 1rem;
-    padding: 0.625rem 1rem; }
-
-  nav.nav-secondary.fixed li a {
-    padding: 1.187rem 1rem; }
-
-  nav.nav-secondary .nav-secondary-branding {
-    left: 0; }
-
-  nav.nav-secondary .nav-secondary-actions {
-    right: 0; } }
 
 /*# sourceMappingURL=style.css.map */

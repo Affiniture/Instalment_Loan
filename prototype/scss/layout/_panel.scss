@@ -61,6 +61,9 @@
 	@media (min-width: $break-lg) {
 		max-width: 960px;
 	}
+	@media (min-width: $break-xl) {
+		max-width: 1140px;
+	}
 }
 
 /* Panel Hero Images */

@@ -27,6 +27,10 @@ nav .container {
     -ms-flex-pack: center !important;
     justify-content: center !important;
 	}
+	@media (min-width: $break-xl) {
+		position: relative;
+		max-width: 1140px;
+	}
 }
 
 nav ul {
@@ -100,6 +104,9 @@ nav .nav-button {
 			}
 			li a {
 				padding: 1.187rem 0.5rem;
+				@media (min-width: $break-xl) {
+					padding: 1.187rem 1rem;
+				}
 			}
 		}
 	}
@@ -122,6 +129,10 @@ nav .nav-button {
 				padding: 0.625rem 0.4rem;
 				letter-spacing: 0.1rem;
 			}
+			@media (min-width: $break-xl) {
+				margin: 0 1rem;
+    		padding: 0.625rem 1rem;
+			}
 		}
 		// &.nav-secondary-item-primary a {
 		// 	@media (min-width: $break-lg) {
@@ -138,12 +149,16 @@ nav .nav-button {
 			display: block !important;
 		}
 	}
-	.nav-secondary-mobile-header {
+
+	&-mobile-header {
 		@extend %nav-font-styling;
 		font-weight: 500;
+		@media (min-width: $break-lg) {
+			display: none;
+		}
 	}
 
-	.nav-secondary-mobile-toggle {
+	&-mobile-toggle {
 		position: absolute;
 		right: 5px;
 		top: 0px;
@@ -158,7 +173,7 @@ nav .nav-button {
 			@extend %hide-nav-element;
 		}
 	}
-	.nav-secondary-branding {
+	&-branding {
 		@extend %hide-nav-element;
 		@media (min-width: $break-lg) {
 			display: block;
@@ -171,8 +186,11 @@ nav .nav-button {
 			-o-transition: opacity 0.3s ease-in-out;
 			transition: opacity 0.3s ease-in-out;
 		}
+		@media (min-width: $break-xl) {
+			left: 0;
+		}
 	}
-	.nav-secondary-actions {
+	&-actions {
 		@extend %hide-nav-element;
 		@media (min-width: $break-lg) {
 			display: block;
@@ -184,6 +202,9 @@ nav .nav-button {
 			-ms-transition: opacity 0.3s ease-in-out;
 			-o-transition: opacity 0.3s ease-in-out;
 			transition: opacity 0.3s ease-in-out;
+		}
+		@media (min-width: $break-xl) {
+			right: 0;
 		}
 	}
 }
