@@ -4,14 +4,6 @@
 // ==========================================
 
 .tabs {
-	margin-left: 15px;
-	margin-right: 15px;
-
-	@media (min-width: $break-lg) {
-		margin-left: 0px;
-    margin-right: 0px;
-	}
-	
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -54,5 +46,15 @@
 	.tab-grey {
 		background-color: $colour-black;
 		color: $colour-white;
+	}
+}
+
+.pricing-tabs {
+	@extend .tabs;
+	margin-left: 15px;
+	margin-right: 15px;
+	@media (min-width: $break-lg) {
+		margin-left: 0px;
+    margin-right: 0px;
 	}
 }

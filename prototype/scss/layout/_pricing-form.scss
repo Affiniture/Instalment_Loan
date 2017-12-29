@@ -1,0 +1,60 @@
+// ==========================================
+// _pricing-form.scss
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+%repayments-cell {
+  padding: .3rem .75rem;
+  text-align: center;
+  border-top: 1px solid #f0f1f3;
+}
+
+.pricing-form {
+	text-align: left;
+	.row {
+		margin-bottom: 2rem;
+	}
+	&-overview {
+		padding: 1.25rem;
+		h4 {
+			font-size: 1rem;
+			margin-bottom: 0;
+		}
+		p {
+			font-size: 1.5rem;
+		}
+	}
+	&-repayments {
+		width: 100%;
+		display: none;
+		thead {
+			background-color: #f0f1f3;
+		}
+		th {
+			@extend %repayments-cell;
+			width: 30%;
+			&:first-child {
+				width: 10%
+			}
+		}
+		td {
+			@extend %repayments-cell;
+		}
+		@media (min-width: $break-lg) {
+			display: table;
+		}
+	}
+	@media (min-width: $break-lg) {
+		.pricing-form-mobile-input {
+			display: none;
+		}
+	}
+}
+
+.pricing-contact {
+	text-align: left;
+	h4 {
+		font-size: 2.625rem;
+		letter-spacing: 1rem;
+	}
+}
