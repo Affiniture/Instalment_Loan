@@ -123,13 +123,16 @@ nav .nav-button {
 				letter-spacing: 0.1rem;
 			}
 		}
-		.nav-secondary-item-primary a {
-			@media (min-width: $break-lg) {
-				font-weight: 500;
+		// &.nav-secondary-item-primary a {
+		// 	@media (min-width: $break-lg) {
+		// 		font-weight: 500;
+		// 	}
+		// }
+		&.active a {
+			font-weight: 500;
+			&::after {
+				@extend %nav-secondary-active-style;
 			}
-		}
-		&.active a::after {
-			@extend %nav-secondary-active-style;
 		}
 		@media (min-width: $break-lg) {
 			display: block !important;

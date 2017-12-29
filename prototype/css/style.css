@@ -2600,9 +2600,8 @@ nav .nav-button {
         margin: 0 0.5rem;
         padding: 0.625rem 0.4rem;
         letter-spacing: 0.1rem; } }
-  @media (min-width: 992px) {
-    .nav-secondary li .nav-secondary-item-primary a {
-      font-weight: 500; } }
+  .nav-secondary li.active a {
+    font-weight: 500; }
   @media (min-width: 992px) {
     .nav-secondary li {
       display: block !important; } }
