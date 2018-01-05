@@ -9,16 +9,32 @@
 <div id="mainform" class="legacy wrapper index">
 	<div class="footer-bottom">
 		<div class="content-holder">
-			<span class="copyright"> Copyright &copy; {{ now.year }} Diners Club International Ltd.<br /><small class="sub">Diners Club International is operated by<br />Affiniture Cards Limited in the UK and ROI. <br />Registered in England Number: 07885531.</small> </span>
-			<div class="links">
-				<a class="m-first" href="http://dinersclub.co.uk/Other/Merchants.aspx"> Merchants - How to accept Diners Club card </a>
-				<span id="ctl11_ctl02_rptLinks_ModeFooterSub_divider_1" class="divider m-first"></span>
-				<a href="http://dinersclub.co.uk/Other/Terms and Conditions.aspx"> Terms &amp; Conditions </a>
-				<span id="ctl11_ctl02_rptLinks_ModeFooterSub_divider_2" class="divider"></span>
-				<a href="http://dinersclub.co.uk/Other/Privacy Policy.aspx"> Privacy Policy </a>
-				<span id="ctl11_ctl02_rptLinks_ModeFooterSub_divider_3" class="divider"></span>
-				<a href="http://dinersclub.co.uk/Other/Sitemap.aspx"> Sitemap </a>
-			</div>
+			<span class="copyright">
+				{% include(template_from_string(footer.copyright)|raw) %}
+			</span>
+			{% if footer.links | length %}
+
+				<div class="links">
+
+					{% for link in footer.links %}
+
+						{% if loop.first %}
+							{% set class = 'm-first' %}
+						{% else %}
+							{% set class = '' %}
+						{% endif %}
+
+						<a class="{{ class }}" href="{{ link.url }}"> {{ link.displayName }} </a>
+
+						{% if not loop.last %}
+							<span class="divider {{ class }}"></span>
+						{% endif %}
+
+					{% endfor %}
+					
+				</div>
+
+			{% endif %}
 			<!--end of links-->
 			<div class="clear">&nbsp;</div>
 		</div>
