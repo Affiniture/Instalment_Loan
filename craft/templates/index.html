@@ -105,68 +105,60 @@
 			</section>
 			<!-- Instalment Lending Features Panel -->
 
-		{% elseif panel.type == 'pricingPanel' %}
+		{% elseif panel.type == 'productsPanel' %}
 
 			<!-- Instalment Lending Products Panel -->
-			<section id="sect_products" class="panel panel-products parallax">
-				<div class="panel-hero panel-hero-sm hero-filter hero-filter-light hero-fade parallax-container" data-speed="0.5" style="background-image: url('img/stock/pexels-photo-466685-compressed.jpeg')">
-					<div class="container">
-						<h2 class="panel-heading panel-heading-bold panel-heading-shadow">Products</h2>
-					</div>
-				</div>
+			<section id="{{ panel.panelId }}" class="panel panel-products parallax">
+				{# Get panel hero image #}
+				{% set heroImage = panel.heroImage.first() %}
+				{% if heroImage %}
+					{# Set panel hero classes #}
+					{% if panel.heroFilter == 'dark' %}
+						{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+					{% elseif panel.heroFilter == 'darkFade' %}
+						{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+					{% elseif panel.heroFilter == 'light' %}
+						{% set class = ' hero-filter hero-filter-light' %}
+					{% elseif panel.heroFilter == 'lightFade' %}
+						{% set class = ' hero-filter hero-filter-light hero-fade' %}
+					{% else %}
+						{% set class = '' %}
+					{% endif %}
+					<div class="panel-hero panel-hero-sm parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+				{% endif %}
+				
 				<div class="container">
-					<div class="row product-cards">
-						<!-- Product -->
-						<div class="col-sm-6 col-md-4">
-							<article class="card equalise card-navy">
-								<h3 class="card-heading">Fixed Term 3—12 Months</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
-								<p>Ideal for:</p>
-								<ul>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-								</ul>
-								<a href="#" class="button button-outline-light button-block card-button-fixed">View Pricing</a>
-							</article>
-						</div>
-						<!-- END: Product -->
-						<!-- Product -->
-						<div class="col-sm-6 col-md-4">
-							<article class="card equalise card-blue">
-								<h3 class="card-heading">Interest Only up to 3 months</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
-								<p>Ideal for:</p>
-								<ul>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-								</ul>
-								<a href="#" class="button button-outline-light button-block card-button-fixed">View Pricing</a>
-							</article>
-						</div>
-						<!-- END: Product -->
-						<!-- Product -->
-						<div class="col-md-4">
-							<article class="card equalise card-grey">
-								<h3 class="card-heading">Revolving Line of Credit</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
-								<p>Ideal for:</p>
-								<ul>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-									<li>Lorem ipsum dolor sit amet</li>
-								</ul>
-								<a href="#" class="button button-outline-light button-block card-button-fixed">View Pricing</a>
-							</article>
-						</div>
-						<!-- END: Product -->
-					</div>
+					<h2 class="panel-heading panel-heading-bold panel-heading-shadow">{{ panel.heading }}</h2>
 				</div>
+
+				{% if heroImage %}
+					</div>
+				{% endif %}
+
+				{% if panel.products | length %}
+					<div class="container">
+						<div class="row product-cards">
+							{% for productRow in panel.products %}
+								{% set product = productRow.product.first() %}
+								{% if product %}
+									<!-- Product -->
+									<div class="col-sm-6 col-md-4">
+										<article class="card equalise card-{{ product.colour }}">
+											<h3 class="card-heading">{{ product.title }}</h3>
+											{{ product.description }}
+											<a href="{{ productRow.buttonLink }}" class="button button-outline-{{ productRow.buttonColour }} button-block card-button-fixed">{{ productRow.buttonLabel }}</a>
+										</article>
+									</div>
+									<!-- END: Product -->
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
 			</section>
 			<!-- Instalment Lending Products Panel -->
 
-		{% elseif panel.type == 'productsPanel' %}
+		{% elseif panel.type == 'pricingPanel' %}
 
 			<!-- Instalment Lending Pricing Panel -->
 			<section id="sect_pricing" class="panel">
