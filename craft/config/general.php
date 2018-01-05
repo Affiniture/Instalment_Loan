@@ -9,25 +9,34 @@
 
 return array(
 
-	// Base site URL
-	'siteUrl' => null,
+	'*' => array(
+		'siteName' => 'Instalment Lending - Diners Club International',
+		'defaultWeekStartDay' => 1,
+		'enableCsrfProtection' => true,
+		'omitScriptNameInUrls' => true,
+		'cpTrigger' => 'cmsadmin',
+		'devMode' => false,
+		'sendPoweredByHeader' => false,
+	),
+		
+	// Local Dev Environment
+	'localhost' => array(
+		'devMode' => true,
+		'environmentVariables' => array(
+			'assetsBasePath' => '/Applications/XAMPP/xamppfiles/htdocs/instalmentloan/assets/',
+			'assetsBaseUrl' => 'http://localhost/instalmentloan/assets/',
+			'staticBaseUrl' => 'http://localhost/instalmentloan/static',
+		),
+	),
 
-	// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
-	'environmentVariables' => array(),
+	// Staging Environment
+	'staging.dinersclub' => array(
+		'devMode' => true,
+	),
 
-	// Default Week Start Day (0 = Sunday, 1 = Monday...)
-	'defaultWeekStartDay' => 1,
-
-	// Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
-	'enableCsrfProtection' => true,
-
-	// Whether "index.php" should be visible in URLs (true, false, "auto")
-	'omitScriptNameInUrls' => true,
-
-	// Control Panel trigger word
-	'cpTrigger' => 'admin',
-
-	// Dev Mode (see https://craftcms.com/support/dev-mode)
-	'devMode' => true,
+	// Production Environment
+	'prod.dinersclub' => array(
+		'devMode' => false,
+	),
 
 );
