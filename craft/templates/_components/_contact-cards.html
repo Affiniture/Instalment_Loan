@@ -1,0 +1,36 @@
+{#
+ # Contact Cards Template
+ # ----------------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% if globals.contactInformation | length %}
+	<div class="row">
+		{% for contact in globals.contactInformation %}
+				<div class="col-3">
+					<div class="card card-outline card-contact">
+						<div class="card-contact-content">
+
+							{# Output contact method icon #}
+							{% if contact.method == 'telephone' %}
+								<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+							{% elseif contact.method == 'email' %}
+								<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+							{% endif %}
+
+							{# Output location icon #}
+							{% if contact.region == 'international' %}
+								<span class="location-icon fa fa-globe"></span>
+							{% elseif contact.region.value in ['gb', 'ie'] %}
+								<span class="location-icon flag-icon flag-icon-{{ contact.region }}"></span>
+							{% endif %}
+
+							<span class="desc">{{ contact.label }}</span>
+							<span class="details">{{ contact.details }}</span>
+						</div>
+					</div>
+				</div>
+		{% endfor %}
+	</div>
+{% endif %}
