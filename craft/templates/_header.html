@@ -14,37 +14,50 @@
 		<!-- Nav Container -->
 		<div class="container">
 			<div class="nav-secondary-branding">
-				<img src="img/logo.svg">
+				{% set logo = header.logo.first() %}
+
+				{% if logo %}
+					<img src="{{ logo.url }}" alt="{{ logo.title }}" >
+				{% endif %}
 			</div>
-			<div class="nav-secondary-mobile-header">
-				<span>Instalment Lending</span>
-				<button class="nav-secondary-mobile-toggle">
-					<i class="fa fa-angle-down" aria-hidden="true"></i>
-					<i class="fa fa-times" aria-hidden="true"></i>
-				</button>
-			</div>
-			<ul>
-				<li class="nav-item nav-secondary-item nav-secondary-item-primary active">
-					<a href="#sect_index">Instalment Lending</a>
-				</li>
-				<li class="nav-item nav-secondary-item">
-					<a href="#sect_features">Features</a>
-				</li>
-				<li class="nav-item nav-secondary-item">
-					<a href="#sect_products">Products</a>
-				</li>
-				<li class="nav-item nav-secondary-item">
-					<a href="#sect_pricing">Pricing</a>
-				</li>
-				<li class="nav-item nav-secondary-item">
-					<a href="#sect_contact">Contact</a>
-				</li>
-			</ul>
-			<div class="nav-secondary-actions">
-				<a class="button nav-button button-outline-light" href="#">
-					Login
-				</a>
-			</div>
+
+			{% if header.links | length %}
+				<div class="nav-secondary-mobile-header">
+					{# Set mobile navigation menu header based on first navigation link #}
+					{% for link in header.links | slice(0, 1) %}
+						<span>{{ link.displayName }}</span>
+					{% endfor %}
+					<button class="nav-secondary-mobile-toggle">
+						<i class="fa fa-angle-down" aria-hidden="true"></i>
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</button>
+				</div>
+
+				<ul>
+					{% for link in header.links %}
+
+						{% if loop.first %}
+							{% set class = ' active' %}
+						{% else %}
+							{% set class = '' %}
+						{% endif %}
+
+						<li class="nav-item nav-secondary-item {{ class }}">
+							<a href="{{ link.url }}">{{ link.displayName }}</a>
+						</li>
+						å
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if header.navAction %}
+				<div class="nav-secondary-actions">
+					<a class="button nav-button button-outline-light" href="{{ header.navAction.actionUrl }}">
+						{{ header.navAction.label }}
+					</a>
+				</div>
+			{% endif %}
+
 		</div>
 		<!-- END: Nav Container -->
 	</nav>
