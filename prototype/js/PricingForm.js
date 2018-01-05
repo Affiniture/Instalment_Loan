@@ -62,7 +62,7 @@ function PricingForm(pricingForm) {
 			$(this).find('input[name=term]').val(loan.term);
 
 			// Find loading modal in container
-			var modal = $(this).find('.dc-modal-container.loading-modal');
+			var modal = $(this).find('.loading-modal').parent();
 			if (modal.length > 0) {
 				// Display modal box to ask users to wait during redirect
 				$(modal).fadeToggle();
