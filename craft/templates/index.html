@@ -25,22 +25,46 @@
 	{% for panel in entry.panels %}
 
 		{% if panel.type == 'primaryPanel' %}
-
 			<!-- Instalment Lending Index Panel -->
-			<section id="sect_index" class="panel panel-text-white parallax">
-				<div class="panel-hero hero-filter hero-filter-dark parallax-container" data-speed="0.5" style="background-image: url('img/stock/pexels-photo-541523-compressed.jpeg')">
-					<!-- <img class="jarallax-img" src="img/stock/pexels-photo-541523-compressed.jpeg" alt=""> -->
-					<div class="container">
-						<h1 class="panel-heading panel-heading-thin">Business Loans Made Simple</h1>
-					</div>
-				</div>
+			<section id="{{ panel.panelId }}" class="panel parallax">
+				{# Get panel hero image #}
+				{% set heroImage = panel.heroImage.first() %}
+				{% if heroImage %}
+					{# Set panel hero classes #}
+					{% if panel.heroFilter == 'dark' %}
+						{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+					{% elseif panel.heroFilter == 'darkFade' %}
+						{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+					{% elseif panel.heroFilter == 'light' %}
+						{% set class = ' hero-filter hero-filter-light' %}
+					{% elseif panel.heroFilter == 'lightFade' %}
+						{% set class = ' hero-filter hero-filter-light hero-fade' %}
+					{% else %}
+						{% set class = '' %}
+					{% endif %}
+					<div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+				{% endif %}
+				
 				<div class="container">
-					<div class="panel-card panel-card-light">
-						<h2 class="panel-card-heading">Instalment Lending for your business</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie.</p>
-						<a href="#" class="button button-outline-dark">View Pricing</a>
-					</div>
+					<h1 class="panel-heading panel-heading-thin">{{ panel.heading }}</h1>
 				</div>
+
+				{% if heroImage %}
+					</div>
+				{% endif %}
+
+				{% if panel.card.heading %}
+					<div class="container">
+						<div class="panel-card panel-card-{{ panel.card.colour }}">
+							<h2 class="panel-card-heading">{{ panel.card.heading }}</h2>
+							{{ panel.card.body }}
+
+							{% if panel.card.buttonLabel %}
+								<a href="{{ panel.card.buttonLink }}" class="button button-outline-dark">{{ panel.card.buttonLabel }}</a>
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
 			</section>
 			<!-- Instalment Lending Index Panel -->
 
