@@ -45,12 +45,12 @@
 						<li class="nav-item nav-secondary-item {{ class }}">
 							<a href="{{ link.url }}">{{ link.displayName }}</a>
 						</li>
-						å
+						
 					{% endfor %}
 				</ul>
 			{% endif %}
 
-			{% if header.navAction %}
+			{% if header.navAction.label %}
 				<div class="nav-secondary-actions">
 					<a class="button nav-button button-outline-light" href="{{ header.navAction.actionUrl }}">
 						{{ header.navAction.label }}
