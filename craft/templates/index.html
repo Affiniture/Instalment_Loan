@@ -1,0 +1,422 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+	
+	{# Output matrix panel blocks #}
+	{% for panel in entry.panels %}
+
+		{% if panel.type == 'primaryPanel' %}
+
+			<!-- Instalment Lending Index Panel -->
+			<section id="sect_index" class="panel panel-text-white parallax">
+				<div class="panel-hero hero-filter hero-filter-dark parallax-container" data-speed="0.5" style="background-image: url('img/stock/pexels-photo-541523-compressed.jpeg')">
+					<!-- <img class="jarallax-img" src="img/stock/pexels-photo-541523-compressed.jpeg" alt=""> -->
+					<div class="container">
+						<h1 class="panel-heading panel-heading-thin">Business Loans Made Simple</h1>
+					</div>
+				</div>
+				<div class="container">
+					<div class="panel-card panel-card-light">
+						<h2 class="panel-card-heading">Instalment Lending for your business</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie.</p>
+						<a href="#" class="button button-outline-dark">View Pricing</a>
+					</div>
+				</div>
+			</section>
+			<!-- Instalment Lending Index Panel -->
+
+		{% elseif panel.type == 'floatingColumnPanel' %}
+
+			<!-- Instalment Lending Features Panel -->
+			<section id="sect_features" class="panel">
+				<div class="container">
+					<h2 class="panel-heading">Features</h2>
+				</div>
+				<div class="col-floating">
+					<div class="container">
+						<!-- Feature -->
+						<article class="row no-gutters">
+							<div class="col col-floating-img" style="background-image: url('img/stock/pexels-photo-541523.jpeg');"></div>
+							<div class="col-lg-7">
+								<div class="card card-blue">
+									<h3 class="card-heading">A Trusted Name In Finance</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie.</p>
+								</div>
+							</div>
+						</article>
+						<!-- END: Feature -->
+						<!-- Feature -->
+						<article class="row no-gutters">
+							<div class="col col-floating-img" style="background-image: url('img/stock/pexels-photo-541523.jpeg');"></div>
+							<div class="col-lg-7 order-first">
+								<div class="card card-white">
+									<h3 class="card-heading">A Trusted Name In Finance</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie.</p>
+								</div>
+							</div>
+							
+						</article>
+						<!-- END: Feature -->
+					</div>
+				</div>
+			</section>
+			<!-- Instalment Lending Features Panel -->
+
+		{% elseif panel.type == 'pricingPanel' %}
+
+			<!-- Instalment Lending Products Panel -->
+			<section id="sect_products" class="panel panel-products parallax">
+				<div class="panel-hero panel-hero-sm hero-filter hero-filter-light hero-fade parallax-container" data-speed="0.5" style="background-image: url('img/stock/pexels-photo-466685-compressed.jpeg')">
+					<div class="container">
+						<h2 class="panel-heading panel-heading-bold panel-heading-shadow">Products</h2>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row product-cards">
+						<!-- Product -->
+						<div class="col-sm-6 col-md-4">
+							<article class="card equalise card-navy">
+								<h3 class="card-heading">Fixed Term 3—12 Months</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+								<p>Ideal for:</p>
+								<ul>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Lorem ipsum dolor sit amet</li>
+								</ul>
+								<a href="#" class="button button-outline-light button-block card-button-fixed">View Pricing</a>
+							</article>
+						</div>
+						<!-- END: Product -->
+						<!-- Product -->
+						<div class="col-sm-6 col-md-4">
+							<article class="card equalise card-blue">
+								<h3 class="card-heading">Interest Only up to 3 months</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+								<p>Ideal for:</p>
+								<ul>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Lorem ipsum dolor sit amet</li>
+								</ul>
+								<a href="#" class="button button-outline-light button-block card-button-fixed">View Pricing</a>
+							</article>
+						</div>
+						<!-- END: Product -->
+						<!-- Product -->
+						<div class="col-md-4">
+							<article class="card equalise card-grey">
+								<h3 class="card-heading">Revolving Line of Credit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+								<p>Ideal for:</p>
+								<ul>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Lorem ipsum dolor sit amet</li>
+									<li>Lorem ipsum dolor sit amet</li>
+								</ul>
+								<a href="#" class="button button-outline-light button-block card-button-fixed">View Pricing</a>
+							</article>
+						</div>
+						<!-- END: Product -->
+					</div>
+				</div>
+			</section>
+			<!-- Instalment Lending Products Panel -->
+
+		{% elseif panel.type == 'productsPanel' %}
+
+			<!-- Instalment Lending Pricing Panel -->
+			<section id="sect_pricing" class="panel">
+				<div class="container">
+					<h2 class="panel-heading">Pricing</h2>
+					<div id="pricing-products" class="tabs pricing-tabs">
+						<h3 class="numbered"><span>1</span> Choose a Product</h3>
+						<ul class="row">
+							<li class="col-sm-4"><a class="tab-navy" href="#product-1">Fixed Term 3-12 Months</a></li>
+							<li class="col-sm-4"><a class="tab-blue" href="#product-2">Interest Only up to 3 Months</a></li>
+							<li class="col-sm-4"><a class="tab-grey" href="#product-3">Revolving Line of Credit</a></li>
+						</ul>
+						<form id="product-1" class="pricing-form" method="get" action="https://affiniture.anchor.co.uk/Home"
+							data-principal-min="5000"
+							data-principal-max="100000"
+							data-principal-init="10000"
+							data-principal-steps="500"
+							data-term-min="3"
+							data-term-max="12"
+							data-term-init="10"
+							data-interest-rate="0.015"
+							data-fees="100"
+							data-product-type="standard">
+							<input type="hidden" name="amount">
+							<input type="hidden" name="term">
+
+							<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
+							<div class="row">
+								<div class="col">
+									<h4>Loan Amount</h4>
+									<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
+									<div class="pricing-form-slider pricing-form-slider-principal slider-navy">
+										<div class="ui-slider-handle"></div>
+									</div>
+
+									<h4>Repayment Term</h4>
+									<select class="pricing-form-mobile-input pricing-form-input-term"></select>
+									<div class="pricing-form-slider pricing-form-slider-term slider-navy">
+										<div class="ui-slider-handle"></div>
+									</div>
+									
+									<table class="pricing-form-repayments">
+										<thead>
+											<tr>
+												<th scope="col">Month</th>
+												<th scope="col">Loan</th>
+												<th scope="col">Interest</th>
+												<th scope="col">Payment</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<div class="col-lg-4">
+									<div class="card card-navy pricing-form-overview">
+										<h4>Loan Amount</h4>
+										<p class="pricing-form-overview-borrowing"></p>
+										<h4>Fees</h4>
+										<p class="pricing-form-overview-fees"></p>
+										<h4>Total Interest</h4>
+										<p class="pricing-form-overview-interest"></p>
+										<h4>Total to Repay</h4>
+										<p class="pricing-form-overview-repay"></p>
+										<h4>APR</h4>
+										<p class="pricing-form-overview-apr"></p>
+									</div>
+								</div>
+							</div>
+
+							<h3 class="numbered"><span>3</span> Apply Now</h3>
+							<div class="row">
+								<div class="col">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+								</div>
+								<div class="col-md-4">
+									<button type="submit" class="button button-block button-gold">Apply Now</button>
+								</div>
+							</div>
+
+							<div class="modal-container">
+								<div class="modal loading-modal">
+									<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+									<h2>Please Wait whilst we create your application</h2>
+								</div>
+							</div>
+						</form>
+						<form id="product-2" class="pricing-form" method="get" action="https://affiniture.anchor.co.uk/Home"
+							data-principal-min="5000"
+							data-principal-max="100000"
+							data-principal-init="10000"
+							data-principal-steps="500"
+							data-term-min="1"
+							data-term-max="3"
+							data-term-init="2"
+							data-interest-rate="0.015"
+							data-fees="100"
+							data-product-type="interestonly">
+							<input type="hidden" name="amount">
+							<input type="hidden" name="term">
+
+							<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
+							<div class="row">
+								<div class="col">
+									<h4>Loan Amount</h4>
+									<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
+									<div class="pricing-form-slider pricing-form-slider-principal slider-blue">
+										<div class="ui-slider-handle"></div>
+									</div>
+
+									<h4>Repayment Term</h4>
+									<select class="pricing-form-mobile-input pricing-form-input-term">
+									</select>
+									<div class="pricing-form-slider pricing-form-slider-term slider-blue">
+										<div class="ui-slider-handle"></div>
+									</div>
+									
+									<table class="pricing-form-repayments">
+										<thead>
+											<tr>
+												<th scope="col">Month</th>
+												<th scope="col">Loan</th>
+												<th scope="col">Interest</th>
+												<th scope="col">Payment</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<div class="col-lg-4">
+									<div class="card card-blue pricing-form-overview">
+										<h4>Loan Amount</h4>
+										<p class="pricing-form-overview-borrowing"></p>
+										<h4>Fees</h4>
+										<p class="pricing-form-overview-fees"></p>
+										<h4>Total Interest</h4>
+										<p class="pricing-form-overview-interest"></p>
+										<h4>Total to Repay</h4>
+										<p class="pricing-form-overview-repay"></p>
+										<h4>APR</h4>
+										<p class="pricing-form-overview-apr"></p>
+									</div>
+								</div>
+							</div>
+
+							<h3 class="numbered"><span>3</span> Apply Now</h3>
+							<div class="row">
+								<div class="col">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+								</div>
+								<div class="col-md-4">
+									<button type="submit" class="button button-block button-gold">Apply Now</button>
+								</div>
+							</div>
+
+							<div class="modal-container">
+								<div class="modal loading-modal">
+									<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+									<h2>Please Wait whilst we create your application</h2>
+								</div>
+							</div>
+						</form>
+						<div id="product-3" class="pricing-contact">
+							<h3 class="numbered"><span>2</span> Contact Us</h3>
+							<h4 class="heading">Let us tailor our service to your needs</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+							<div class="row">
+								<div class="col-3">
+									<div class="card card-outline card-contact">
+										<div class="card-contact-content">
+											<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+											<span class="location-icon flag-icon flag-icon-gb"></span>
+											<span class="desc">Calling from the UK</span>
+											<span class="details">0345 862 2935</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="card card-outline card-contact">
+										<div class="card-contact-content">
+											<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+											<span class="location-icon flag-icon flag-icon-ie"></span>
+											<span class="desc">Calling from Ireland</span>
+											<span class="details">0818 919 944</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="card card-outline card-contact">
+										<div class="card-contact-content">
+											<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+											<span class="location-icon fa fa-globe"></span>
+											<span class="desc">Calling Internationally</span>
+											<span class="details">+44 1244 470910</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="card card-outline card-contact">
+										<div class="card-contact-content">
+											<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+											<span class="desc">Email Customer Services</span>
+											<span class="details">customerservices<br>@dinersclub.co.uk</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Instalment Lending Index Panel -->
+
+		{% elseif panel.type == 'contactPanel' %}
+
+			<!-- Instalment Lending Contact Panel -->
+			<section id="sect_contact" class="panel panel-text-white parallax panel-contact">
+				<div class="panel-hero hero-filter hero-filter-dark parallax-container" data-speed="0.5" style="background-image: url('img/stock/pexels-photo-207456-B&W.jpeg')">
+					<div class="container">
+						<h2 class="panel-heading panel-heading-bold">Have Questions? We're here to help</h2>
+					</div>
+				</div>
+				<div class="container">
+					<div class="panel-card panel-card-navy">
+						<div class="row">
+							<div class="col-sm-6 col-lg-3">
+								<div class="card card-outline card-contact">
+									<div class="card-contact-content">
+										<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+										<span class="location-icon flag-icon flag-icon-gb"></span>
+										<span class="desc">Calling from the UK</span>
+										<span class="details">0345 862 2935</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-lg-3">
+								<div class="card card-outline card-contact">
+									<div class="card-contact-content">
+										<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+										<span class="location-icon flag-icon flag-icon-ie"></span>
+										<span class="desc">Calling from Ireland</span>
+										<span class="details">0818 919 944</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-lg-3">
+								<div class="card card-outline card-contact">
+									<div class="card-contact-content">
+										<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+										<span class="location-icon fa fa-globe"></span>
+										<span class="desc">Calling Internationally</span>
+										<span class="details">+44 1244 470910</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-lg-3">
+								<div class="card card-outline card-contact">
+									<div class="card-contact-content">
+										<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+										<span class="desc">Email Customer Services</span>
+										<span class="details">customerservices<br>@dinersclub.co.uk</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="contact-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit.</p>
+				</div>
+			</section>
+			<!-- Instalment Lending Contact Panel -->
+			
+		{% endif %}
+		
+	{% endfor %}
+
+{% endblock %}

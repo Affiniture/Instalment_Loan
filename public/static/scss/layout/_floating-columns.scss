@@ -1,0 +1,59 @@
+// ==========================================
+// _floating-columns.scss
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+.col-floating {
+	&-img  {
+		min-height: 5rem;
+		min-width: 100%;
+		background-size: cover;
+		background-position: center;
+		order: -1;
+		@media (min-width: $break-lg) {
+			min-height: unset;
+			min-width: unset;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+			order: unset;
+		}
+	}
+	@media (min-width: $break-lg) {
+		position: relative;
+		margin-top: 2rem;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 100px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
+			background-color: #f0f1f3;
+		}
+		
+		.row  {
+			margin-top: -2rem;
+			margin-bottom: -2rem;
+			&:first-child  {
+				margin-top: 0;
+				.col-floating-img  {
+					margin-top: 100px;
+					margin-left: 100px;
+				}
+			}
+			&:last-child  {
+				margin-bottom: 0;
+				.col-floating-img  {
+					margin-right: 100px;
+				}
+			}
+		}
+
+		.card {
+			padding: 5rem 6.5rem;
+			.card-heading {
+				font-size: 2.625rem;
+			}
+		}
+	}
+}

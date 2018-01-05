@@ -1,0 +1,5 @@
+craft/storage/backups
+craft/storage/runtime
+public/assets/media/*
+public/static/img/stock
+db.php

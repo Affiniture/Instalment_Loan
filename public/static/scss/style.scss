@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+// ==========================================
+// style.scss
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+// IMPORT BOOTSTRAP ------------------------- //
+// Override Bootstrap variables
+
+// Import Bootstrap Grid
+@import '../vendor/bootstrap/scss/bootstrap-reboot';
+@import '../vendor/bootstrap/scss/bootstrap-grid';
+@import '../vendor/bootstrap/scss/utilities/screenreaders';
+@import '../vendor/bootstrap/scss/images';
+
+// CSS copyright notice
+/*!
+ * InstalmentLoan
+ * Copyright 2017 Affiniture Cards Limited
+ */
+
+// IMPORT UTILITIES ------------------------- //
+@import 'utilities/variables';
+
+// IMPORT BASE PARTIALS --------------------- //
+@import 'base/legacy';
+@import 'base/base';
+
+// IMPORT COMPONENTS ------------------------ //
+@import 'components/button';
+@import 'components/card';
+@import 'components/modal';
+@import 'components/tabs';
+@import 'components/slider';
+
+// IMPORT LAYOUTS --------------------------- //
+@import 'layout/navigation';
+@import 'layout/panel';
+@import 'layout/floating-columns';
+@import 'layout/pricing-form';

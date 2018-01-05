@@ -1,0 +1,163 @@
+// ==========================================
+// _panel.scss
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+.panel {
+	margin-bottom: 5rem;
+	&-heading {
+		letter-spacing: 1rem;
+		text-align: center;
+		margin: 6rem 1rem;
+		&-thin {
+			font-weight: 100;
+		}
+		&-bold {
+			font-weight: 400;
+		}
+		&-shadow {
+			text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+		}
+	}
+	&-text-white &-heading {
+		color: $colour-white;
+	}
+	&-text-black &-heading {
+		color: $colour-black;
+	}
+	@media (min-width: $break-md) {
+		text-align: center;
+	}
+}
+
+/* Panel Cards */
+.panel-card {
+	padding: 1.5rem;
+	&-heading {
+		font-weight: 400;
+		letter-spacing: 0.4rem;
+		@media (min-width: $break-md) {
+			letter-spacing: 1rem;
+		}
+	}
+	.button {
+		font-size: 1.125rem;
+	}
+	&-light {
+		background-color: $colour-light;
+	}
+	&-navy {
+		background-color: $colour-navy-blue;
+	}
+	@media (min-width: $break-md) {
+		padding: 4rem 7.5rem;
+	}
+}
+
+.panel .container {
+  width: 100%;
+  max-width: 100%;
+	padding: 0;
+	@media (min-width: $break-lg) {
+		max-width: 960px;
+	}
+	@media (min-width: $break-xl) {
+		max-width: 1140px;
+	}
+}
+
+/* Panel Hero Images */
+.panel-hero {
+  background-size: cover;
+	padding: 1px;
+	&.hero-filter {
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: ' ';
+		}
+		.container {
+			position: relative;
+			z-index: 1;
+		}
+		&-dark::before {
+			background-color: rgba(0,0,0,0.3);
+		}
+		&-light::before {
+			background-color: rgba(255,255,255,0.6);
+		}
+	}
+	&.hero-fade::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 40%;
+		content: ' ';
+		background: linear-gradient(0deg,rgba(255,255,255,1), rgba(255,255,255,0));
+	}
+	@media (min-width: $break-md) {
+		.panel-heading {
+			margin: 6rem 9.5rem;
+		}
+	}
+	@media (min-width: $break-lg) {
+		min-height: 37.5rem;
+		margin-bottom: -6.25rem;
+		&-sm {
+			margin-bottom: -20rem;
+		}
+	}
+}
+
+/* Panel Hero Parallax */
+.parallax {
+	& &-container {
+		position: relative;
+		z-index: 0;
+	}
+
+	.panel-card {
+		position: relative;
+	}
+}
+
+/* Specific Panels */
+.panel.panel-products .product-cards {
+  -ms-flex-align: stretch !important;
+  align-items: stretch !important;
+  margin-left: 0px;
+	margin-right: 0px;
+	[class^="col-"] {
+		padding-left: 0px;
+		padding-right: 0px;
+		@media (min-width: $break-lg) {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+	@media (min-width: $break-lg) {
+		margin-left: -15px;
+    margin-right: -15px;
+	}
+}
+
+.panel.panel-contact {
+	.panel-card {
+		padding: 2rem 4rem;
+		margin-bottom: 2rem;
+		@media (min-width: $break-md) {
+			padding: 2rem;
+		}
+	}
+	.card {
+		margin-bottom: 1rem;
+	}
+	.contact-text {
+		font-size: .875rem;
+		text-align: left;
+	}
+}

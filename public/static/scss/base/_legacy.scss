@@ -1,0 +1,329 @@
+// ==========================================
+// _legacy.scss
+// CSS stylesheet for legacy components (header, navigation, footer)
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+/* FONTS */
+@font-face {
+	font-family: 'GillSansMTStd-Medium';
+	src: url('../fonts/273D19_4_0.eot');
+	src: url('../fonts/273D19_4_0.eot?#iefix') format('embedded-opentype'),
+	url('http://www.dinersclub.co.uk/css/fonts/273D19_4_0.woff') format('woff'),
+	url('../fonts/273D19_4_0.ttf') format('truetype');
+}
+
+
+/* GLOBAL STYLES */
+/* html, body { margin: 0; padding: 0; } */
+.legacy { background: #fff; color: #fff; font-size: 14px; font-family: 'GillSansMTStd-Medium', Arial, sans-serif; }
+.legacy a { text-decoration: none; text-transform: none; color: #fff; font-family: 'GillSansMTStd-Medium', Arial, sans-serif}
+.legacy a:hover { text-decoration: none; }
+.legacy ul { margin: 0; padding: 0; }
+.legacy li { list-style: none; margin: 0; }
+.legacy img { border: 0; }
+.legacy .clear { clear: both; display: block; overflow: hidden; height: 0px; }
+.legacy .clearfix:after {	content: ".";	display: block;	clear: both;	visibility: hidden;	line-height: 0;
+	height: 0;
+} 
+
+.legacy[xmlns] .clearfix {
+	display: block;
+}
+
+* .legacy .clearfix {
+	height: 1%;
+}
+
+.legacy *:focus { outline: none; }
+
+
+/*---HEADER-TOP---*/
+.wrapper .header-top { display: none; }
+
+/*---HEADER-MENU---*/
+.wrapper .header-menu { min-width: 0; height: 81px; background: #1e3846; border-bottom: 2px solid #fff; }
+.wrapper .header-menu ul.menu { display: none; }
+
+.wrapper .header-menu a.logo { 
+	width: 159px;
+	height: 40px;
+	display: block;
+	background: url('../img/logo.png') no-repeat;
+	background: linear-gradient(transparent, transparent), url('../img/logo.svg') no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 23px;
+	left: 27px;
+}
+
+.wrapper .header-menu a.m-menu-toggle { width: 23px; height: 19px; display: block; background: url('http://www.dinersclub.co.uk/img/mobile/menu-toggle.png') no-repeat; margin: 34px 27px 0 0; float: right; }
+	.wrapper .header-menu a.m-menu-toggle.blue { background-position: 0 -21px; }
+.wrapper .header-menu a.m-menu-close { width: 24px; height: 25px; display: none; background: url('http://www.dinersclub.co.uk/img/mobile/menu-close.png') no-repeat; margin: 31px 27px 0 0; float: right; }
+
+/*---MENU---*/
+.wrapper .m-menu { display: none; background: #162833; border-bottom: 3px solid #006ba7; }
+.wrapper .m-menu a.main { width: 100%; height: 50px; line-height: 50px; display: block; font-size: 18px; text-align: center; text-transform: uppercase; letter-spacing: 4px; position: relative; border-bottom: 1px solid #52626b; }
+	.wrapper .m-menu a.main.last { border-bottom: none; }
+	.wrapper .m-menu a.main i.arrow { width: 10px; height: 14px; display: block; background: url('http://www.dinersclub.co.uk/img/mobile/menu-arrow-open.png') no-repeat; margin-top: -7px; position: absolute; top: 50%; right: 34px; }
+		.wrapper .m-menu a.main i.arrow.open { width: 14px; height: 10px; background: url('http://www.dinersclub.co.uk/img/mobile/menu-arrow.png') no-repeat; margin-top: -5px; }
+
+	.wrapper .m-menu ul.sub { display: none; }
+		.wrapper .m-menu ul.sub li { }
+			.wrapper .m-menu ul.sub a { width: 100%; /*height: 50px; line-height: 50px;*/ display: block; background: #006ba7; font-size: 14px; text-align: center;  letter-spacing: 2px; position: relative; border-bottom: 1px solid #4090bd; padding: 15px 0; }
+
+.wrapper .m-menu .info { min-height: 210px; text-align: center; }
+	
+	.wrapper .m-menu .info div.search { width: 212px; height: 30px; margin: 15px auto 25px; padding: 0; position: relative; }
+		.wrapper .m-menu .info div.search input.field { width: 155px; height: 28px; line-height: 20px; display: block; background: #c8c6c6; color: #182d38; font-size: 18px; text-align:left; letter-spacing: 3px; margin: 0; padding: 0 45px 0 10px; border: 1px solid #c8c6c6; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; }
+			.wrapper .m-menu .info div.search input.field:focus { background: #fff; text-align: left; }
+		.wrapper .m-menu .info div.search input.btn { width: 45px; height: 30px; background: url('http://www.dinersclub.co.uk/img/mobile/search.png') no-repeat center center; margin: 0; padding: 0; border: none; cursor: pointer; position: absolute; top: 0; right: 0; }
+
+		.wrapper .m-menu .info .log-in { width: 100%; height: 30px; line-height: 30px; font-size: 18px; text-align: center; letter-spacing: 3px; cursor: pointer; margin: 0 auto; position: relative; border-bottom: 1px solid #52626b; padding:10px 0; box-sizing: content-box;}
+			.wrapper .m-menu .info .log-in span.arrow { width: 24px; height: 30px; display: block; background: url('http://www.dinersclub.co.uk/img/mobile/menu-arrow.png') no-repeat center center; cursor: pointer; position: absolute; top: 10px; right: 110px; }
+			
+			.wrapper .m-menu .info .log-in ul.options { width: 100%; display: none; background: white;   position: absolute; top: 40px; left: 0px; z-index:99; border-bottom:2px solid #0e73ac;}
+				.wrapper .m-menu .info .log-in ul.options li {padding: 0 5px 25px 5px; border-bottom: 1px solid #0e73ac; }
+					.wrapper .m-menu .info .log-in ul.options li span.big { width: 25px; height: 15px; line-height: 15px; font-size: 16px; text-align: left; margin: 13px 0; padding: 0 10px 0 20px; float: left; border-right: 1px solid #0e73ac; }
+					/*.wrapper .m-menu .info .log-in ul.options li span.small { width: 260px; line-height: 13px; font-size: 12px; text-align: left; margin: 9px 0 7px; float: right; }*/
+						.wrapper .m-menu .info .log-in ul.options li span.small.row { margin-top: 13px; }
+
+
+				.wrapper .m-menu .info .log-in.loginActive, .header-top .log-in.loginActive ul.options{background:white;}
+				.wrapper .m-menu .info .log-in.loginActive, .header-top .log-in.loginActive a{color:#182d38;}
+				.wrapper .m-menu .info .log-in.loginActive span.arrow{background: url('http://www.dinersclub.co.uk/img/desktop/login-arraw-bleu.png') no-repeat center center;}
+				.wrapper .m-menu .info .log-in .small{color:#182d38;}
+				.wrapper .m-menu .info .log-in .options li{text-align:center;}
+				.wrapper .m-menu .info .log-in ul.options h3 {
+					margin: 1em 0 1em 0;
+					color: #7f7f7f;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					font-weight: normal;
+				}
+
+
+				.wrapper .m-menu .info .fa.fa-gbp, .wrapper .m-menu .info .fa.fa-eur{
+					border: 1px solid #c0dae8;
+					border-radius: 50%;
+					height: 26px;
+					width: 31px;
+					padding: 8px 0 0 2px;
+					color:#c0dae8;
+				}
+
+				.header-top .log-in .options .small {
+					line-height: 2.5;
+					font-weight: bold;
+				}
+		
+		.wrapper .m-menu .info .phone { width: 250px; line-height: 25px; display: block; font-size: 18px; background: url('http://www.dinersclub.co.uk/img/mobile/phone.png') no-repeat center top; text-transform: uppercase; text-align: center; letter-spacing: 4px; margin: 35px auto 0; padding: 65px 0 0; }
+			.wrapper .m-menu .info .phone span { display: block; font-weight: bold; }
+
+				.wrapper .m-menu .info ul.social li a span { display: none; }
+				
+	.wrapper .m-menu .info ul.social { display: inline-block; margin: 40px 0 40px; }
+		.wrapper .m-menu .info ul.social li { width: 45px; height: 45px; display: block; margin: 0 11px; float: left; }
+			.wrapper .m-menu .info ul.social li a { width: 45px; height: 45px; display: block; background: url('http://www.dinersclub.co.uk/img/mobile/social-icons-menu.png') no-repeat; }
+				.wrapper .m-menu .info ul.social li a.in { background-position: 0 0; }
+				.wrapper .m-menu .info ul.social li a.gp { background-position: -68px 0; }
+				.wrapper .m-menu .info ul.social li a.fb { background-position: -135px 0; }
+				.wrapper .m-menu .info ul.social li a.tw { background-position: -204px 0; }	
+
+/*---CONTENT---*/
+.wrapper .content { }
+.wrapper .content .content-holder { padding: 0; }
+			
+.wrapper .footer-links { min-width: 0; background: #006ba7; }
+.wrapper .footer-links .content-holder {  margin-top:40px;}
+
+	.wrapper .footer-links a.m-to-top { width: 120px; display: block; background: url('http://www.dinersclub.co.uk/img/mobile/to-top.png') no-repeat center bottom; color: #006ba7; font-size: 12px; text-align: center; padding-bottom: 45px; margin-left: -60px; position: absolute; top: -50px; left: 50%; }
+
+	.wrapper .footer-links .download { width: 360px; font-size: 12px; }
+		.wrapper .footer-links .download span.icon { width: 57px; }
+		.wrapper .footer-links .download span.dl { width: 55px; }
+		.wrapper .footer-links .download span.text { height: 45px; line-height: 45px; padding: 0 5px 0 70px; }
+		
+			.wrapper .footer-links .download .app-links a { height: 45px; line-height: 45px; display: inline-block; font-size: 16px; padding: 0 23px; }
+				.wrapper .footer-links .download .app-links a.ios { padding: 0 30px; }
+				
+		.wrapper .footer-links .m-divider { width: 100%; height: 1px; display: block; background: #1074ad; float: left; }
+		
+	.wrapper .footer-links ul.social { margin: 20px 0 30px 50px; float: left; }
+		.wrapper .footer-links ul.social li { width: 39px; height: 38px; display: block; margin-left: 30px; float: left; }
+			.wrapper .footer-links ul.social li a { width: 39px; height: 38px; display: block; background: url('http://www.dinersclub.co.uk/img/mobile/social-icons-footer.png') no-repeat; }
+				.wrapper .footer-links ul.social li a.in { background-position: 0 0; }
+				.wrapper .footer-links ul.social li a.gp { background-position: -68px 0; }
+				.wrapper .footer-links ul.social li a.fb { background-position: -135px 0; }
+				.wrapper .footer-links ul.social li a.tw { background-position: -203px 0; }
+
+/*---FOOTER-BOTTOM---*/
+.wrapper .footer-bottom { background: #006ba7; color: #fff; font-size: 12px; position: relative; margin-top: -1px; font-family: Arial, sans-serif; font-size: 12px; }
+.wrapper .footer-bottom .content-holder { /*height: 85px;*/ text-align: center; }
+	.wrapper .footer-bottom span.copyright { line-height: 20px; margin: 0; float: left; width:100%;}
+	
+	.wrapper .footer-bottom span.copyright .sub { margin: 7px auto 20px auto !important; float: none; color: white; clear: both;   line-height: 1.8 !important; display: block; }
+	
+	.wrapper .footer-bottom .links { min-width: 0; margin: 0; float: none; }
+		.wrapper .footer-bottom .links a { line-height: 20px; color: #fff; float: none; font-family: Arial, sans-serif; letter-spacing: normal; }
+			.wrapper .footer-bottom .links a.m-first { display: block; }
+		
+		.wrapper .footer-bottom .links span.divider { float: none; }
+			.wrapper .footer-bottom .links span.divider.m-first { display: none; }
+
+
+/*--------------------EX. DESKTOP STYLE--------------------*/
+
+/* MEDIA QUERIES */
+
+/*
+@media(min-width:576px) {}
+@media(min-width:768px) {}
+ */
+
+@media(min-width:992px) {
+
+	img.bw {
+		-webkit-transition: all 0.6s ease;
+		transition: all 0.6s ease;
+		filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+		filter: gray !important; /* IE6-9 */
+		-webkit-filter: grayscale(100%) !important; /*Webkit Browser Support*/
+		-moz-filter: grayscale(100%) !important; /*Mozilla Firefox Support*/
+		-ms-filter: grayscale(100%) !important; /*IE Support*/
+		-o-filter: grayscale(100%) !important; /*Opera Browser Support*/
+	}
+			
+	/*---CONTENT---*/
+	.wrapper .content { background: #fff; position: relative; z-index: 6; }
+		.wrapper .content .content-holder { padding: 0 0 50px 0; }
+				
+	/*---FOOTER-LINKS---*/
+	.wrapper .footer-links { min-width: 1195px; background: #006ba7; position: relative; z-index: 5; }
+		.wrapper .footer-links .content-holder {  }
+			.wrapper .footer-links .download { background: #fff; cursor: pointer; color: #000; font-size: 16px; text-transform: uppercase; margin: 22px 0 22px 20px; padding: 0; position: relative; float: left; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+				.wrapper .footer-links .download span.icon { width: 76px; height: 45px; display: block; background: url('http://www.dinersclub.co.uk/img/desktop/logo-small.png') no-repeat center center; position: absolute; top: 0; left: 0; }
+				.wrapper .footer-links .download span.dl { width: 55px; height: 45px; display: block; background: url('http://www.dinersclub.co.uk/img/desktop/app-download.png') no-repeat center center; position: absolute; top: 0; right: 0; border-left: 1px solid #d9d8db; }
+				.wrapper .footer-links .download span.text { height: 45px; line-height: 45px; padding: 0 70px 0 75px; float: left; }
+				
+				.wrapper .footer-links .download:hover { color: #006ba7; }
+					.wrapper .footer-links .download:hover span.dl { background: url('http://www.dinersclub.co.uk/img/desktop/app-download-blue.png') no-repeat center center; border-left: 1px solid #7fb5d3; }
+				
+				.wrapper .footer-links .download .app-links { display: none; border-top: 1px solid #7fb5d3; }
+					.wrapper .footer-links .download .app-links a { height: 53px; line-height: 53px; display: inline-block; color: #006ba7; font-size: 16px; padding: 0 35px; }
+						.wrapper .footer-links .download .app-links a:hover { color: #6699cc; }
+						.wrapper .footer-links .download .app-links a.ios { padding: 0 40px; border-right: 1px solid #7fb5d3; }
+						.wrapper .footer-links .download .app-links a.android { border-right: 1px solid #7fb5d3; }
+						.wrapper .footer-links .download .app-links a.blackberry {  }
+				
+				
+			.wrapper .footer-links ul.social { margin: 28px 16px 0 0; float: right; }
+				.wrapper .footer-links ul.social li { width: 36px; height: 36px; display: block; margin-left: 17px; float: left; }
+					.wrapper .footer-links ul.social li a { width: 36px; height: 36px; display: block; background: url('http://www.dinersclub.co.uk/img/desktop/social-icons.png') no-repeat; }
+						.wrapper .footer-links ul.social li a.in { background-position: 0 0; }
+							.wrapper .footer-links ul.social li a.in:hover { background-position: 0 -44px; }
+						.wrapper .footer-links ul.social li a.gp { background-position: -53px 0; }
+							.wrapper .footer-links ul.social li a.gp:hover { background-position: -53px -44px; }
+						.wrapper .footer-links ul.social li a.fb { background-position: -106px 0; }
+							.wrapper .footer-links ul.social li a.fb:hover { background-position: -106px -44px; }
+						.wrapper .footer-links ul.social li a.tw { background-position: -159px 0; }
+							.wrapper .footer-links ul.social li a.tw:hover { background-position: -159px -44px; }
+
+	/*---MOBILE---*/
+	.wrapper .footer-links a.m-to-top { display: none; }
+	.wrapper .footer-links .m-divider { display: none; }
+
+	/*---FOOTER-BOTTOM---*/
+	.wrapper .footer-bottom { background: #efefef; color: #000;}
+		.wrapper .footer-bottom .content-holder { /*height: 52px;*/ text-align: left; }
+			.wrapper .footer-bottom span.copyright { margin: 20px 0 0 20px; float: left; width: auto; line-height: 1.2; }
+				.wrapper .footer-bottom span.copyright .sub { margin: 7px 0px 20px auto; float: left; color: #8c8c8c; line-height: initial !important; font-size: 10px }		
+			.wrapper .footer-bottom .links { min-width: 545px; margin: 20px 10px 0 0; float: right; }
+				.wrapper .footer-bottom .links a { color: #000;  float: left; line-height: 1.2; }
+					.wrapper .footer-bottom .links a:hover { color: #6699cc; }
+				.wrapper .footer-bottom .links span.divider { width: 1px; height: 15px; background: #c4c3c7; margin: 0 11px; float: left; border-right: 1px solid #e0e0e1; box-sizing: content-box; }
+					.wrapper .footer-bottom .links span.divider.m-first { display: block; }
+		
+	
+
+	#mainform {
+		background: #fff; /*Sample*/
+	}
+
+}
+
+@media(min-width:1200px) {
+
+	.wrapper { margin: 0 auto; position: relative; }
+	.content-holder { width: 1195px; margin: 0 auto; position: relative; }
+	
+	/*---HEADER-TOP---*/
+	.wrapper .header-top { display: block; min-width: 1195px; background: #182d38; position: relative; z-index: 20; padding-bottom: 13px;}
+	.wrapper .header-top .content-holder { height: 40px; }
+		.wrapper .header-top .phone { height: 25px; line-height: 25px; font-size: 14px; background: url('http://www.dinersclub.co.uk/img/desktop/phone.png') no-repeat left center; text-transform: uppercase; margin: 12px 25px 0 0; padding-left: 25px; float: right; }
+			.wrapper .header-top .phone span { font-weight: bold; }
+			
+		.wrapper .header-top .log-in { height: 21px; line-height: 21px; font-weight:bold; background: #182d38; font-size: 16px; cursor: pointer; margin: 9px 43px 0 0; padding: 6px 43px 6px 20px; position: relative; float: right; border: 1px solid #ffffff; box-sizing: content-box; }
+			.wrapper .header-top .log-in span.arrow { width: 24px; height: 21px; display: block; background: url('http://www.dinersclub.co.uk/img/desktop/login-arraw.png') no-repeat center center; cursor: pointer; position: absolute; top: 6px; right: 0px;}
+			.wrapper .header-top .log-in ul.options { width: 465px; display: none;  position: absolute; top: 34px; right: -1px;}
+				.wrapper .header-top .log-in ul.options li {  display:block; float:left; width:13em; box-sizing: content-box;}
+				.wrapper .header-top .log-in ul.options li:first-child{margin-right:1em; border-right:1px solid #c0dae8; padding-right:1em;}
+					.wrapper .header-top .log-in ul.options h3{margin:0 0 1em 0; color:#7f7f7f; text-transform:uppercase; letter-spacing:1px; font-weight:normal; font-size: 1.2rem;}
+		
+					.wrapper .header-top .log-in.loginActive, .wrapper .header-top .log-in.loginActive ul.options{background:white;}
+					.wrapper .header-top .log-in.loginActive, .wrapper .header-top .log-in.loginActive a{color:#182d38;}
+					.wrapper .header-top .log-in.loginActive ul.options{padding:1em; box-sizing: content-box;}
+					.wrapper .header-top .log-in.loginActive span.arrow{background: url('http://www.dinersclub.co.uk/img/desktop/login-arraw-bleu.png') no-repeat center center;}
+
+
+					.wrapper .header-top .log-in.loginActive .fa.fa-gbp, .wrapper .header-top .log-in.loginActive .fa.fa-eur{
+						border: 1px solid #c0dae8;
+						border-radius: 50%;
+						height: 26px;
+						width: 22px;
+						padding: 8px 0 0 12px;
+						color:#c0dae8;
+						box-sizing: content-box;
+					}
+
+					.wrapper .header-top .log-in .options .small {
+						line-height: 2.5;
+						font-weight: bold;
+						font-size: 100%;
+					}
+
+	/*---HEADER-MENU---*/
+	.wrapper .header-menu { min-width: 1195px; height: 68px; background: url('http://www.dinersclub.co.uk/img/desktop/header-menu-bg.jpg') repeat-x; border-bottom: 1px solid #fff; position: relative; z-index: 15; box-sizing: content-box; }
+		.wrapper .header-menu .content-holder { height: 68px; }
+			.wrapper .header-menu a.logo { 
+				top: 13px;
+				left: 12px;
+			}
+			
+			.wrapper .header-menu ul.menu { display: block; height: 68px; float: right; }
+				.wrapper .header-menu ul.menu li.main { height: 68px; line-height: 68px; font-size: 14px; letter-spacing: 1px; position: relative; float: left; border-left: 1px solid #334954; box-sizing: content-box; }
+					.wrapper .header-menu ul.menu li.main.active, .wrapper .header-menu ul.menu li.main.current { background: url('http://www.dinersclub.co.uk/img/desktop/menu-bg-hover.jpg') repeat-x; }
+					.wrapper .header-menu ul.menu li.main a { height: 68px; line-height: 68px; display: block; padding: 0 23px 0 28px; letter-spacing: 1px; }
+					.wrapper .header-menu ul.menu li.main a:hover { color: #ffffff; }
+					
+					/*.wrapper .header-menu ul.menu li.main:hover ul.sub { display: block; }*/
+					
+					.wrapper .header-menu ul.menu li.main ul.sub { width: 200px; display: none; background: url('http://www.dinersclub.co.uk/img/desktop/header-sub-menu-bg.png') repeat; letter-spacing: 2px; border: 1px solid #67808f; border-top: 1px solid #fff; position: absolute; top: 68px; left: -35px; z-index: 2; }
+					.wrapper .header-menu ul.menu li.main:first-child ul.sub {
+						width:400px;	
+					}
+						.wrapper .header-menu ul.menu li.main ul.sub.active { display: block; }
+						
+						.wrapper .header-menu ul.menu li.main ul.sub.sub-2 { width: 220px; left: 1px; }
+						.wrapper .header-menu ul.menu li.main ul.sub li { border-bottom: 1px solid #2d404a; }
+							.wrapper .header-menu ul.menu li.main ul.sub li a { height: auto; line-height: 21px; padding: 10px 22px; }
+							.wrapper .header-menu ul.menu li.main ul.sub li a.small { text-transform: lowercase; }
+							.wrapper .header-menu ul.menu li.main ul.sub li a.active { border-left: 5px solid #006ba7; padding-left: 17px; }
+							.wrapper .header-menu ul.menu li.main ul.sub li a.current { background: #006ba7; }
+		
+	/*---MOBILE---*/
+	.wrapper .header-menu a.m-menu-toggle { display: none; }
+	.wrapper .header-menu a.m-menu-close { display: none; }
+	.wrapper .m-menu { display: none; }
+
+}
