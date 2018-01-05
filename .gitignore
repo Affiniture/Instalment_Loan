@@ -2,6 +2,5 @@ craft/storage/backups
 craft/storage/runtime
 public/assets/media/*
 public/static/img/stock
-db.php
 public/static/.sass-cache
 public/assets/site-assets/*
