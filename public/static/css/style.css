@@ -2852,9 +2852,11 @@ nav .nav-button {
   .panel-card .button {
     font-size: 1.125rem; }
   .panel-card-light {
-    background-color: #F0F1F3; }
+    background-color: #F0F1F3;
+    color: #2C2A29; }
   .panel-card-navy {
-    background-color: #041E42; }
+    background-color: #041E42;
+    color: #FFFFFF; }
   @media (min-width: 768px) {
     .panel-card {
       padding: 4rem 7.5rem; } }

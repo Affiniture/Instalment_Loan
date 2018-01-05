@@ -45,9 +45,11 @@
 	}
 	&-light {
 		background-color: $colour-light;
+		color: $colour-black;
 	}
 	&-navy {
 		background-color: $colour-navy-blue;
+		color: $colour-white;
 	}
 	@media (min-width: $break-md) {
 		padding: 4rem 7.5rem;
