@@ -30,7 +30,7 @@ return array(
 	),
 
 	// Staging Environment
-	'staging.dinersclub' => array(
+	'instalmentloan-env.xxf82npcdk.eu-west-1.elasticbeanstalk.com' => array(
 		'devMode' => true,
 	),
 
