@@ -258,58 +258,48 @@
 									</form>
 								
 								{% elseif product.type == 'contactProduct' %}
-										<div id="product-3" class="pricing-contact">
-											<h3 class="numbered"><span>2</span> Contact Us</h3>
-											<h4 class="heading">Let us tailor our service to your needs</h4>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+									<div id="product-3" class="pricing-contact">
+										<h3 class="numbered"><span>2</span> Contact Us</h3>
+										<h4 class="heading">{{ product.contactHeading }}</h4>
+										{{ product.contactBody }}
+
+										{% if globals.contactInformation | length %}
 											<div class="row">
-												<div class="col-3">
-													<div class="card card-outline card-contact">
-														<div class="card-contact-content">
-															<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-															<span class="location-icon flag-icon flag-icon-gb"></span>
-															<span class="desc">Calling from the UK</span>
-															<span class="details">0345 862 2935</span>
+												{% for contact in globals.contactInformation %}
+													<div class="col-3">
+														<div class="card card-outline card-contact">
+															<div class="card-contact-content">
+
+																{# Output contact method icon #}
+																{% if contact.method == 'telephone' %}
+																	<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+																{% elseif contact.method == 'email' %}
+																	<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+																{% endif %}
+
+																{# Output location icon #}
+																{% if contact.region == 'international' %}
+																	<span class="location-icon fa fa-globe"></span>
+																{% elseif contact.region.value in ['gb', 'ie'] %}
+																	<span class="location-icon flag-icon flag-icon-{{ contact.region }}"></span>
+																{% endif %}
+
+																<span class="desc">{{ contact.label }}</span>
+																<span class="details">{{ contact.details }}</span>
+															</div>
 														</div>
 													</div>
-												</div>
-												<div class="col-3">
-													<div class="card card-outline card-contact">
-														<div class="card-contact-content">
-															<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-															<span class="location-icon flag-icon flag-icon-ie"></span>
-															<span class="desc">Calling from Ireland</span>
-															<span class="details">0818 919 944</span>
-														</div>
-													</div>
-												</div>
-												<div class="col-3">
-													<div class="card card-outline card-contact">
-														<div class="card-contact-content">
-															<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-															<span class="location-icon fa fa-globe"></span>
-															<span class="desc">Calling Internationally</span>
-															<span class="details">+44 1244 470910</span>
-														</div>
-													</div>
-												</div>
-												<div class="col-3">
-													<div class="card card-outline card-contact">
-														<div class="card-contact-content">
-															<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
-															<span class="desc">Email Customer Services</span>
-															<span class="details">customerservices<br>@dinersclub.co.uk</span>
-														</div>
-													</div>
-												</div>
+												{% endfor %}
 											</div>
-										</div>
+										{% endif %}
 									</div>
 
 								{% endif %}
 
 							{% endfor %}
-							
+						
+						</div>
+
 					{% endif %}
 				</div>
 			</section>
