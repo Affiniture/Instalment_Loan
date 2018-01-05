@@ -161,214 +161,156 @@
 		{% elseif panel.type == 'pricingPanel' %}
 
 			<!-- Instalment Lending Pricing Panel -->
-			<section id="sect_pricing" class="panel">
+			<section id="{{ panel.panelId }}" class="panel">
 				<div class="container">
-					<h2 class="panel-heading">Pricing</h2>
-					<div id="pricing-products" class="tabs pricing-tabs">
-						<h3 class="numbered"><span>1</span> Choose a Product</h3>
-						<ul class="row">
-							<li class="col-sm-4"><a class="tab-navy" href="#product-1">Fixed Term 3-12 Months</a></li>
-							<li class="col-sm-4"><a class="tab-blue" href="#product-2">Interest Only up to 3 Months</a></li>
-							<li class="col-sm-4"><a class="tab-grey" href="#product-3">Revolving Line of Credit</a></li>
-						</ul>
-						<form id="product-1" class="pricing-form" method="get" action="https://affiniture.anchor.co.uk/Home"
-							data-principal-min="5000"
-							data-principal-max="100000"
-							data-principal-init="10000"
-							data-principal-steps="500"
-							data-term-min="3"
-							data-term-max="12"
-							data-term-init="10"
-							data-interest-rate="0.015"
-							data-fees="100"
-							data-product-type="standard">
-							<input type="hidden" name="amount">
-							<input type="hidden" name="term">
+					<h2 class="panel-heading">{{ panel.heading }}</h2>
+					{{ panel.body }}
 
-							<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
-							<div class="row">
-								<div class="col">
-									<h4>Loan Amount</h4>
-									<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
-									<div class="pricing-form-slider pricing-form-slider-principal slider-navy">
-										<div class="ui-slider-handle"></div>
-									</div>
+					{% if panel.products | length %}
+						<div id="pricing-products" class="tabs pricing-tabs">
+							<h3 class="numbered"><span>1</span> Choose a Product</h3>
 
-									<h4>Repayment Term</h4>
-									<select class="pricing-form-mobile-input pricing-form-input-term"></select>
-									<div class="pricing-form-slider pricing-form-slider-term slider-navy">
-										<div class="ui-slider-handle"></div>
-									</div>
-									
-									<table class="pricing-form-repayments">
-										<thead>
-											<tr>
-												<th scope="col">Month</th>
-												<th scope="col">Loan</th>
-												<th scope="col">Interest</th>
-												<th scope="col">Payment</th>
-											</tr>
-										</thead>
-										<tbody>
-										</tbody>
-									</table>
-								</div>
-								<div class="col-lg-4">
-									<div class="card card-navy pricing-form-overview">
-										<h4>Loan Amount</h4>
-										<p class="pricing-form-overview-borrowing"></p>
-										<h4>Fees</h4>
-										<p class="pricing-form-overview-fees"></p>
-										<h4>Total Interest</h4>
-										<p class="pricing-form-overview-interest"></p>
-										<h4>Total to Repay</h4>
-										<p class="pricing-form-overview-repay"></p>
-										<h4>APR</h4>
-										<p class="pricing-form-overview-apr"></p>
-									</div>
-								</div>
-							</div>
+							{# Output products as tabs #}
+							<ul class="row">
+								{% for product in panel.products %}
+									<li class="col-sm-4"><a class="tab-{{ product.colour }}" href="#product-{{ loop.index }}">{{ product.title }}</a></li>
+								{% endfor %}
+							</ul>
+							
+							{# Output product forms #}
+							{% for product in panel.products %}
 
-							<h3 class="numbered"><span>3</span> Apply Now</h3>
-							<div class="row">
-								<div class="col">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
-								</div>
-								<div class="col-md-4">
-									<button type="submit" class="button button-block button-gold">Apply Now</button>
-								</div>
-							</div>
+								{% if product.type == 'pricingFormProduct' %}
+									<form id="product-{{ loop.index }}" class="pricing-form" method="get" action="{{ globals.anchorEndpoint }}"
+										data-principal-min="{{ product.principal.min }}"
+										data-principal-max="{{ product.principal.max }}"
+										data-principal-init="{{ product.principal.init }}"
+										data-principal-steps="{{ product.principal.steps }}"
+										data-term-min="{{ product.term.min }}"
+										data-term-max="{{ product.term.max }}"
+										data-term-init="{{ product.term.init }}"
+										data-interest-rate="{{ product.interestRate / 100 }}" {# Convert percentage to decimal #}
+										data-fees="{{ product.fees }}"
+										data-product-type="{{ product.repaymentType }}">
+										<input type="hidden" name="amount">
+										<input type="hidden" name="term">
 
-							<div class="modal-container">
-								<div class="modal loading-modal">
-									<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
-									<h2>Please Wait whilst we create your application</h2>
-								</div>
-							</div>
-						</form>
-						<form id="product-2" class="pricing-form" method="get" action="https://affiniture.anchor.co.uk/Home"
-							data-principal-min="5000"
-							data-principal-max="100000"
-							data-principal-init="10000"
-							data-principal-steps="500"
-							data-term-min="1"
-							data-term-max="3"
-							data-term-init="2"
-							data-interest-rate="0.015"
-							data-fees="100"
-							data-product-type="interestonly">
-							<input type="hidden" name="amount">
-							<input type="hidden" name="term">
+										<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
+										<div class="row">
+											<div class="col">
+												<h4>Loan Amount</h4>
+												<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
+												<div class="pricing-form-slider pricing-form-slider-principal slider-{{ product.colour }}">
+													<div class="ui-slider-handle"></div>
+												</div>
 
-							<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
-							<div class="row">
-								<div class="col">
-									<h4>Loan Amount</h4>
-									<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
-									<div class="pricing-form-slider pricing-form-slider-principal slider-blue">
-										<div class="ui-slider-handle"></div>
-									</div>
+												<h4>Repayment Term</h4>
+												<select class="pricing-form-mobile-input pricing-form-input-term"></select>
+												<div class="pricing-form-slider pricing-form-slider-term slider-{{ product.colour }}">
+													<div class="ui-slider-handle"></div>
+												</div>
+												
+												<table class="pricing-form-repayments">
+													<thead>
+														<tr>
+															<th scope="col">Month</th>
+															<th scope="col">Loan</th>
+															<th scope="col">Interest</th>
+															<th scope="col">Payment</th>
+														</tr>
+													</thead>
+													<tbody>
+													</tbody>
+												</table>
+											</div>
+											<div class="col-lg-4">
+												<div class="card card-{{ product.colour }} pricing-form-overview">
+													<h4>Loan Amount</h4>
+													<p class="pricing-form-overview-borrowing"></p>
+													<h4>Fees</h4>
+													<p class="pricing-form-overview-fees"></p>
+													<h4>Total Interest</h4>
+													<p class="pricing-form-overview-interest"></p>
+													<h4>Total to Repay</h4>
+													<p class="pricing-form-overview-repay"></p>
+													<h4>APR</h4>
+													<p class="pricing-form-overview-apr"></p>
+												</div>
+											</div>
+										</div>
 
-									<h4>Repayment Term</h4>
-									<select class="pricing-form-mobile-input pricing-form-input-term">
-									</select>
-									<div class="pricing-form-slider pricing-form-slider-term slider-blue">
-										<div class="ui-slider-handle"></div>
-									</div>
-									
-									<table class="pricing-form-repayments">
-										<thead>
-											<tr>
-												<th scope="col">Month</th>
-												<th scope="col">Loan</th>
-												<th scope="col">Interest</th>
-												<th scope="col">Payment</th>
-											</tr>
-										</thead>
-										<tbody>
-										</tbody>
-									</table>
-								</div>
-								<div class="col-lg-4">
-									<div class="card card-blue pricing-form-overview">
-										<h4>Loan Amount</h4>
-										<p class="pricing-form-overview-borrowing"></p>
-										<h4>Fees</h4>
-										<p class="pricing-form-overview-fees"></p>
-										<h4>Total Interest</h4>
-										<p class="pricing-form-overview-interest"></p>
-										<h4>Total to Repay</h4>
-										<p class="pricing-form-overview-repay"></p>
-										<h4>APR</h4>
-										<p class="pricing-form-overview-apr"></p>
-									</div>
-								</div>
-							</div>
+										<h3 class="numbered"><span>3</span> Apply Now</h3>
+										<div class="row">
+											<div class="col">
+													{{ product.legalDisclaimer }}
+											</div>
+											<div class="col-md-4">
+												<button type="submit" class="button button-block button-gold">Apply Now</button>
+											</div>
+										</div>
 
-							<h3 class="numbered"><span>3</span> Apply Now</h3>
-							<div class="row">
-								<div class="col">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
-								</div>
-								<div class="col-md-4">
-									<button type="submit" class="button button-block button-gold">Apply Now</button>
-								</div>
-							</div>
-
-							<div class="modal-container">
-								<div class="modal loading-modal">
-									<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
-									<h2>Please Wait whilst we create your application</h2>
-								</div>
-							</div>
-						</form>
-						<div id="product-3" class="pricing-contact">
-							<h3 class="numbered"><span>2</span> Contact Us</h3>
-							<h4 class="heading">Let us tailor our service to your needs</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
-							<div class="row">
-								<div class="col-3">
-									<div class="card card-outline card-contact">
-										<div class="card-contact-content">
-											<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-											<span class="location-icon flag-icon flag-icon-gb"></span>
-											<span class="desc">Calling from the UK</span>
-											<span class="details">0345 862 2935</span>
+										<div class="modal-container">
+											<div class="modal loading-modal">
+												<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+												<h2>Please Wait whilst we create your application</h2>
+											</div>
+										</div>
+									</form>
+								
+								{% elseif product.type == 'contactProduct' %}
+										<div id="product-3" class="pricing-contact">
+											<h3 class="numbered"><span>2</span> Contact Us</h3>
+											<h4 class="heading">Let us tailor our service to your needs</h4>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis.</p>
+											<div class="row">
+												<div class="col-3">
+													<div class="card card-outline card-contact">
+														<div class="card-contact-content">
+															<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+															<span class="location-icon flag-icon flag-icon-gb"></span>
+															<span class="desc">Calling from the UK</span>
+															<span class="details">0345 862 2935</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-3">
+													<div class="card card-outline card-contact">
+														<div class="card-contact-content">
+															<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+															<span class="location-icon flag-icon flag-icon-ie"></span>
+															<span class="desc">Calling from Ireland</span>
+															<span class="details">0818 919 944</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-3">
+													<div class="card card-outline card-contact">
+														<div class="card-contact-content">
+															<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+															<span class="location-icon fa fa-globe"></span>
+															<span class="desc">Calling Internationally</span>
+															<span class="details">+44 1244 470910</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-3">
+													<div class="card card-outline card-contact">
+														<div class="card-contact-content">
+															<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+															<span class="desc">Email Customer Services</span>
+															<span class="details">customerservices<br>@dinersclub.co.uk</span>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="col-3">
-									<div class="card card-outline card-contact">
-										<div class="card-contact-content">
-											<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-											<span class="location-icon flag-icon flag-icon-ie"></span>
-											<span class="desc">Calling from Ireland</span>
-											<span class="details">0818 919 944</span>
-										</div>
-									</div>
-								</div>
-								<div class="col-3">
-									<div class="card card-outline card-contact">
-										<div class="card-contact-content">
-											<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-											<span class="location-icon fa fa-globe"></span>
-											<span class="desc">Calling Internationally</span>
-											<span class="details">+44 1244 470910</span>
-										</div>
-									</div>
-								</div>
-								<div class="col-3">
-									<div class="card card-outline card-contact">
-										<div class="card-contact-content">
-											<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
-											<span class="desc">Email Customer Services</span>
-											<span class="details">customerservices<br>@dinersclub.co.uk</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+
+								{% endif %}
+
+							{% endfor %}
+							
+					{% endif %}
 				</div>
 			</section>
 			<!-- Instalment Lending Index Panel -->
