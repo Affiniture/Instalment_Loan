@@ -1,20 +1,8 @@
 {#
  # Homepage template
- # ---------------
+ # -----------------
  #
- # When this template gets loaded, it will be because someone has accessed
- # http://yoursite.com/ (without any URI). Craft checks to see if you have
- # a Single section set to be the Homepage (as you do, by default), and
- # loads the section’s Template (this file). A special ‘entry’ variable
- # will already be set for you, assigned to the Homepage entry.
- #
- # It's worth noting that even if you didn't have a Homepage Single section,
- # as long as this template remains at craft/templates/index.html, it
- # would still be the one to get loaded when accessing http://yoursite.com/,
- # albeit without an ‘entry’ variable already set for you.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
+ # Copyright 2017 Affinture Cards Limited
  #}
 
 {% extends "_layout" %}
@@ -280,57 +268,40 @@
 		{% elseif panel.type == 'contactPanel' %}
 
 			<!-- Instalment Lending Contact Panel -->
-			<section id="sect_contact" class="panel panel-text-white parallax panel-contact">
-				<div class="panel-hero hero-filter hero-filter-dark parallax-container" data-speed="0.5" style="background-image: url('img/stock/pexels-photo-207456-B&W.jpeg')">
-					<div class="container">
-						<h2 class="panel-heading panel-heading-bold">Have Questions? We're here to help</h2>
-					</div>
+			<section id="{{ panel.panelId }}" class="panel parallax panel-contact">
+				{# Get panel hero image #}
+				{% set heroImage = panel.heroImage.first() %}
+				{% if heroImage %}
+					{# Set panel hero classes #}
+					{% if panel.heroFilter == 'dark' %}
+						{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+					{% elseif panel.heroFilter == 'darkFade' %}
+						{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+					{% elseif panel.heroFilter == 'light' %}
+						{% set class = ' hero-filter hero-filter-light' %}
+					{% elseif panel.heroFilter == 'lightFade' %}
+						{% set class = ' hero-filter hero-filter-light hero-fade' %}
+					{% else %}
+						{% set class = '' %}
+					{% endif %}
+					<div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+				{% endif %}
+				
+				<div class="container">
+					<h2 class="panel-heading panel-heading-bold">{{ panel.heading }}</h2>
 				</div>
+
+				{% if heroImage %}
+					</div>
+				{% endif %}
+
 				<div class="container">
 					<div class="panel-card panel-card-navy">
-						<div class="row">
-							<div class="col-sm-6 col-lg-3">
-								<div class="card card-outline card-contact">
-									<div class="card-contact-content">
-										<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-										<span class="location-icon flag-icon flag-icon-gb"></span>
-										<span class="desc">Calling from the UK</span>
-										<span class="details">0345 862 2935</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6 col-lg-3">
-								<div class="card card-outline card-contact">
-									<div class="card-contact-content">
-										<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-										<span class="location-icon flag-icon flag-icon-ie"></span>
-										<span class="desc">Calling from Ireland</span>
-										<span class="details">0818 919 944</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6 col-lg-3">
-								<div class="card card-outline card-contact">
-									<div class="card-contact-content">
-										<i class="fa fa-phone fa-5x" aria-hidden="true"></i>
-										<span class="location-icon fa fa-globe"></span>
-										<span class="desc">Calling Internationally</span>
-										<span class="details">+44 1244 470910</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6 col-lg-3">
-								<div class="card card-outline card-contact">
-									<div class="card-contact-content">
-										<i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
-										<span class="desc">Email Customer Services</span>
-										<span class="details">customerservices<br>@dinersclub.co.uk</span>
-									</div>
-								</div>
-							</div>
-						</div>
+
+						{% include '_components/_contact-cards' %}
+
 					</div>
-					<p class="contact-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit, eros augue condimentum purus, sit amet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis ultricies urna non mollis. Praesent cursus dui in iaculis porttitor. Fusce viverra varius suscipit. Phasellus varius, neque in aliquet suscipit.</p>
+					<div class="contact-text">{{ panel.body }}</div>
 				</div>
 			</section>
 			<!-- Instalment Lending Contact Panel -->
