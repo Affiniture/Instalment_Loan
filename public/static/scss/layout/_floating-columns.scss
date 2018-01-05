@@ -3,6 +3,9 @@
 // Copyright 2017 Affiniture Cards Limited
 // ==========================================
 
+$col-spacing: 2rem;
+$col-spacing-lg: 6.25rem;
+
 .col-floating {
 	&-img  {
 		min-height: 5rem;
@@ -24,28 +27,31 @@
 		&::before {
 			content: '';
 			position: absolute;
-			top: 100px;
+			top: $col-spacing-lg;
 			right: 0px;
-			bottom: 0px;
+			bottom: $col-spacing;
 			left: 0px;
 			background-color: #f0f1f3;
 		}
 		
 		.row  {
-			margin-top: -2rem;
-			margin-bottom: -2rem;
+			margin-top: -$col-spacing;
+			margin-bottom: -$col-spacing;
 			&:first-child  {
 				margin-top: 0;
 				.col-floating-img  {
-					margin-top: 100px;
-					margin-left: 100px;
+					margin-top: $col-spacing-lg;
 				}
+			}
+			&:nth-child(odd) .col-floating-img  {
+				margin-left: $col-spacing-lg;
+			}
+			&:nth-child(even) .col-floating-img  {
+				order: 1;
+				margin-right: $col-spacing-lg;
 			}
 			&:last-child  {
 				margin-bottom: 0;
-				.col-floating-img  {
-					margin-right: 100px;
-				}
 			}
 		}
 
