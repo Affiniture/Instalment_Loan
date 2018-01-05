@@ -19,7 +19,7 @@ function PricingForm(pricingForm) {
 	this.termInit = 0;
 	this.fees = 0;
 	this.rate = 0;
-	this.productType = 0;
+	this.productType = 'interestPrincipal';
 
 	// Initialise Form
 	this.init = function() {

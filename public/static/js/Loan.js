@@ -21,10 +21,9 @@ function Loan(rate, principal, term, fees, type) {
 	this.init = function() {
 		// Define default type value
 		if (!this.type) {
-			this.type = 'standard'
+			this.type = 'interestPrincipal'
 		}
-
-        this.calculate();        
+		this.calculate();        
 	};
 
 	this.reset = function() {
@@ -40,7 +39,7 @@ function Loan(rate, principal, term, fees, type) {
 		for(var i = 0; i < this.term; i++) {
 			var repayment = {};
 			
-			if (this.type == 'standard') {
+			if (this.type == 'interestPrincipal') {
 				if (i == 0) {
 					repayment.open = this.totalLoan;
 				} else {
@@ -51,7 +50,7 @@ function Loan(rate, principal, term, fees, type) {
 				repayment.loan = this.totalLoan / this.term;
 			}
 			
-			else if (this.type == 'interestonly') {
+			else if (this.type == 'interestOnly') {
 				repayment.interest = this.totalLoan * this.rate;
 
 				if (i == this.term - 1) {
@@ -65,7 +64,7 @@ function Loan(rate, principal, term, fees, type) {
 			repayment.month = i+1;
 			repayment.payment = repayment.interest + repayment.loan;
 			
-			if (this.type == 'standard') {
+			if (this.type == 'interestPrincipal') {
 				repayment.close = repayment.open + repayment.interest - repayment.payment;
 			}
 
