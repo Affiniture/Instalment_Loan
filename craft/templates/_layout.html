@@ -25,7 +25,7 @@
 			{% set staticUrl = craft.config.environmentVariables.staticBaseUrl %}
 		{% else %}
 			{# Set as root #}
-			{% set staticUrl = '/' %}
+			{% set staticUrl = '' %}
 		{% endif %}
 		<!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="{{ staticUrl }}/img/favicons/apple-touch-icon.png">
