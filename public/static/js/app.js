@@ -41,6 +41,28 @@ $(document).ready(function () {
 
 });
 
+// Initialise Cookie Consent
+window.addEventListener("load", function(){
+	window.cookieconsent.initialise({
+		"palette": {
+			"popup": {
+				"background": "#477196",
+				"text": "#ffffff"
+			},
+			"button": {
+				"background": "#ffffff",
+				"text": "#477196"
+			}
+		},
+		"position": "bottom-right",
+		"content": {
+			"message": "Diners Club International uses cookies to ensure you get the best experience on our website.",
+			"dismiss": "Dismiss",
+			"href": "http://www.dinersclub.co.uk/Other/Privacy%20Policy.aspx"
+		}
+	})
+});
+
 // Toggle Navigation Fixed State 
 function toggleMobileNav(target) {
 	// Toggle Nav Click Handler
