@@ -30,7 +30,7 @@ return array(
 	),
 
 	// Staging Environment
-	'instalmentloan-env.xxf82npcdk.eu-west-1.elasticbeanstalk.com' => array(
+	'instalmentloan-staging.xxf82npcdk.eu-west-1.elasticbeanstalk.com' => array(
 		'devMode' => true,
 	),
 

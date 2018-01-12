@@ -21,7 +21,7 @@ return array(
 		'showLabel' => true,
 	),
 
-	'staging.dinersclub' => array(
+	'instalmentloan-staging.xxf82npcdk.eu-west-1.elasticbeanstalk.com' => array(
 		'label' => 'Staging',
 		'showLabel' => true,
 	),
