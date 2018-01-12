@@ -5,309 +5,310 @@
  # Copyright 2017 Affinture Cards Limited
  #}
 
-{% extends "_layout" %}
+ {% extends "_layout" %}
 
-{% block content %}
-	
-	{# Output matrix panel blocks #}
-	{% for panel in entry.panels %}
-
-		{% if panel.type == 'primaryPanel' %}
-			<!-- Instalment Lending Index Panel -->
-			<section id="{{ panel.panelId }}" class="panel parallax">
-				{# Get panel hero image #}
-				{% set heroImage = panel.heroImage.first() %}
-				{% if heroImage %}
-					{# Set panel hero classes #}
-					{% if panel.heroFilter == 'dark' %}
-						{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
-					{% elseif panel.heroFilter == 'darkFade' %}
-						{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
-					{% elseif panel.heroFilter == 'light' %}
-						{% set class = ' hero-filter hero-filter-light' %}
-					{% elseif panel.heroFilter == 'lightFade' %}
-						{% set class = ' hero-filter hero-filter-light hero-fade' %}
-					{% else %}
-						{% set class = '' %}
-					{% endif %}
-					<div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
-				{% endif %}
-				
-				<div class="container">
-					<h1 class="panel-heading panel-heading-thin">{{ panel.heading }}</h1>
-				</div>
-
-				{% if heroImage %}
-					</div>
-				{% endif %}
-
-				{% if panel.card.heading %}
-					<div class="container">
-						<div class="panel-card panel-card-{{ panel.card.colour }}">
-							<h2 class="panel-card-heading">{{ panel.card.heading }}</h2>
-							{{ panel.card.body }}
-
-							{% if panel.card.buttonLabel %}
-								<a href="{{ panel.card.buttonLink }}" class="button button-outline-dark">{{ panel.card.buttonLabel }}</a>
-							{% endif %}
-						</div>
-					</div>
-				{% endif %}
-			</section>
-			<!-- Instalment Lending Index Panel -->
-
-		{% elseif panel.type == 'floatingColumnPanel' %}
-
-			<!-- Instalment Lending Features Panel -->
-			<section id="{{ panel.panelId }}" class="panel">
-				<div class="container">
-					<h2 class="panel-heading">{{ panel.heading }}</h2>
-				</div>
-
-				{% if panel.cards | length %}
-				<div class="col-floating">
-					<div class="container">
-						
-						{% for card in panel.cards %}
-						<!-- Feature -->
-						<article class="row no-gutters">
-
-							{% set img = card.image.first() %}
-							{% if img %}
-								<div class="col col-floating-img" style="background-image: url('{{ img.url }}');"></div>
-							{% endif %}
-
-							<div class="col-lg-7">
-								<div class="card card-{{ card.colour }}">
-									<h3 class="card-heading">{{ card.heading }}</h3>
-									{{ card.body }}
-								</div>
-							</div>
-						</article>
-						<!-- END: Feature -->
-						{% endfor %}
-					</div>
-				</div>
-				{% endif %}
-
-			</section>
-			<!-- Instalment Lending Features Panel -->
-
-		{% elseif panel.type == 'productsPanel' %}
-
-			<!-- Instalment Lending Products Panel -->
-			<section id="{{ panel.panelId }}" class="panel panel-products parallax">
-				{# Get panel hero image #}
-				{% set heroImage = panel.heroImage.first() %}
-				{% if heroImage %}
-					{# Set panel hero classes #}
-					{% if panel.heroFilter == 'dark' %}
-						{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
-					{% elseif panel.heroFilter == 'darkFade' %}
-						{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
-					{% elseif panel.heroFilter == 'light' %}
-						{% set class = ' hero-filter hero-filter-light' %}
-					{% elseif panel.heroFilter == 'lightFade' %}
-						{% set class = ' hero-filter hero-filter-light hero-fade' %}
-					{% else %}
-						{% set class = '' %}
-					{% endif %}
-					<div class="panel-hero panel-hero-sm parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
-				{% endif %}
-				
-				<div class="container">
-					<h2 class="panel-heading panel-heading-bold panel-heading-shadow">{{ panel.heading }}</h2>
-				</div>
-
-				{% if heroImage %}
-					</div>
-				{% endif %}
-
-				{% if panel.products | length %}
-					<div class="container">
-						<div class="row product-cards">
-							{% for productRow in panel.products %}
-								{% set product = productRow.product.first() %}
-								{% if product %}
-									<!-- Product -->
-									<div class="col-sm-6 col-md-4">
-										<article class="card equalise card-{{ product.colour }}">
-											<h3 class="card-heading">{{ product.title }}</h3>
-											{{ product.description }}
-											<a href="{{ productRow.buttonLink }}" class="button button-outline-{{ productRow.buttonColour }} button-block card-button-fixed">{{ productRow.buttonLabel }}</a>
-										</article>
-									</div>
-									<!-- END: Product -->
-								{% endif %}
-							{% endfor %}
-						</div>
-					</div>
-				{% endif %}
-			</section>
-			<!-- Instalment Lending Products Panel -->
-
-		{% elseif panel.type == 'pricingPanel' %}
-
-			<!-- Instalment Lending Pricing Panel -->
-			<section id="{{ panel.panelId }}" class="panel">
-				<div class="container">
-					<h2 class="panel-heading">{{ panel.heading }}</h2>
-					{{ panel.body }}
-
-					{% if panel.products | length %}
-						<div id="pricing-products" class="tabs pricing-tabs">
-							<h3 class="numbered"><span>1</span> Choose a Product</h3>
-
-							{# Output products as tabs #}
-							<ul class="row">
-								{% for product in panel.products %}
-									<li class="col-sm-4"><a class="tab-{{ product.colour }}" href="#product-{{ loop.index }}">{{ product.title }}</a></li>
-								{% endfor %}
-							</ul>
-							
-							{# Output product forms #}
-							{% for product in panel.products %}
-
-								{% if product.type == 'pricingFormProduct' %}
-									<form id="product-{{ loop.index }}" class="pricing-form" method="get" action="{{ globals.anchorEndpoint }}"
-										data-principal-min="{{ product.principal.min }}"
-										data-principal-max="{{ product.principal.max }}"
-										data-principal-init="{{ product.principal.init }}"
-										data-principal-steps="{{ product.principal.steps }}"
-										data-term-min="{{ product.term.min }}"
-										data-term-max="{{ product.term.max }}"
-										data-term-init="{{ product.term.init }}"
-										data-interest-rate="{{ product.interestRate / 100 }}" {# Convert percentage to decimal #}
-										data-fees="{{ product.fees }}"
-										data-product-type="{{ product.repaymentType }}">
-										<input type="hidden" name="amount">
-										<input type="hidden" name="term">
-
-										<h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
-										<div class="row">
-											<div class="col">
-												<h4>Loan Amount</h4>
-												<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
-												<div class="pricing-form-slider pricing-form-slider-principal slider-{{ product.colour }}">
-													<div class="ui-slider-handle"></div>
-												</div>
-
-												<h4>Repayment Term</h4>
-												<select class="pricing-form-mobile-input pricing-form-input-term"></select>
-												<div class="pricing-form-slider pricing-form-slider-term slider-{{ product.colour }}">
-													<div class="ui-slider-handle"></div>
-												</div>
-												
-												<table class="pricing-form-repayments">
-													<thead>
-														<tr>
-															<th scope="col">Month</th>
-															<th scope="col">Loan</th>
-															<th scope="col">Interest</th>
-															<th scope="col">Payment</th>
-														</tr>
-													</thead>
-													<tbody>
-													</tbody>
-												</table>
-											</div>
-											<div class="col-lg-4">
-												<div class="card card-{{ product.colour }} pricing-form-overview">
-													<h4>Loan Amount</h4>
-													<p class="pricing-form-overview-borrowing"></p>
-													<h4>Fees</h4>
-													<p class="pricing-form-overview-fees"></p>
-													<h4>Total Interest</h4>
-													<p class="pricing-form-overview-interest"></p>
-													<h4>Total to Repay</h4>
-													<p class="pricing-form-overview-repay"></p>
-													<h4>APR</h4>
-													<p class="pricing-form-overview-apr"></p>
-												</div>
-											</div>
-										</div>
-
-										<h3 class="numbered"><span>3</span> Apply Now</h3>
-										<div class="row">
-											<div class="col">
-													{{ product.legalDisclaimer }}
-											</div>
-											<div class="col-md-4">
-												<button type="submit" class="button button-block button-gold">Apply Now</button>
-											</div>
-										</div>
-
-										<div class="modal-container">
-											<div class="modal loading-modal">
-												<i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
-												<h2>Please Wait whilst we create your application</h2>
-											</div>
-										</div>
-									</form>
-								
-								{% elseif product.type == 'contactProduct' %}
-									<div id="product-{{ loop.index }}" class="pricing-contact">
-										<h3 class="numbered"><span>2</span> Contact Us</h3>
-										<h4 class="heading">{{ product.contactHeading }}</h4>
-										{{ product.contactBody }}
-
-										{% include '_components/_contact-cards' %}
-
-									</div>
-								{% endif %}
-
-							{% endfor %}
-						
-						</div>
-
-					{% endif %}
-				</div>
-			</section>
-			<!-- Instalment Lending Index Panel -->
-
-		{% elseif panel.type == 'contactPanel' %}
-
-			<!-- Instalment Lending Contact Panel -->
-			<section id="{{ panel.panelId }}" class="panel parallax panel-contact">
-				{# Get panel hero image #}
-				{% set heroImage = panel.heroImage.first() %}
-				{% if heroImage %}
-					{# Set panel hero classes #}
-					{% if panel.heroFilter == 'dark' %}
-						{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
-					{% elseif panel.heroFilter == 'darkFade' %}
-						{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
-					{% elseif panel.heroFilter == 'light' %}
-						{% set class = ' hero-filter hero-filter-light' %}
-					{% elseif panel.heroFilter == 'lightFade' %}
-						{% set class = ' hero-filter hero-filter-light hero-fade' %}
-					{% else %}
-						{% set class = '' %}
-					{% endif %}
-					<div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
-				{% endif %}
-				
-				<div class="container">
-					<h2 class="panel-heading panel-heading-bold">{{ panel.heading }}</h2>
-				</div>
-
-				{% if heroImage %}
-					</div>
-				{% endif %}
-
-				<div class="container">
-					<div class="panel-card panel-card-navy">
-
-						{% include '_components/_contact-cards' %}
-
-					</div>
-					<div class="contact-text">{{ panel.body }}</div>
-				</div>
-			</section>
-			<!-- Instalment Lending Contact Panel -->
-			
-		{% endif %}
-		
-	{% endfor %}
-
-{% endblock %}
+ {% block content %}
+	 
+	 {# Output matrix panel blocks #}
+	 {% for panel in entry.panels %}
+ 
+		 {% if panel.type == 'primaryPanel' %}
+			 <!-- Instalment Lending Index Panel -->
+			 <section id="{{ panel.panelId }}" class="panel parallax">
+				 {# Get panel hero image #}
+				 {% set heroImage = panel.heroImage.first() %}
+				 {% if heroImage %}
+					 {# Set panel hero classes #}
+					 {% if panel.heroFilter == 'dark' %}
+						 {% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+					 {% elseif panel.heroFilter == 'darkFade' %}
+						 {% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+					 {% elseif panel.heroFilter == 'light' %}
+						 {% set class = ' hero-filter hero-filter-light' %}
+					 {% elseif panel.heroFilter == 'lightFade' %}
+						 {% set class = ' hero-filter hero-filter-light hero-fade' %}
+					 {% else %}
+						 {% set class = '' %}
+					 {% endif %}
+					 <div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+				 {% endif %}
+				 
+				 <div class="container">
+					 <h1 class="panel-heading panel-heading-thin">{{ panel.heading }}</h1>
+				 </div>
+ 
+				 {% if heroImage %}
+					 </div>
+				 {% endif %}
+ 
+				 {% if panel.card.heading %}
+					 <div class="container">
+						 <div class="panel-card panel-card-{{ panel.card.colour }}">
+							 <h2 class="panel-card-heading">{{ panel.card.heading }}</h2>
+							 {{ panel.card.body }}
+ 
+							 {% if panel.card.buttonLabel %}
+								 <a href="{{ panel.card.buttonLink }}" class="button button-outline-dark">{{ panel.card.buttonLabel }}</a>
+							 {% endif %}
+						 </div>
+					 </div>
+				 {% endif %}
+			 </section>
+			 <!-- Instalment Lending Index Panel -->
+ 
+		 {% elseif panel.type == 'floatingColumnPanel' %}
+ 
+			 <!-- Instalment Lending Features Panel -->
+			 <section id="{{ panel.panelId }}" class="panel">
+				 <div class="container">
+					 <h2 class="panel-heading">{{ panel.heading }}</h2>
+				 </div>
+ 
+				 {% if panel.cards | length %}
+				 <div class="col-floating">
+					 <div class="container">
+						 
+						 {% for card in panel.cards %}
+						 <!-- Feature -->
+						 <article class="row no-gutters">
+ 
+							 {% set img = card.image.first() %}
+							 {% if img %}
+								 <div class="col col-floating-img" style="background-image: url('{{ img.url }}');"></div>
+							 {% endif %}
+ 
+							 <div class="col-lg-7">
+								 <div class="card card-{{ card.colour }}">
+									 <h3 class="card-heading">{{ card.heading }}</h3>
+									 {{ card.body }}
+								 </div>
+							 </div>
+						 </article>
+						 <!-- END: Feature -->
+						 {% endfor %}
+					 </div>
+				 </div>
+				 {% endif %}
+ 
+			 </section>
+			 <!-- Instalment Lending Features Panel -->
+ 
+		 {% elseif panel.type == 'productsPanel' %}
+ 
+			 <!-- Instalment Lending Products Panel -->
+			 <section id="{{ panel.panelId }}" class="panel panel-products parallax">
+				 {# Get panel hero image #}
+				 {% set heroImage = panel.heroImage.first() %}
+				 {% if heroImage %}
+					 {# Set panel hero classes #}
+					 {% if panel.heroFilter == 'dark' %}
+						 {% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+					 {% elseif panel.heroFilter == 'darkFade' %}
+						 {% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+					 {% elseif panel.heroFilter == 'light' %}
+						 {% set class = ' hero-filter hero-filter-light' %}
+					 {% elseif panel.heroFilter == 'lightFade' %}
+						 {% set class = ' hero-filter hero-filter-light hero-fade' %}
+					 {% else %}
+						 {% set class = '' %}
+					 {% endif %}
+					 <div class="panel-hero panel-hero-sm parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+				 {% endif %}
+				 
+				 <div class="container">
+					 <h2 class="panel-heading panel-heading-bold panel-heading-shadow">{{ panel.heading }}</h2>
+				 </div>
+ 
+				 {% if heroImage %}
+					 </div>
+				 {% endif %}
+ 
+				 {% if panel.products | length %}
+					 <div class="container">
+						 <div class="row product-cards">
+							 {% for productRow in panel.products %}
+								 {% set product = productRow.product.first() %}
+								 {% if product %}
+									 <!-- Product -->
+									 <div class="col-sm-6 col-md-4">
+										 <article class="card equalise card-{{ product.colour }}">
+											 <h3 class="card-heading">{{ product.title }}</h3>
+											 {{ product.description }}
+											 <a href="{{ productRow.buttonLink }}" class="button button-outline-{{ productRow.buttonColour }} button-block card-button-fixed">{{ productRow.buttonLabel }}</a>
+										 </article>
+									 </div>
+									 <!-- END: Product -->
+								 {% endif %}
+							 {% endfor %}
+						 </div>
+					 </div>
+				 {% endif %}
+			 </section>
+			 <!-- Instalment Lending Products Panel -->
+ 
+		 {% elseif panel.type == 'pricingPanel' %}
+ 
+			 <!-- Instalment Lending Pricing Panel -->
+			 <section id="{{ panel.panelId }}" class="panel">
+				 <div class="container">
+					 <h2 class="panel-heading">{{ panel.heading }}</h2>
+					 {{ panel.body }}
+ 
+					 {% if panel.products | length %}
+						 <div id="pricing-products" class="tabs pricing-tabs">
+							 <h3 class="numbered"><span>1</span> Choose a Product</h3>
+ 
+							 {# Output products as tabs #}
+							 <ul class="row">
+								 {% for product in panel.products %}
+									 <li class="col-sm-4"><a class="tab-{{ product.colour }}" href="#product-{{ loop.index }}">{{ product.title }}</a></li>
+								 {% endfor %}
+							 </ul>
+							 
+							 {# Output product forms #}
+							 {% for product in panel.products %}
+ 
+								 {% if product.type == 'pricingFormProduct' %}
+									 <form id="product-{{ loop.index }}" class="pricing-form" method="get" action="{{ globals.anchorEndpoint }}"
+										 data-principal-min="{{ product.principal.min }}"
+										 data-principal-max="{{ product.principal.max }}"
+										 data-principal-init="{{ product.principal.init }}"
+										 data-principal-steps="{{ product.principal.steps }}"
+										 data-term-min="{{ product.term.min }}"
+										 data-term-max="{{ product.term.max }}"
+										 data-term-init="{{ product.term.init }}"
+										 data-interest-rate="{{ product.interestRate / 100 }}" {# Convert percentage to decimal #}
+										 data-fees="{{ product.fees }}"
+										 data-product-type="{{ product.repaymentType }}">
+										 <input type="hidden" name="amount">
+										 <input type="hidden" name="term">
+										 <input type="hidden" name="product" value="{{ product.anchorProductType }}">
+ 
+										 <h3 class="numbered"><span>2</span> Select your Loan Terms</h3>
+										 <div class="row">
+											 <div class="col">
+												 <h4>Loan Amount</h4>
+												 <input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
+												 <div class="pricing-form-slider pricing-form-slider-principal slider-{{ product.colour }}">
+													 <div class="ui-slider-handle"></div>
+												 </div>
+ 
+												 <h4>Repayment Term</h4>
+												 <select class="pricing-form-mobile-input pricing-form-input-term"></select>
+												 <div class="pricing-form-slider pricing-form-slider-term slider-{{ product.colour }}">
+													 <div class="ui-slider-handle"></div>
+												 </div>
+												 
+												 <table class="pricing-form-repayments">
+													 <thead>
+														 <tr>
+															 <th scope="col">Month</th>
+															 <th scope="col">Loan</th>
+															 <th scope="col">Interest</th>
+															 <th scope="col">Payment</th>
+														 </tr>
+													 </thead>
+													 <tbody>
+													 </tbody>
+												 </table>
+											 </div>
+											 <div class="col-lg-4">
+												 <div class="card card-{{ product.colour }} pricing-form-overview">
+													 <h4>Loan Amount</h4>
+													 <p class="pricing-form-overview-borrowing"></p>
+													 <h4>Fees</h4>
+													 <p class="pricing-form-overview-fees"></p>
+													 <h4>Total Interest</h4>
+													 <p class="pricing-form-overview-interest"></p>
+													 <h4>Total to Repay</h4>
+													 <p class="pricing-form-overview-repay"></p>
+													 <h4>APR</h4>
+													 <p class="pricing-form-overview-apr"></p>
+												 </div>
+											 </div>
+										 </div>
+ 
+										 <h3 class="numbered"><span>3</span> Apply Now</h3>
+										 <div class="row">
+											 <div class="col">
+													 {{ product.legalDisclaimer }}
+											 </div>
+											 <div class="col-md-4">
+												 <button type="submit" class="button button-block button-gold">Apply Now</button>
+											 </div>
+										 </div>
+ 
+										 <div class="modal-container">
+											 <div class="modal loading-modal">
+												 <i class="fa fa-circle-o-notch fa-spin fa-4x fa-fw"></i>
+												 <h2>Please Wait whilst we create your application</h2>
+											 </div>
+										 </div>
+									 </form>
+								 
+								 {% elseif product.type == 'contactProduct' %}
+									 <div id="product-{{ loop.index }}" class="pricing-contact">
+										 <h3 class="numbered"><span>2</span> Contact Us</h3>
+										 <h4 class="heading">{{ product.contactHeading }}</h4>
+										 {{ product.contactBody }}
+ 
+										 {% include '_components/_contact-cards' %}
+ 
+									 </div>
+								 {% endif %}
+ 
+							 {% endfor %}
+						 
+						 </div>
+ 
+					 {% endif %}
+				 </div>
+			 </section>
+			 <!-- Instalment Lending Index Panel -->
+ 
+		 {% elseif panel.type == 'contactPanel' %}
+ 
+			 <!-- Instalment Lending Contact Panel -->
+			 <section id="{{ panel.panelId }}" class="panel parallax panel-contact">
+				 {# Get panel hero image #}
+				 {% set heroImage = panel.heroImage.first() %}
+				 {% if heroImage %}
+					 {# Set panel hero classes #}
+					 {% if panel.heroFilter == 'dark' %}
+						 {% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+					 {% elseif panel.heroFilter == 'darkFade' %}
+						 {% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+					 {% elseif panel.heroFilter == 'light' %}
+						 {% set class = ' hero-filter hero-filter-light' %}
+					 {% elseif panel.heroFilter == 'lightFade' %}
+						 {% set class = ' hero-filter hero-filter-light hero-fade' %}
+					 {% else %}
+						 {% set class = '' %}
+					 {% endif %}
+					 <div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+				 {% endif %}
+				 
+				 <div class="container">
+					 <h2 class="panel-heading panel-heading-bold">{{ panel.heading }}</h2>
+				 </div>
+ 
+				 {% if heroImage %}
+					 </div>
+				 {% endif %}
+ 
+				 <div class="container">
+					 <div class="panel-card panel-card-navy">
+ 
+						 {% include '_components/_contact-cards' %}
+ 
+					 </div>
+					 <div class="contact-text">{{ panel.body }}</div>
+				 </div>
+			 </section>
+			 <!-- Instalment Lending Contact Panel -->
+			 
+		 {% endif %}
+		 
+	 {% endfor %}
+ 
+ {% endblock %} 
