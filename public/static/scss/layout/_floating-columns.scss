@@ -14,11 +14,11 @@ $col-spacing-lg: 6.25rem;
 		background-position: center;
 		order: -1;
 		@media (min-width: $break-lg) {
-			min-height: initial;
-			min-width: initial;
+			min-height: 0;
+			min-width: 0;
 			margin-top: 2rem;
 			margin-bottom: 2rem;
-			order: initial;
+			order: 0;
 		}
 	}
 	@media (min-width: $break-lg) {
