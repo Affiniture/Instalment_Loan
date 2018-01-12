@@ -50,7 +50,7 @@
 				</ul>
 			{% endif %}
 
-			{% if header.navAction.label %}
+			{% if header.navAction.label is defined %}
 				<div class="nav-secondary-actions">
 					<a class="button nav-button button-outline-light" href="{{ header.navAction.actionUrl }}">
 						{{ header.navAction.label }}
