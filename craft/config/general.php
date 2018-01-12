@@ -17,6 +17,7 @@ return array(
 		'cpTrigger' => 'cmsadmin',
 		'devMode' => false,
 		'sendPoweredByHeader' => false,
+		'phpSessionName' => 'ACLSessionId',
 	),
 		
 	// Local Dev Environment
