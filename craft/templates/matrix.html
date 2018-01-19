@@ -18,6 +18,22 @@
 				</div>
 
 			{% case 'floatingColumns' %}
+			{% case 'productCard' %}
+				{% set product = child.product.first() %}
+
+				{% if product %}
+					<div class="{{ floatingColumns ? 'col-lg-7' : 'col' }}">
+						{% include '_components/card' with {
+							equalise: equalise,
+							card: {
+								heading: product.title,
+								body: product.description,
+								button: block.button,
+								colour: product.colour,
+							}
+						} only %}
+					</div>
+				{% endif %}
 
 			{% default %}
 					{% include '_components/' ~ block.type.handle with {block: block} only %}
