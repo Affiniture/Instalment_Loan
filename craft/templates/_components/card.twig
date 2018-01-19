@@ -13,7 +13,7 @@
 	<{{ headingLevel }} class="card-heading">{{ card.heading }}</{{ headingLevel }}>
 	{{ card.body }}
 
-	{% if card.button.label is defined %}
+	{% if card.button.label | length %}
 		<a href="{{ card.button.linkUrl }}" class="button button-{{card.button.colour}}">{{ card.button.label }}</a>
 	{% endif %}
 </{{ elementType }} >
