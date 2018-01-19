@@ -7,8 +7,9 @@
 
 {% set elementType = elementType | default('div') %}
 {% set headingLevel = headingLevel | default('h3') %}
+{% set panelCard = panelCard | default('false') %}
  
-<{{ elementType }} class="card card-{{ card.colour }}">
+<{{ elementType }} class="card card-{{ card.colour }} {{ panelCard ? 'panel-card' : '' }}">
 	<{{ headingLevel }} class="card-heading">{{ card.heading }}</{{ headingLevel }}>
 	{{ card.body }}
 

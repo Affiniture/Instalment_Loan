@@ -31,9 +31,9 @@
 }
 
 /* Panel Cards */
-.panel .card {
+.panel-card.card {
 	padding: 1.5rem;
-	&-heading {
+	.card-heading {
 		font-weight: 400;
 		letter-spacing: 0.4rem;
 		@media (min-width: $break-md) {
