@@ -1,0 +1,36 @@
+{#
+ # Panel Component
+ # ---------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+<section id="{{ block.panelId }}" class="panel parallax">
+	{% if block.children is not empty %}
+		{% for child in block.children %}
+
+			{% switch child.type.handle %}
+
+				{% case 'card' %}
+					<div class="container">
+						{% include '_components/card' with {
+							headingLevel: child.headingLevel,
+							card: {
+								heading: child.heading,
+								body: child.body,
+								button: child.button,
+								colour: child.colour,
+							}
+						} only %}
+					</div>
+
+				{% case 'floatingColumns' %}
+				{% default %}
+					{% include '_components/' ~ child.type.handle with {block: child} only %}
+
+			{% endswitch %}
+
+		{% endfor %}
+	{% endif %}
+
+</section>
