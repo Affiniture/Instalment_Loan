@@ -1,0 +1,36 @@
+{#
+ # Matrix template
+ # ---------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	{% for block in entry.matrix.level(1) %}
+		{% switch block.type.handle %}
+
+			{% case 'panel' %}
+				<section id="{{ block.panelId }}" class="panel parallax">
+
+					{% if block.children is not empty %}
+						{% for child in block.children %}
+							{% switch child.type.handle %}
+								{% case 'heading' %}
+									{% include '_components/' ~ child.type.handle with {block: child} only %}
+								{% case 'panel' %}
+							{% endswitch %}
+						{% endfor %}
+					{% endif %}
+
+				</section>
+
+			{% case 'heading' %}
+				{% include '_components/' ~ block.type.handle with {block: block} only %}
+
+		{% endswitch %}
+	{% endfor %}
+
+{% endblock %} 
