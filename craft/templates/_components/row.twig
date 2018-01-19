@@ -5,6 +5,7 @@
  # Copyright 2017 Affinture Cards Limited
  #}
 
+{% set equalise = block.equaliseRowContent | default(false) %}
 {% set elementType = floatingColumns ? 'article' : 'div' %}
 
 <{{ elementType }} class="row {{ floatingColumns ? 'no-gutters' : '' }}">
@@ -22,6 +23,7 @@
 							body: child.body,
 							button: child.button,
 							colour: child.colour,
+							customColour: child.customColour,
 						}
 					} only %}
 				</div>
