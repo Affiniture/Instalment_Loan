@@ -44,6 +44,7 @@ $col-spacing-lg: 6.25rem;
 				}
 			}
 			&:nth-child(odd) .col-floating-img  {
+				order: -1;
 				margin-left: $col-spacing-lg;
 			}
 			&:nth-child(even) .col-floating-img  {

@@ -2973,6 +2973,7 @@ nav .nav-button {
         .col-floating .row:first-child .col-floating-img {
           margin-top: 6.25rem; }
       .col-floating .row:nth-child(odd) .col-floating-img {
+        order: -1;
         margin-left: 6.25rem; }
       .col-floating .row:nth-child(even) .col-floating-img {
         order: 1;
