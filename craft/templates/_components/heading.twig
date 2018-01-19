@@ -1,0 +1,41 @@
+{#
+ # Heading Component
+ # ----------------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% macro heading(text) %}
+	<div class="container">
+		<h1 class="panel-heading panel-heading-thin">{{ text }}</h1>
+	</div>
+{% endmacro %}
+{% import _self as macros %}
+
+{# Check if heroImage has been enabled and defined #}
+{% if (block.heroImageEnable) and (block.heroImage.url | length) %}
+
+	{# Get panel hero image #}
+	{% set heroImage = block.heroImage.first() %}
+
+	{# Set panel hero classes #}
+	{% switch block.heroImageFilter %}
+		{% case 'dark' %}
+			{% set class = ' hero-filter hero-filter-dark panel-text-white' %}
+		{% case 'darkFade' %}
+			{% set class = ' hero-filter hero-filter-dark hero-fade panel-text-white' %}
+		{% case 'light' %}
+			{% set class = ' hero-filter hero-filter-light' %}
+		{% case 'lightFade' %}
+			{% set class = ' hero-filter hero-filter-light hero-fade' %}
+		{% default %}
+			{% set class = '' %}
+	{% endswitch %}
+	
+	<div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+		{{ macros.heading( block.heading ) }}
+	</div>
+
+{% else %}
+	{{ macros.heading( block.heading ) }}
+{% endif %}
