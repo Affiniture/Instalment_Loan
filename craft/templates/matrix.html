@@ -14,7 +14,16 @@
 				
 			{% case 'card' %}
 				<div class="container">
-					{% include '_components/' ~ block.type.handle with {block: block} only %}
+					{% include '_components/' ~ block.type.handle with {
+						headingLevel: block.headingLevel,
+						card: {
+							heading: block.heading,
+							body: block.body,
+							button: block.button,
+							colour: block.colour,
+							customColour: block.customColour,
+						}
+					} only %}
 				</div>
 
 			{% case 'floatingColumns' %}
