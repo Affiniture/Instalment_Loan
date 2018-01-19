@@ -1,0 +1,18 @@
+{#
+ # Card Component
+ # --------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% set elementType = elementType | default('div') %}
+{% set headingLevel = headingLevel | default('h3') %}
+ 
+<{{ elementType }} class="card card-{{ card.colour }}">
+	<{{ headingLevel }} class="card-heading">{{ card.heading }}</{{ headingLevel }}>
+	{{ card.body }}
+
+	{% if card.button.label is defined %}
+		<a href="{{ card.button.linkUrl }}" class="button button-{{card.button.colour}}">{{ card.button.label }}</a>
+	{% endif %}
+</{{ elementType }} >
