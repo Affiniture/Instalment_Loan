@@ -9,6 +9,8 @@
 
 {% block content %}
 
+	{% include "_header" with {links: entry.links, navAction: entry.navAction} only %}
+
 	{% for block in entry.matrix.level(1) %}
 		{% switch block.type.handle %}
 				
