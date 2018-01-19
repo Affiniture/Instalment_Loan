@@ -2841,25 +2841,20 @@ nav .nav-button {
       text-align: center; } }
 
 /* Panel Cards */
-.panel-card {
+.panel .card {
   padding: 1.5rem; }
-  .panel-card-heading {
+  .panel .card-heading {
     font-weight: 400;
     letter-spacing: 0.4rem; }
     @media (min-width: 768px) {
-      .panel-card-heading {
+      .panel .card-heading {
         letter-spacing: 1rem; } }
-  .panel-card .button {
+  .panel .card .button {
     font-size: 1.125rem; }
-  .panel-card-light {
-    background-color: #F0F1F3;
-    color: #2C2A29; }
-  .panel-card-navy {
-    background-color: #041E42;
-    color: #FFFFFF; }
   @media (min-width: 768px) {
-    .panel-card {
-      padding: 4rem 7.5rem; } }
+    .panel .card {
+      padding: 4rem 7.5rem;
+      text-align: center; } }
 
 .panel .container {
   width: 100%;
@@ -2912,7 +2907,7 @@ nav .nav-button {
 .parallax .parallax-container {
   position: relative;
   z-index: 0; }
-.parallax .panel-card {
+.parallax .card {
   position: relative; }
 
 /* Specific Panels */
