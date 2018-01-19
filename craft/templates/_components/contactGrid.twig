@@ -1,0 +1,31 @@
+{#
+ # Contact Grid Component
+ # ----------------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% set accentColour = block.colour | default(false) %}
+
+{% if block.children is not empty %}
+
+	{# Wrap grid in card #}
+	{% if accentColour %}
+		<div class="card card-{{ accentColour }}">
+	{% endif %}
+
+		<div class="row">
+		{# Loop through contact cards #}
+		{% for child in block.children %}
+			<div class="col-3">
+			{% include '_components/contactCard' with {contact: child.contactInformation} only %}
+			</div>
+		{% endfor %}
+		</div>
+
+	{# End card #}
+	{% if accentColour %}
+		</div>
+	{% endif %}
+	
+{% endif %}
