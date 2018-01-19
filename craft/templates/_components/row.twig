@@ -1,0 +1,39 @@
+{#
+ # Row Component
+ # --------------------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% set elementType = floatingColumns ? 'article' : 'div' %}
+
+<{{ elementType }} class="row {{ floatingColumns ? 'no-gutters' : '' }}">
+
+	{% if block.children is not empty %}
+	{% for child in block.children %}
+		{% switch child.type.handle %}
+
+			{% case 'card' %}
+				<div class="{{ floatingColumns ? 'col-lg-7' : 'col' }}">
+					{% include '_components/card' with {
+						headingLevel: child.headingLevel,
+						card: {
+							heading: child.heading,
+							body: child.body,
+							button: child.button,
+							colour: child.colour,
+						}
+					} only %}
+				</div>
+
+			{% case 'image' %}
+				{% set img = child.image.first() %}
+				{% if img %}
+					<div class="col {{ floatingColumns ? 'col-floating-img' : '' }}" style="background-image: url('{{ img.url }}');"></div>
+				{% endif %}
+
+		{% endswitch %}
+	{% endfor %}
+	{% endif %}
+
+</{{ elementType }}>

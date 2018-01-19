@@ -1,0 +1,16 @@
+{#
+ # Floating Columns Component
+ # --------------------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+<div class="col-floating">
+	<div class="container">
+		{% if block.children is not empty %}
+			{% for child in block.children %}
+				{% include '_components/row' with {block: child, floatingColumns: true} only %}
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>
