@@ -9,7 +9,9 @@
 
 {% block content %}
 
-	{% include "_header" with {links: entry.links, navAction: entry.navAction} only %}
+	{% if entry.enableSecondaryNav %}
+		{% include "_header" with {links: entry.links, navAction: entry.navAction} only %}
+	{% endif %}
 
 	{% for block in entry.matrix.level(1) %}
 		{% switch block.type.handle %}

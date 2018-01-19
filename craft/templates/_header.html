@@ -22,7 +22,7 @@
 			{% if links | length %}
 				<div class="nav-secondary-mobile-header">
 					{# Set mobile navigation menu header based on first navigation link #}
-					{% for link in header.links | slice(0, 1) %}
+					{% for link in links | slice(0, 1) %}
 						<span>{{ link.displayName }}</span>
 					{% endfor %}
 					<button class="nav-secondary-mobile-toggle">
