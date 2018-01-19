@@ -6,6 +6,8 @@
  #}
 
 {% set equalise = block.equaliseRowContent | default(false) %}
+
+{% set floatingColumns = floatingColumns | default(false) %}
 {% set elementType = floatingColumns ? 'article' : 'div' %}
 
 <{{ elementType }} class="row {{ floatingColumns ? 'no-gutters' : '' }}">
