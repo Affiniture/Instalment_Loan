@@ -23,6 +23,10 @@
 		background-color: $colour-navy-blue;
 		color: #ffffff;
 	}
+	&-light {
+		background-color: $colour-light;
+		color: $colour-black;
+	}
 	&-grey {
 		background-color: $colour-black;
 		color: #ffffff;

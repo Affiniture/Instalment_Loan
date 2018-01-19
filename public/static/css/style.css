@@ -2479,6 +2479,9 @@ ul {
   .card-navy {
     background-color: #041E42;
     color: #ffffff; }
+  .card-light {
+    background-color: #F0F1F3;
+    color: #2C2A29; }
   .card-grey {
     background-color: #2C2A29;
     color: #ffffff; }
