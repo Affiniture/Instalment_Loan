@@ -1,6 +1,6 @@
 {#
  # Heading Component
- # ----------------------
+ # -----------------
  #
  # Copyright 2017 Affinture Cards Limited
  #}
@@ -31,8 +31,11 @@
 		{% default %}
 			{% set class = '' %}
 	{% endswitch %}
+
+	{# Get bottom margin style #}
+	{% set bottomMargin = block.heroImageMargin | default('standard') %}
 	
-	<div class="panel-hero parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
+	<div class="panel-hero {{ bottomMargin == 'condensed' ? 'panel-hero-sm' : '' }} parallax-container{{ class }}" data-speed="0.5" style="background-image: url('{{ heroImage.url }}')">
 		{{ macros.heading( block.heading ) }}
 	</div>
 

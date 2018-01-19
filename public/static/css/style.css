@@ -2412,8 +2412,12 @@ h3 {
       text-indent: 0.3rem;
       font-weight: 400; }
 
-p {
+p, ul, li {
   font-size: 1.125rem; }
+
+ul {
+  list-style-type: square;
+  padding-left: 2rem; }
 
 .button {
   border: 1px solid;
@@ -2475,6 +2479,9 @@ p {
   .card-navy {
     background-color: #041E42;
     color: #ffffff; }
+  .card-light {
+    background-color: #F0F1F3;
+    color: #2C2A29; }
   .card-grey {
     background-color: #2C2A29;
     color: #ffffff; }
@@ -2484,7 +2491,7 @@ p {
     display: flex;
     flex-direction: column !important;
     height: 100%; }
-    .card.equalise .card-button-fixed {
+    .card.equalise .button:last-child {
       margin-top: auto; }
   .card :last-child {
     margin-bottom: 0; }
@@ -2841,25 +2848,20 @@ nav .nav-button {
       text-align: center; } }
 
 /* Panel Cards */
-.panel-card {
+.panel-card.card {
   padding: 1.5rem; }
-  .panel-card-heading {
+  .panel-card.card .card-heading {
     font-weight: 400;
     letter-spacing: 0.4rem; }
     @media (min-width: 768px) {
-      .panel-card-heading {
+      .panel-card.card .card-heading {
         letter-spacing: 1rem; } }
-  .panel-card .button {
+  .panel-card.card .button {
     font-size: 1.125rem; }
-  .panel-card-light {
-    background-color: #F0F1F3;
-    color: #2C2A29; }
-  .panel-card-navy {
-    background-color: #041E42;
-    color: #FFFFFF; }
   @media (min-width: 768px) {
-    .panel-card {
-      padding: 4rem 7.5rem; } }
+    .panel-card.card {
+      padding: 4rem 7.5rem;
+      text-align: center; } }
 
 .panel .container {
   width: 100%;
@@ -2912,7 +2914,7 @@ nav .nav-button {
 .parallax .parallax-container {
   position: relative;
   z-index: 0; }
-.parallax .panel-card {
+.parallax .card {
   position: relative; }
 
 /* Specific Panels */
@@ -2978,6 +2980,7 @@ nav .nav-button {
         .col-floating .row:first-child .col-floating-img {
           margin-top: 6.25rem; }
       .col-floating .row:nth-child(odd) .col-floating-img {
+        order: -1;
         margin-left: 6.25rem; }
       .col-floating .row:nth-child(even) .col-floating-img {
         order: 1;

@@ -31,9 +31,9 @@
 }
 
 /* Panel Cards */
-.panel-card {
+.panel-card.card {
 	padding: 1.5rem;
-	&-heading {
+	.card-heading {
 		font-weight: 400;
 		letter-spacing: 0.4rem;
 		@media (min-width: $break-md) {
@@ -43,16 +43,9 @@
 	.button {
 		font-size: 1.125rem;
 	}
-	&-light {
-		background-color: $colour-light;
-		color: $colour-black;
-	}
-	&-navy {
-		background-color: $colour-navy-blue;
-		color: $colour-white;
-	}
 	@media (min-width: $break-md) {
 		padding: 4rem 7.5rem;
+		text-align: center;
 	}
 }
 
@@ -122,7 +115,7 @@
 		z-index: 0;
 	}
 
-	.panel-card {
+	.card {
 		position: relative;
 	}
 }

@@ -1,0 +1,22 @@
+{#
+ # Card Component
+ # --------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% set equalise = equalise | default(false) %}
+{% set elementType = elementType | default('div') %}
+{% set headingLevel = headingLevel | default('h3') %}
+{% set panelCard = panelCard | default(false) %}
+
+{% set customColour = card.colour == 'custom' ? "style='background-color: #{card.customColour}'" : '' %}
+ 
+<{{ elementType }} class="card card-{{ card.colour }} {{ panelCard ? 'panel-card' : '' }} {{ equalise ? 'equalise' : '' }}" {{ card.colour == 'custom' ? "style='background-color: #{card.customColour}'" | raw : '' }}>
+	<{{ headingLevel }} class="card-heading">{{ card.heading }}</{{ headingLevel }}>
+	{{ card.body }}
+
+	{% if card.button.label | length %}
+		<a href="{{ card.button.linkUrl }}" class="button button-{{card.button.colour}}">{{ card.button.label }}</a>
+	{% endif %}
+</{{ elementType }} >

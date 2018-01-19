@@ -1,0 +1,56 @@
+{#
+ # Matrix template
+ # ---------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+	{% if entry.enableSecondaryNav %}
+		{% include "_header" with {links: entry.links, navAction: entry.navAction} only %}
+	{% endif %}
+
+	{% for block in entry.matrix.level(1) %}
+		{% switch block.type.handle %}
+				
+			{% case 'card' %}
+				<div class="container">
+					{% include '_components/' ~ block.type.handle with {
+						headingLevel: block.headingLevel,
+						card: {
+							heading: block.heading,
+							body: block.body,
+							button: block.button,
+							colour: block.colour,
+							customColour: block.customColour,
+						}
+					} only %}
+				</div>
+
+			{% case 'productCard' %}
+				{% set product = child.product.first() %}
+
+				{% if product %}
+					<div class="{{ floatingColumns ? 'col-lg-7' : 'col' }}">
+						{% include '_components/card' with {
+							equalise: equalise,
+							card: {
+								heading: product.title,
+								body: product.description,
+								button: block.button,
+								colour: product.colour,
+							}
+						} only %}
+					</div>
+				{% endif %}
+
+			{% default %}
+					{% include '_components/' ~ block.type.handle with {block: block} only %}
+
+		{% endswitch %}
+	{% endfor %}
+
+{% endblock %} 
