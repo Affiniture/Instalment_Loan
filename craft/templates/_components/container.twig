@@ -1,0 +1,54 @@
+{#
+ # Container component
+ # -------------------
+ #
+ # Copyright 2017 Affinture Cards Limited
+ #}
+
+<div class="container">
+	{% if block.children is not empty %}
+		{% for child in block.children %}
+
+			{% switch child.type.handle %}
+
+				{% case 'card' %}
+					<div class="container">
+						{% include '_components/card' with {
+							headingLevel: child.headingLevel,
+							panelCard: child.cardStyle,
+							card: {
+								heading: child.heading,
+								body: child.body,
+								button: child.button,
+								colour: child.colour,
+								customColour: child.customColour,
+							}
+						} only %}
+					</div>
+
+				{% case 'productCard' %}
+					{% set product = child.product.first() %}
+
+					{% if product %}
+						<div class="{{ floatingColumns ? 'col-lg-7' : 'col' }}">
+							{% include '_components/card' with {
+								equalise: equalise,
+								card: {
+									heading: product.title,
+									body: product.description,
+									button: child.button,
+									colour: product.colour,
+								}
+							} only %}
+						</div>
+					{% endif %}
+
+				{% default %}
+					{% include '_components/' ~ child.type.handle with {block: child} only %}
+
+			{% endswitch %}
+
+		{% endfor %}
+	{% endif %}
+
+</div>
