@@ -2412,8 +2412,12 @@ h3 {
       text-indent: 0.3rem;
       font-weight: 400; }
 
-p {
+p, ul, li {
   font-size: 1.125rem; }
+
+ul {
+  list-style-type: square;
+  padding-left: 2rem; }
 
 .button {
   border: 1px solid;

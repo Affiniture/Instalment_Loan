@@ -58,6 +58,11 @@ h3 {
 	}
 }
 
-p {
+p, ul, li {
   font-size: 1.125rem;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 2rem;
 }
