@@ -2488,7 +2488,7 @@ ul {
     display: flex;
     flex-direction: column !important;
     height: 100%; }
-    .card.equalise .card-button-fixed {
+    .card.equalise .button:last-child {
       margin-top: auto; }
   .card :last-child {
     margin-bottom: 0; }
