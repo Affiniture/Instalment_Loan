@@ -15,7 +15,7 @@ $(document).ready(function () {
 	});
 
 	// Navigation
-	$("nav").scrollspy({ offset: -50, animate: true });
+	$("nav ul").scrollspy({ offset: -50, animate: true });
 
 	// Init Parallax Scrolling
 	refreshParallax('.parallax-container', 992);
