@@ -45,7 +45,6 @@
 		margin-top: -1rem;
 		text-align: center;
 		line-height: 2rem;
-		color: #ffffff;
 		font-size: 1.125rem;
 		position: absolute;
 		cursor: ew-resize;
@@ -54,17 +53,12 @@
 		margin-left: -4rem;
 		z-index: 1;
 	}
-	&-navy, &-navy::before, &-navy .ui-slider-handle {
-		background-color: $colour-navy-blue;
-	}
-	
-	&-blue, &-blue::before, &-blue .ui-slider-handle {
-		background-color: $colour-light-blue;
-	}
-	
-	&-grey, &-grey::before, &-grey .ui-slider-handle {
-		background-color: $colour-black;
-	}
+	@each $theme, $colour in $accents {
+    &-#{$theme}, &-#{$theme}::before, &-#{$theme} .ui-slider-handle {
+			background-color: $colour;
+			color: get-visible-color($colour, $colour-black, $colour-white);
+    }
+  } 
 	
 }
 

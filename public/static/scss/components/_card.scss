@@ -11,31 +11,12 @@
 	&-align-center {
 		text-align: center;
 	}
-	&-white {
-		background-color: #ffffff;
-		color: $colour-black;
-	}
 	&-outline {
 		background-color: #ffffff;
 		border: 1px solid #f0f1f3;
 		color: #000000;
 	}
-	&-blue {
-		background-color: $colour-light-blue;
-		color: #ffffff;
-	}
-	&-navy {
-		background-color: $colour-navy-blue;
-		color: #ffffff;
-	}
-	&-light {
-		background-color: $colour-light;
-		color: $colour-black;
-	}
-	&-grey {
-		background-color: $colour-black;
-		color: #ffffff;
-	}
+	@include backgroundAccents();
 	.card-heading {
 		font-weight: 100;
 	}

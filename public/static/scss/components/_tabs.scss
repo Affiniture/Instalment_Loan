@@ -33,19 +33,8 @@
 		opacity: 1 !important;
 	}
 
-	.tab-blue {
-		background-color: $colour-light-blue;
-		color: $colour-white;
-	}
-	
-	.tab-navy {
-		background-color: $colour-navy-blue;
-		color: $colour-white;
-	}
-	
-	.tab-grey {
-		background-color: $colour-black;
-		color: $colour-white;
+	.tab {
+		@include backgroundAccents();
 	}
 }
 

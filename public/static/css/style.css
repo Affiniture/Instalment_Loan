@@ -2437,31 +2437,123 @@ ul {
   .button-block {
     display: block;
     width: 100%; }
-  .button-outline-dark {
-    border-color: #2C2A29;
+  .button-white {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
     color: #2C2A29; }
-  .button-outline-dark:hover {
-    background-color: #2C2A29;
-    color: #FFFFFF; }
-  .button-outline-light {
+    .button-white:hover {
+      background-color: transparent;
+      color: #FFFFFF; }
+  .button-outline-white {
     border-color: #FFFFFF;
     color: #FFFFFF; }
-  .button-outline-light:hover {
-    background-color: #FFFFFF;
+    .button-outline-white:hover {
+      background-color: #FFFFFF;
+      color: #2C2A29; }
+  .button-light {
+    background-color: #F0F1F3;
+    border-color: #F0F1F3;
     color: #2C2A29; }
-  .button-outline-gold {
-    border-color: #CC8727;
-    color: #CC8727; }
-  .button-outline-gold:hover {
-    background-color: #CC8727;
+    .button-light:hover {
+      background-color: transparent;
+      color: #F0F1F3; }
+  .button-outline-light {
+    border-color: #F0F1F3;
+    color: #F0F1F3; }
+    .button-outline-light:hover {
+      background-color: #F0F1F3;
+      color: #2C2A29; }
+  .button-grey {
+    background-color: #2C2A29;
+    border-color: #2C2A29;
     color: #FFFFFF; }
+    .button-grey:hover {
+      background-color: transparent;
+      color: #2C2A29; }
+  .button-outline-grey {
+    border-color: #2C2A29;
+    color: #2C2A29; }
+    .button-outline-grey:hover {
+      background-color: #2C2A29;
+      color: #FFFFFF; }
+  .button-navy {
+    background-color: #041E42;
+    border-color: #041E42;
+    color: #FFFFFF; }
+    .button-navy:hover {
+      background-color: transparent;
+      color: #041E42; }
+  .button-outline-navy {
+    border-color: #041E42;
+    color: #041E42; }
+    .button-outline-navy:hover {
+      background-color: #041E42;
+      color: #FFFFFF; }
+  .button-blue {
+    background-color: #477196;
+    border-color: #477196;
+    color: #FFFFFF; }
+    .button-blue:hover {
+      background-color: transparent;
+      color: #477196; }
+  .button-outline-blue {
+    border-color: #477196;
+    color: #477196; }
+    .button-outline-blue:hover {
+      background-color: #477196;
+      color: #FFFFFF; }
+  .button-turquoise {
+    background-color: #286772;
+    border-color: #286772;
+    color: #FFFFFF; }
+    .button-turquoise:hover {
+      background-color: transparent;
+      color: #286772; }
+  .button-outline-turquoise {
+    border-color: #286772;
+    color: #286772; }
+    .button-outline-turquoise:hover {
+      background-color: #286772;
+      color: #FFFFFF; }
+  .button-green {
+    background-color: #0F5539;
+    border-color: #0F5539;
+    color: #FFFFFF; }
+    .button-green:hover {
+      background-color: transparent;
+      color: #0F5539; }
+  .button-outline-green {
+    border-color: #0F5539;
+    color: #0F5539; }
+    .button-outline-green:hover {
+      background-color: #0F5539;
+      color: #FFFFFF; }
+  .button-heather {
+    background-color: #5D2D43;
+    border-color: #5D2D43;
+    color: #FFFFFF; }
+    .button-heather:hover {
+      background-color: transparent;
+      color: #5D2D43; }
+  .button-outline-heather {
+    border-color: #5D2D43;
+    color: #5D2D43; }
+    .button-outline-heather:hover {
+      background-color: #5D2D43;
+      color: #FFFFFF; }
   .button-gold {
     background-color: #CC8727;
     border-color: #CC8727;
     color: #FFFFFF; }
-  .button-gold:hover {
-    background-color: transparent;
+    .button-gold:hover {
+      background-color: transparent;
+      color: #CC8727; }
+  .button-outline-gold {
+    border-color: #CC8727;
     color: #CC8727; }
+    .button-outline-gold:hover {
+      background-color: #CC8727;
+      color: #FFFFFF; }
 
 .card {
   padding: 2.125rem; }
@@ -2469,25 +2561,37 @@ ul {
     text-align: left; }
   .card-align-center {
     text-align: center; }
-  .card-white {
-    background-color: #ffffff;
-    color: #2C2A29; }
   .card-outline {
     background-color: #ffffff;
     border: 1px solid #f0f1f3;
     color: #000000; }
-  .card-blue {
-    background-color: #477196;
-    color: #ffffff; }
-  .card-navy {
-    background-color: #041E42;
-    color: #ffffff; }
+  .card-white {
+    background-color: #FFFFFF;
+    color: #2C2A29; }
   .card-light {
     background-color: #F0F1F3;
     color: #2C2A29; }
   .card-grey {
     background-color: #2C2A29;
-    color: #ffffff; }
+    color: #FFFFFF; }
+  .card-navy {
+    background-color: #041E42;
+    color: #FFFFFF; }
+  .card-blue {
+    background-color: #477196;
+    color: #FFFFFF; }
+  .card-turquoise {
+    background-color: #286772;
+    color: #FFFFFF; }
+  .card-green {
+    background-color: #0F5539;
+    color: #FFFFFF; }
+  .card-heather {
+    background-color: #5D2D43;
+    color: #FFFFFF; }
+  .card-gold {
+    background-color: #CC8727;
+    color: #FFFFFF; }
   .card .card-heading {
     font-weight: 100; }
   .card.equalise {
@@ -2581,14 +2685,32 @@ ul {
     opacity: 0.6; }
 .tabs .ui-tabs-active a, .pricing-tabs .ui-tabs-active a {
   opacity: 1 !important; }
-.tabs .tab-blue, .pricing-tabs .tab-blue {
-  background-color: #477196;
+.tabs .tab-white, .pricing-tabs .tab-white {
+  background-color: #FFFFFF;
+  color: #2C2A29; }
+.tabs .tab-light, .pricing-tabs .tab-light {
+  background-color: #F0F1F3;
+  color: #2C2A29; }
+.tabs .tab-grey, .pricing-tabs .tab-grey {
+  background-color: #2C2A29;
   color: #FFFFFF; }
 .tabs .tab-navy, .pricing-tabs .tab-navy {
   background-color: #041E42;
   color: #FFFFFF; }
-.tabs .tab-grey, .pricing-tabs .tab-grey {
-  background-color: #2C2A29;
+.tabs .tab-blue, .pricing-tabs .tab-blue {
+  background-color: #477196;
+  color: #FFFFFF; }
+.tabs .tab-turquoise, .pricing-tabs .tab-turquoise {
+  background-color: #286772;
+  color: #FFFFFF; }
+.tabs .tab-green, .pricing-tabs .tab-green {
+  background-color: #0F5539;
+  color: #FFFFFF; }
+.tabs .tab-heather, .pricing-tabs .tab-heather {
+  background-color: #5D2D43;
+  color: #FFFFFF; }
+.tabs .tab-gold, .pricing-tabs .tab-gold {
+  background-color: #CC8727;
   color: #FFFFFF; }
 
 .pricing-tabs {
@@ -2635,7 +2757,6 @@ ul {
     margin-top: -1rem;
     text-align: center;
     line-height: 2rem;
-    color: #ffffff;
     font-size: 1.125rem;
     position: absolute;
     cursor: ew-resize;
@@ -2643,12 +2764,33 @@ ul {
     touch-action: none;
     margin-left: -4rem;
     z-index: 1; }
-  .slider-navy, .slider-navy::before, .slider-navy .ui-slider-handle {
-    background-color: #041E42; }
-  .slider-blue, .slider-blue::before, .slider-blue .ui-slider-handle {
-    background-color: #477196; }
+  .slider-white, .slider-white::before, .slider-white .ui-slider-handle {
+    background-color: #FFFFFF;
+    color: #2C2A29; }
+  .slider-light, .slider-light::before, .slider-light .ui-slider-handle {
+    background-color: #F0F1F3;
+    color: #2C2A29; }
   .slider-grey, .slider-grey::before, .slider-grey .ui-slider-handle {
-    background-color: #2C2A29; }
+    background-color: #2C2A29;
+    color: #FFFFFF; }
+  .slider-navy, .slider-navy::before, .slider-navy .ui-slider-handle {
+    background-color: #041E42;
+    color: #FFFFFF; }
+  .slider-blue, .slider-blue::before, .slider-blue .ui-slider-handle {
+    background-color: #477196;
+    color: #FFFFFF; }
+  .slider-turquoise, .slider-turquoise::before, .slider-turquoise .ui-slider-handle {
+    background-color: #286772;
+    color: #FFFFFF; }
+  .slider-green, .slider-green::before, .slider-green .ui-slider-handle {
+    background-color: #0F5539;
+    color: #FFFFFF; }
+  .slider-heather, .slider-heather::before, .slider-heather .ui-slider-handle {
+    background-color: #5D2D43;
+    color: #FFFFFF; }
+  .slider-gold, .slider-gold::before, .slider-gold .ui-slider-handle {
+    background-color: #CC8727;
+    color: #FFFFFF; }
 
 .pricing-form-slider {
   display: none; }
