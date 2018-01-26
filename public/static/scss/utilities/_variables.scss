@@ -11,14 +11,30 @@ $break-lg: 992px;
 $break-xl: 1200px;
 
 // BRAND COLOURS ---------------------------- //
-$colour-white: #FFFFFF;
-$colour-light: #F0F1F3;
-$colour-grey: #BBBCBC;
-$colour-black: #2C2A29;
-$colour-navy-blue: #041E42;
-$colour-logo: #004C97;
+$colour-white: 			#FFFFFF;
+$colour-light: 			#F0F1F3;
+$colour-grey: 			#BBBCBC;
+$colour-black: 			#2C2A29;
+$colour-navy-blue: 	#041E42;
+$colour-royal-blue:	#004C97;
 $colour-light-blue: #477196;
-$colour-gold: #CC8727;
+$colour-turquoise: 	#286772;
+$colour-green: 			#0F5539;
+$colour-heather: 		#5D2D43;
+$colour-gold: 			#CC8727;
+
+// ACCENT COLOURS --------------------------- //
+$accents: (
+	'white':			$colour-white,
+	'light': 			$colour-light,
+	'grey': 			$colour-black,
+	'navy': 			$colour-navy-blue,
+	'blue': 			$colour-light-blue,
+	'turquoise': 	$colour-turquoise,
+	'green': 			$colour-green,
+	'heather': 		$colour-heather,
+	'gold': 			$colour-gold
+);
 
 // TYPOGRAPHY ------------------------------- //
 $base-font-size: 16px;
