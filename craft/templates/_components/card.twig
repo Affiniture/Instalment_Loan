@@ -9,10 +9,11 @@
 {% set elementType = elementType | default('div') %}
 {% set headingLevel = headingLevel | default('h3') %}
 {% set panelCard = panelCard | default(false) %}
+{% set alignText = card.alignText | default('left') %}
 
 {% set customColour = card.colour == 'custom' ? "style='background-color: #{card.customColour}'" : '' %}
  
-<{{ elementType }} class="card card-{{ card.colour }} {{ panelCard ? 'panel-card' : '' }} {{ equalise ? 'equalise' : '' }}" {{ card.colour == 'custom' ? "style='background-color: #{card.customColour}'" | raw : '' }}>
+<{{ elementType }} class="card card-{{ card.colour }} {{ panelCard ? 'panel-card' : '' }} {{ equalise ? 'equalise' : '' }} card-align-{{alignText}}" {{ card.colour == 'custom' ? "style='background-color: #{card.customColour}'" | raw : '' }}>
 	<{{ headingLevel }} class="card-heading">{{ card.heading }}</{{ headingLevel }}>
 	{{ card.body }}
 

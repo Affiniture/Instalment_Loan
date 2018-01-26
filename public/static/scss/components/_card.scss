@@ -4,8 +4,13 @@
 // ==========================================
 
 .card {
-  padding: 2.125rem;
-	text-align: left;
+	padding: 2.125rem;
+	&-align-left {
+		text-align: left;
+	}
+	&-align-center {
+		text-align: center;
+	}
 	&-white {
 		background-color: #ffffff;
 		color: $colour-black;

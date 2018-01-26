@@ -2464,8 +2464,11 @@ ul {
     color: #CC8727; }
 
 .card {
-  padding: 2.125rem;
-  text-align: left; }
+  padding: 2.125rem; }
+  .card-align-left {
+    text-align: left; }
+  .card-align-center {
+    text-align: center; }
   .card-white {
     background-color: #ffffff;
     color: #2C2A29; }
@@ -2851,6 +2854,7 @@ nav .nav-button {
 .panel-card.card {
   padding: 1.5rem; }
   .panel-card.card .card-heading {
+    text-align: center;
     font-weight: 400;
     letter-spacing: 0.4rem; }
     @media (min-width: 768px) {
@@ -2860,8 +2864,7 @@ nav .nav-button {
     font-size: 1.125rem; }
   @media (min-width: 768px) {
     .panel-card.card {
-      padding: 4rem 7.5rem;
-      text-align: center; } }
+      padding: 4rem 7.5rem; } }
 
 .panel .container {
   width: 100%;

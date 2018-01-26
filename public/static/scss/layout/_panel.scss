@@ -34,6 +34,7 @@
 .panel-card.card {
 	padding: 1.5rem;
 	.card-heading {
+		text-align: center;
 		font-weight: 400;
 		letter-spacing: 0.4rem;
 		@media (min-width: $break-md) {
@@ -45,7 +46,6 @@
 	}
 	@media (min-width: $break-md) {
 		padding: 4rem 7.5rem;
-		text-align: center;
 	}
 }
 
