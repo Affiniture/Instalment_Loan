@@ -60,7 +60,13 @@ window.addEventListener("load", function(){
 			"message": "Diners Club International uses cookies to ensure you get the best experience on our website.",
 			"dismiss": "Dismiss",
 			"href": "http://www.dinersclub.co.uk/Other/Privacy%20Policy.aspx"
-		}
+		},
+		"cookie": {
+			"name": "ACLCookieConsent_Status",
+			"path": "/",
+			"domain": ""
+		},
+		"dismissOnTimeout": 1000*3
 	})
 });
 
