@@ -54,7 +54,8 @@ window.addEventListener("load", function(){
 				"text": "#477196"
 			}
 		},
-		"position": "bottom-right",
+		"position": "top",
+		"static": "true",		
 		"content": {
 			"message": "Diners Club International uses cookies to ensure you get the best experience on our website.",
 			"dismiss": "Dismiss",
