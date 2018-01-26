@@ -1,0 +1,16 @@
+// ==========================================
+// _mixins.scss
+// Copyright 2017 Affiniture Cards Limited
+// ==========================================
+
+@mixin backgroundAccents($map: $accents, $include-colour: true) {
+  @each $theme, $colour in $map {
+    &-#{$theme} {
+			background-color: $colour;
+
+			@if $include-colour == true {
+				color: get-visible-color($colour, $colour-black, $colour-white);
+			}
+    }
+  } 
+}

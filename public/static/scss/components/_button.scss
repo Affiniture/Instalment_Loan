@@ -25,45 +25,25 @@
 		display: block;
 		width: 100%;
 	}
+
+	@each $theme, $colour in $accents {
+    &-#{$theme} {
+			background-color: $colour;
+			border-color: $colour;
+			color: get-visible-color($colour, $colour-black, $colour-white);
+			&:hover {
+				background-color: transparent;
+				color: $colour;
+			}
+		}
 	
-	&-outline-dark {
-		border-color: $colour-black;
-		color: $colour-black;
-	}
-	
-	&-outline-dark:hover {
-		background-color: $colour-black;
-		color: $colour-white;
-	}
-	
-	&-outline-light {
-		border-color: $colour-white;
-		color: $colour-white;
-	}
-	
-	&-outline-light:hover {
-		background-color: $colour-white;
-		color: $colour-black;
-	}
-	
-	&-outline-gold {
-		border-color: $colour-gold;
-		color: $colour-gold;
-	}
-	
-	&-outline-gold:hover {
-		background-color: $colour-gold;
-		color: $colour-white;
-	}
-	
-	&-gold {
-		background-color: $colour-gold;
-		border-color: $colour-gold;
-		color: $colour-white;
-	}
-	
-	&-gold:hover {
-		background-color: transparent;
-		color: $colour-gold;
-	}
+		&-outline-#{$theme} {
+			border-color: $colour;
+			color: $colour;
+			&:hover {
+				background-color: $colour;
+				color: get-visible-color($colour, $colour-black, $colour-white);
+			}
+		}	
+  } 
 }
