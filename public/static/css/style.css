@@ -2934,8 +2934,8 @@ nav .nav-button {
 .parallax .parallax-container {
   position: relative;
   z-index: 0; }
-.parallax .card {
-  position: relative; }
+  .parallax .parallax-container + * {
+    position: relative; }
 
 /* Specific Panels */
 .panel.panel-products .product-cards {
