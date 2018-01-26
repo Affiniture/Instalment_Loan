@@ -9,7 +9,14 @@
 {% set elementType = elementType | default('div') %}
 {% set headingLevel = headingLevel | default('h3') %}
 {% set panelCard = panelCard | default(false) %}
-{% set alignText = card.alignText | default('left') %}
+
+{% if panelCard %}
+	{% set defaultAlignText = 'center' %}
+{% else %}
+	{% set defaultAlignText = 'left' %}
+{% endif %}
+
+{% set alignText = card.alignText | default(defaultAlignText) %}
 
 {% set customColour = card.colour == 'custom' ? "style='background-color: #{card.customColour}'" : '' %}
  
