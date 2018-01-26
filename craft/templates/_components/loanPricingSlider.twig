@@ -18,12 +18,25 @@
 			{# Output products as tabs #}
 			<ul class="row">
 				{% for product in products %}
-					<li class="col-sm-4"><a class="tab-{{ product.colour }}" href="#product-{{ loop.index }}">{{ product.title }}</a></li>
+
+					{% if product.colour %}
+						{% set backgroundColour = product.colour.label %}
+					{% else %}
+						{% set backgroundColour = product.oldColour %}
+					{% endif %}
+
+					<li class="col-sm-4"><a class="tab-{{ backgroundColour }}" href="#product-{{ loop.index }}">{{ product.title }}</a></li>
 				{% endfor %}
 			</ul>
 			
 			{# Output product forms #}
 			{% for product in products %}
+
+				{% if product.colour %}
+					{% set backgroundColour = product.colour.label %}
+				{% else %}
+					{% set backgroundColour = product.oldColour %}
+				{% endif %}
 
 				{% if product.type == 'pricingFormProduct' %}
 					<form id="product-{{ loop.index }}" class="pricing-form" method="get" action="{{ globals.anchorEndpoint }}"
@@ -46,13 +59,13 @@
 							<div class="col">
 								<h4>Loan Amount</h4>
 								<input class="pricing-form-mobile-input pricing-form-input-principal" type="number">
-								<div class="pricing-form-slider pricing-form-slider-principal slider-{{ product.colour }}">
+								<div class="pricing-form-slider pricing-form-slider-principal slider-{{ backgroundColour }}">
 									<div class="ui-slider-handle"></div>
 								</div>
 
 								<h4>Repayment Term</h4>
 								<select class="pricing-form-mobile-input pricing-form-input-term"></select>
-								<div class="pricing-form-slider pricing-form-slider-term slider-{{ product.colour }}">
+								<div class="pricing-form-slider pricing-form-slider-term slider-{{ backgroundColour }}">
 									<div class="ui-slider-handle"></div>
 								</div>
 								
@@ -70,7 +83,7 @@
 								</table>
 							</div>
 							<div class="col-lg-4">
-								<div class="card card-{{ product.colour }} pricing-form-overview">
+								<div class="card card-{{ backgroundColour }} pricing-form-overview">
 									<h4>Loan Amount</h4>
 									<p class="pricing-form-overview-borrowing"></p>
 									<h4>Fees</h4>

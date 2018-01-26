@@ -57,7 +57,11 @@
 
 	{# Check if heading box enabled #}
 	{% if block.enableHeadingBackground %}
-		{% set backgroundColour = block.colour %}
+		{% if block.colour %}
+			{% set backgroundColour = block.colour.label %}
+		{% else %}
+			{% set backgroundColour = block.oldColour %}
+		{% endif %}
 	{% else %}
 		{% set backgroundColour = false %}
 	{% endif %}

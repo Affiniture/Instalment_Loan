@@ -5,7 +5,13 @@
  # Copyright 2017 Affinture Cards Limited
  #}
 
-{% set accentColour = block.colour | default(false) %}
+{% if block.colour %}
+	{% set accentColour = block.colour.label %}
+{% elseif block.oldColour %}
+	{% set accentColour = block.oldColour %}
+{% else %}
+	{% set accentColour = false %}
+{% endif %}
 
 {% if block.children is not empty %}
 

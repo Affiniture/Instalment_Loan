@@ -18,13 +18,19 @@
 
 			{% case 'card' %}
 				<div class="{{ floatingColumns ? 'col-lg-7' : 'col' }}">
+					{% if child.colour %}
+						{% set backgroundColour = child.colour.label %}
+					{% else %}
+						{% set backgroundColour = child.oldColour %}
+					{% endif %}
+
 					{% include '_components/card' with {
 						headingLevel: child.headingLevel,
 						card: {
 							heading: child.heading,
 							body: child.body,
 							button: child.button,
-							colour: child.colour,
+							colour: backgroundColour,
 							customColour: child.customColour,
 							alignText: child.alignText,
 						}
@@ -36,13 +42,19 @@
 
 				{% if product %}
 					<div class="{{ floatingColumns ? 'col-lg-7' : 'col' }}">
+						{% if product.colour %}
+							{% set backgroundColour = product.colour.label %}
+						{% else %}
+							{% set backgroundColour = product.oldColour %}
+						{% endif %}
+
 						{% include '_components/card' with {
 							equalise: equalise,
 							card: {
 								heading: product.title,
 								body: product.description,
 								button: child.button,
-								colour: product.colour,
+								colour: backgroundColour,
 							}
 						} only %}
 					</div>
