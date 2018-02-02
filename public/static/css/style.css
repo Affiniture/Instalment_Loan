@@ -2403,7 +2403,7 @@ h3 {
   h3.numbered {
     text-align: left; }
     h3.numbered span {
-      background-color: #F0F1F3;
+      background-color: #EAECEF;
       display: inline-block;
       width: 42px;
       height: 42px;
@@ -2451,17 +2451,17 @@ ul {
       background-color: #FFFFFF;
       color: #2C2A29; }
   .button-light {
-    background-color: #F0F1F3;
-    border-color: #F0F1F3;
+    background-color: #EAECEF;
+    border-color: #EAECEF;
     color: #2C2A29; }
     .button-light:hover {
       background-color: transparent;
-      color: #F0F1F3; }
+      color: #EAECEF; }
   .button-outline-light {
-    border-color: #F0F1F3;
-    color: #F0F1F3; }
+    border-color: #EAECEF;
+    color: #EAECEF; }
     .button-outline-light:hover {
-      background-color: #F0F1F3;
+      background-color: #EAECEF;
       color: #2C2A29; }
   .button-grey {
     background-color: #2C2A29;
@@ -2569,7 +2569,7 @@ ul {
     background-color: #FFFFFF;
     color: #2C2A29; }
   .card-light {
-    background-color: #F0F1F3;
+    background-color: #EAECEF;
     color: #2C2A29; }
   .card-grey {
     background-color: #2C2A29;
@@ -2689,7 +2689,7 @@ ul {
   background-color: #FFFFFF;
   color: #2C2A29; }
 .tabs .tab-light, .pricing-tabs .tab-light {
-  background-color: #F0F1F3;
+  background-color: #EAECEF;
   color: #2C2A29; }
 .tabs .tab-grey, .pricing-tabs .tab-grey {
   background-color: #2C2A29;
@@ -2740,7 +2740,7 @@ ul {
     right: -4rem;
     background-color: #f0f1f3; }
   .slider .ui-slider-range, .pricing-form-slider .ui-slider-range {
-    background-color: #F0F1F3;
+    background-color: #EAECEF;
     right: 0;
     top: 0;
     height: 100%;
@@ -2768,7 +2768,7 @@ ul {
     background-color: #FFFFFF;
     color: #2C2A29; }
   .slider-light, .slider-light::before, .slider-light .ui-slider-handle {
-    background-color: #F0F1F3;
+    background-color: #EAECEF;
     color: #2C2A29; }
   .slider-grey, .slider-grey::before, .slider-grey .ui-slider-handle {
     background-color: #2C2A29;
@@ -2996,7 +2996,7 @@ nav .nav-button {
         background-color: rgba(4, 30, 66, 0.7);
         color: #ffffff; }
       .panel-heading-box-light {
-        background-color: rgba(240, 241, 243, 0.7);
+        background-color: rgba(234, 236, 239, 0.7);
         color: #2C2A29; }
       .panel-heading-box-grey {
         background-color: rgba(44, 42, 41, 0.7);
@@ -3039,6 +3039,7 @@ nav .nav-button {
 /* Panel Hero Images */
 .panel-hero {
   background-size: cover;
+  background-position: center;
   padding: 1px; }
   .panel-hero.hero-filter::before {
     position: absolute;
@@ -3133,7 +3134,7 @@ nav .nav-button {
       right: 0px;
       bottom: 2rem;
       left: 0px;
-      background-color: #f0f1f3; }
+      background-color: #EAECEF; }
     .col-floating .row {
       margin-top: -2rem;
       margin-bottom: -2rem; }
