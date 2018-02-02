@@ -87,7 +87,8 @@
 
 /* Panel Hero Images */
 .panel-hero {
-  background-size: cover;
+	background-size: cover;
+	background-position: center;
 	padding: 1px;
 	&.hero-filter {
 		&::before {
