@@ -18,7 +18,7 @@
 				
 			{% case 'card' %}
 				<div class="container">
-					{% if child.colour %}
+					{% if block.colour %}
 						{% set backgroundColour = block.colour.label %}
 					{% else %}
 						{% set backgroundColour = block.oldColour %}
