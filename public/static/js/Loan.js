@@ -53,8 +53,11 @@ function Loan(rate, principal, term, fees, type) {
 			else if (this.type == 'interestOnly') {
 				repayment.interest = this.totalLoan * this.rate;
 
-				if (i == this.term - 1) {
-					repayment.loan = this.totalLoan;
+				if (i == 0) {
+					repayment.loan = this.fees;
+				}
+				else if (i == this.term - 1) {
+					repayment.loan = this.principal;
 				}
 				else {
 					repayment.loan = 0;
