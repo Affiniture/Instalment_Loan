@@ -13,16 +13,17 @@
 return array(
 	'*' => array(
 		'label' => CRAFT_ENVIRONMENT,
-		'suffix' => ' Environment'
+		'suffix' => ' Environment',
+		'labelColor' => '#477196',
 	),
 
 	'localhost' => array(
-		'label' => 'Development',
+		'label' => 'Instalment Loan Development',
 		'showLabel' => true,
 	),
 
 	'instalmentloan-staging.xxf82npcdk.eu-west-1.elasticbeanstalk.com' => array(
-		'label' => 'Staging',
+		'label' => 'Instalment Loan Staging',
 		'showLabel' => true,
 	),
 

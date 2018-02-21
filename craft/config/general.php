@@ -10,7 +10,7 @@
 return array(
 
 	'*' => array(
-		'siteName' => 'Diners Club International',
+		'siteName' => 'Instalment Loan',
 		'defaultWeekStartDay' => 1,
 		'enableCsrfProtection' => true,
 		'omitScriptNameInUrls' => true,
